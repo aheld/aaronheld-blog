@@ -1,2 +1,6 @@
+.env
 public/*
 !public/.gitkeep
+infrastructure/*.tfplan
+infrastructure/*.tfstate*
+infrastructure/.terraform**
