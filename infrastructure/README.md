@@ -9,3 +9,15 @@ az account show --query "name" --output tsv
 
 
 terraform init after changing resources
+
+badfile=`printf '*[\\x01-\\x1f\\x7f]*'`
+
+☁  aaronheld-blog [main] ⚡ echo $badfile
+*[-]*
+☁  aaronheld-blog [main] ⚡ find public -name "$badfile" -exec echo 1 \
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .github/workflows/azure-static-web-deploy.yml
+        deleted:    "content/post/chef-ramsay-as-a-model\nmanager/image.jpg"
