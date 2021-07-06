@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ruby on Aaron's Blog</title><link>https://www.aaronheld.com/tags/ruby/</link><description>Recent content in ruby on Aaron's Blog</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><lastBuildDate>Tue, 12 Jun 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://www.aaronheld.com/tags/ruby/index.xml" rel="self" type="application/rss+xml"/><item><title>JIRA story point totals using Ruby and Rest</title><link>https://www.aaronheld.com/post/jira-story-point-totals-using-ruby-and-rest/</link><pubDate>Tue, 12 Jun 2012 00:00:00 +0000</pubDate><guid>https://www.aaronheld.com/post/jira-story-point-totals-using-ruby-and-rest/</guid><description>
+&lt;p>I'm using a hosted version of JIRA and needed to obtain quick totals based on filters that I have setup.&lt;/p>
+&lt;p>I could not find any easy documentation online so I thought I'd share my quick hack.&lt;/p>
+&lt;p>The &lt;a href="https://developer.atlassian.com/display/JIRADEV/JIRA+REST+API+Example+-+Query+issues">REST API is very well documented&lt;/a> and uses the same JQL as the filters do.&lt;/p>
+&lt;p>In order to view the commit list for an iteration I have some JQL that looks like:&lt;/p>
+&lt;p>fixversion = 20120611 and fixversion was 20120611 ON &amp;quot;2012/06/11&amp;quot; AND status NOT IN (canceled, &amp;quot;on hold&amp;quot;)&lt;/p>
+&lt;p>In order to feed that into the API I needed to construct a url along the lines of&lt;/p>
+&lt;pre>&lt;code>https://**********.atlassian.net/rest/api/2/search?jql=#{urlencoded JQL string}&amp;amp;fields=customfield\_10003&amp;amp;maxresults=400
+&lt;/code>&lt;/pre>
+&lt;p>The &amp;amp;fields=customfield_10003 instruct the API to return a minimal fieldlist and only include that custom field, which for me is Story Points.  By default the API will return 50, so bump that to 400 to be safe.&lt;/p>
+&lt;p>The Ruby code looks like&lt;/p>
+&lt;pre>&lt;code>def getData(api,qs=&amp;quot;&amp;quot;)
+url = &amp;quot;https://energyplus.atlassian.net/rest/api/2/#{api}?#{qs}&amp;quot;
+res = open(url,
+&amp;quot;Authorization&amp;quot; =&amp;gt; &amp;quot;Basic &amp;quot; + 
+Base64.strict\_encode64(USERNAME:PASSWORD)) {|f|
+JSON.parse(f.read)
+})
+&lt;/code>&lt;/pre>
+&lt;p>Calling that function I use something along the lines of&lt;/p>
+&lt;pre>&lt;code>result =  getData(&amp;quot;search&amp;quot;, &amp;quot;jql=&amp;quot; + URI::encode(jql + '&amp;amp;fields=customfield\_10003&amp;amp;maxResults=400'))
+&lt;/code>&lt;/pre>
+&lt;p>The final step is to loop through all the results and sum the 'Story Point' values&lt;/p>
+&lt;pre>&lt;code>puts &amp;quot;Total: &amp;quot; + res\[&amp;quot;issues&amp;quot;\].inject(0){|sum, item| sum + item\[&amp;quot;fields&amp;quot;\]\[&amp;quot;customfield\_10003&amp;quot;\]}.to\_s
+&lt;/code>&lt;/pre>
+&lt;p>If you are having issues with the SSL cert, try adding&lt;/p>
+&lt;pre>&lt;code>OpenSSL::SSL::VERIFY\_PEER = OpenSSL::SSL::VERIFY\_NONE
+&lt;/code>&lt;/pre>
+&lt;p>Here is my actual script in its undocumented glory: &lt;a href="https://gist.github.com/2919437">https://gist.github.com/2919437&lt;/a>&lt;/p>
+&lt;p>If you think you can improve it, drop me a note - I'm hiring ;)&lt;/p></description></item></channel></rss>
