@@ -21,3 +21,6 @@ Changes not staged for commit:
   (use "git restore <file>..." to discard changes in working directory)
         modified:   .github/workflows/azure-static-web-deploy.yml
         deleted:    "content/post/chef-ramsay-as-a-model\nmanager/image.jpg"
+
+
+        https://dwheeler.com/essays/fixing-unix-linux-filenames.html
