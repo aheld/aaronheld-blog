@@ -1,4 +1,4 @@
-baseurl = "https://www.aaronheld.com/"
+baseurl = "/"
 title = "Aaron's Blog"  # Edit directly from config/_default/languages.toml # alternatively, uncomment this and remove `title` entry from the aforemention file.
 copyright = "Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved."
 # canonifyurls = true

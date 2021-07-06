@@ -1,9 +1,9 @@
- ---
+---
  title: "Chef Ramsay as a model manager?"
  date: "2008-11-15"
  categories:
-   - "professional"
- ---
+  - "professional"
+---
  
  I was watching [Kitchen Nightmares](http://www.fox.com/kitchennightmares/recaps/season1/106_1.htm) where Chef Gordon Ramsay verbally attacks restaurant  owners in order to point out the areas where they lack.
  

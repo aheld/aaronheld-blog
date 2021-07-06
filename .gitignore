@@ -1,4 +1,5 @@
 .env
+public/**
 !public/.gitkeep
 infrastructure/*.tfplan
 infrastructure/*.tfstate*
