@@ -47,3 +47,9 @@ resource "github_actions_secret" "web" {
   secret_name      = local.deploy_token_name
   plaintext_value  = azurerm_static_site.web.api_key
 }
+
+resource "github_actions_secret" "host_name" {
+  repository       = local.repo_name
+  secret_name      = "host_name"
+  plaintext_value  = azurerm_static_site.web.default_host_name
+}
