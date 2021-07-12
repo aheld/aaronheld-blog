@@ -2,7 +2,7 @@
 title: "Insta-Tag Cloud"
 date: "2009-05-22"
 categories: 
-  - "chucknorris"
+  - "random"
 ---
 
 Cute tag-cloud generator off my feed

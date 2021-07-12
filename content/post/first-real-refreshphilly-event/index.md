@@ -2,7 +2,7 @@
 title: "first 'real' refreshPhilly event"
 date: "2009-01-13"
 categories: 
-  - "chucknorris"
+  - "philly"
 ---
 
 The first round of 'official' speakers set the bar pretty high for refreshPhilly.

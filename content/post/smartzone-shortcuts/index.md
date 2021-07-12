@@ -2,10 +2,11 @@
 title: "Smartzone shortcuts"
 date: "2009-02-20"
 categories: 
-  - "chucknorris"
+  - "Random"
 tags: 
   - "comcast"
   - "smartzone"
+  - "tips"
 ---
 
 I'm starting to get used to Comcast's [smartzone webmail front end](http://www.comcast.net/smartzone/ "Smartzone").  It is an ajaxy / desktopish mail client that exposes way more functionality then the old one.

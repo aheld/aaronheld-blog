@@ -2,7 +2,7 @@
 title: "Paper prototyping success!"
 date: "2009-05-22"
 categories: 
-  - "chucknorris"
+  - "Agile"
 ---
 
 Over in CIM we are working on a major CMS overhaul based on Alfresco. Alfresco gives me the solid foundation of what I need in terms of content APIs, scalability and workflow. Unfortunately the UI leaves something to be desired.

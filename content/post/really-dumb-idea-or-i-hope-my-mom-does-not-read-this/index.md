@@ -2,8 +2,8 @@
 title: "\"really dumb idea\" or \"I hope my mom does not read this\""
 date: "2008-10-28"
 categories: 
-  - "chucknorris"
-  - "personal"
+  - "Philly"
+  - "Motorcycle"
 tags: 
   - "stupid"
 ---

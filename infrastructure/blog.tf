@@ -53,3 +53,4 @@ resource "github_actions_secret" "host_name" {
   secret_name      = "host_name"
   plaintext_value  = azurerm_static_site.web.default_host_name
 }
+

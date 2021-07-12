@@ -2,7 +2,7 @@
 title: "public takes action to stop a police beating"
 date: "2008-11-03"
 categories: 
-  - "chucknorris"
+  - "politics"
 tags: 
   - "bigbrother"
 ---

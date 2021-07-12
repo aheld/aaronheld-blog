@@ -2,8 +2,7 @@
 title: "best election video so far"
 date: "2008-11-03"
 categories: 
-  - "chucknorris"
-  - "politics-personal"
+  - "politics"
 tags: 
   - "guilt"
 ---

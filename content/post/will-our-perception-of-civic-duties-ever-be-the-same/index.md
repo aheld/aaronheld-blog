@@ -2,7 +2,7 @@
 title: "will our perception of civic duties ever be the same?"
 date: "2008-11-05"
 categories: 
-  - "politics-personal"
+  - "politics"
 tags: 
   - "civics"
   - "kids"

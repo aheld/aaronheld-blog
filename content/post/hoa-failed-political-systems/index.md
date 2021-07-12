@@ -2,7 +2,7 @@
 title: "HOA - Case study of failed political systems"
 date: "2009-06-15"
 categories: 
-  - "chucknorris"
+  - "politics"
 ---
 
 I love to rant over how bad HOAs are.  There are so many case studies in my life where otherwise happy friendly people become tyrants when given a bit of power.  From the band leader that threatened my wedding would be a failure to the people that run the Home Owners Associations.

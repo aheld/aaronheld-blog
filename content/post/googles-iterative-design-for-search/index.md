@@ -2,7 +2,7 @@
 title: "Google's iterative design for search"
 date: "2009-05-22"
 categories: 
-  - "chucknorris"
+  - "big tech"
 ---
 
 The google blog recently put up a remarkably content-free post on their product blog about how they use iterative design and usability studies to develop enhancements to their core search offering.

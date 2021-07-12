@@ -2,7 +2,7 @@
 title: "PPA ending 65mpg & free parking"
 date: "2009-10-02"
 categories: 
-  - "chucknorris"
+  - "Philly"
 ---
 
 A friendly PPA agent gave me some unpleasant news today. I was respectfully loading my bike and moving it from its unobtrusive parking spot on 20th and Market when he walked by.

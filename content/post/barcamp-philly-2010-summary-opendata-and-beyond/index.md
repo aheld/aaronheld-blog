@@ -3,8 +3,7 @@ title: "BarCamp Philly 2010 Summary - Opendata and beyond"
 date: "2010-11-17"
 categories: 
   - "community"
-  - "politics-personal"
-  - "professional"
+  - "politics"
 tags: 
   - "barcamp"
   - "civics"

@@ -2,7 +2,7 @@
 title: "missing my mac"
 date: "2008-12-23"
 categories: 
-  - "chucknorris"
+  - "laptop"
 ---
 
 My sleek mac is more like a Jaguar then a chevy.  Yes it is in the shop.

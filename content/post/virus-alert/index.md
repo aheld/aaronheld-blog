@@ -2,7 +2,7 @@
 title: "virus alert!"
 date: "2009-01-01"
 categories: 
-  - "chucknorris"
+  - "Random"
 ---
 
 While hunting online for that movie with the couple who pay thier neighbors to act normal so they can sell thier home I got redirected to this nicely done virus page.

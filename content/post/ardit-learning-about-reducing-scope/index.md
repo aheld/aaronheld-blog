@@ -2,7 +2,7 @@
 title: "Ardith learns about reducing scope"
 date: "2009-01-22"
 categories: 
-  - "chucknorris"
+  - "family"
 ---
 
 So tonight my 10 year old decided that she wanted to learn flash. We are going through a basic tutorial but she decided to make a cat (rather then a circle) walk across the screen.
