@@ -2,7 +2,7 @@
 title: "Book Signing @ Kesher Isreal"
 date: "2008-04-12"
 categories: 
-  - "personal"
+  - "philly"
 tags: 
   - "jewish"
 ---
