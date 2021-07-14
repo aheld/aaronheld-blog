@@ -26,7 +26,7 @@ Stored Procedures (*sprocs*) are functions that run on the server side of a data
 
 The main reasons to use CosmosDB [Sprocs][1] are for atomic transactions and performance. All database operations completed in a single sproc call will be atomic.  Since the sproc runs on the server the network latency for loading and saving documents will be considerably less than if you ran the same operations from a remote server or laptop.
 
-To complete this example you will need to have created a cosmosDB account and have the write token
+To complete this example I assume that you already have a cosmosDB account and the write token.
 
 ## The Code
 
