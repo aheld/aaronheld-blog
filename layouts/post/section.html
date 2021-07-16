@@ -1,0 +1,53 @@
+{{ define "main" }}
+{{  $postList := .GetPage "/post"  }}
+{{ $pages := .Pages.ByDate.Reverse }}
+{{  if eq .Parent $postList }}
+   {{ $pages = .Pages.ByDate }}
+{{ end }}
+{{ if .IsHome }}
+  {{ $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{ end }}
+
+<div class="grid-inverse wrap content">
+  <ul class="posts" id="posts">
+    <li>
+      <li class="post_item">
+        <div class="excerpt">
+          <div class="excerpt_header">
+            <h3 class="post_link">
+              <a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title  }}</a>
+            </h3>
+          </div>
+          {{- with .Params.thumbnail }}
+          <div class="excerpt_footer partition">
+            <div class="excerpt_thumbnail">
+              <img src='{{ if (hasPrefix . "http") }}{{ . }}{{ else }}{{ absURL . }}{{ end }}' alt="{{ $.Title }}">
+            </div>
+            {{ else }}
+            <div class="excerpt_footer">
+              {{- end }}
+              <div>
+                <p class="pale">
+                  {{ if .Params.summary }}
+                    {{ .Params.summary }}
+                  {{ else if .Params.abstract }}
+                    {{ .Params.abstract }}
+                  {{ else if .Summary }}
+                    {{ truncate 320 .Summary }}
+                  {{ end }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </li>
+    </li>
+    {{- range (.Paginate $pages).Pages }}
+    {{ partial "excerpt" . }}
+    {{- end }}
+    <li>
+      {{- template "_internal/pagination.html" . }}
+    </li>
+  </ul>
+  {{- partial "sidebar" . }}
+</div>
+{{ end }}
