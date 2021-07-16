@@ -9,4 +9,4 @@ The data went from electical impulses in a goat to analyzed output in record tim
 
  Since then I've watched "the computer" go from my personal force multiplier to an indespensible part of most peoples lives. 
  
- While the tech world was innovating, I moved around the east coast and had a trilogy of childen.  I am appily married to a [Philly](https://www.visitphilly.com/) girl and made this city my home.
+ While the tech world was innovating, I moved around the east coast and had a trilogy of childen.  I am happily married to a [Philly](https://www.visitphilly.com/) girl and made this city my home.
