@@ -3,8 +3,8 @@ title: "Create a sproc to atomically update a document" # Title of the blog post
 date: 2020-05-12 #
 description: "A example of a CosmosBD Stored procedures (sprocs) that will do an atomic update."
 featured: true # Sets if post is a featured post, making appear on the home page side bar.
-draft: true # Sets whether to render this page. Draft of true will not be rendered.
-toc: false # Controls if a table of contents should be generated for first-level links automatically.
+draft: false # Sets whether to render this page. Draft of true will not be rendered.
+toc: true # Controls if a table of contents should be generated for first-level links automatically.
 featureImage: "/post/cosmosdb-stored-procedure/cosmosdb.png" # Sets featured image on blog post.
 thumbnail: "/post/cosmosdb-stored-procedure/cosmosdb.png" # Sets thumbnail image appearing inside card on homepage.
 shareImage: "/post/cosmosdb-stored-procedure/cosmosdb.png" # Designate a separate image for social media sharing.
