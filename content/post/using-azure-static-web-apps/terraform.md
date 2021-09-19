@@ -3,12 +3,12 @@ title: "Azure Static Web Apps with Terraform"
 date: 2021-08-27T08:33:08-04:00 # Date of post creation.
 description: "Example of how to setup an Azure Static Web App Using Terraform"
 featured: false 
-draft: true
-toc: false
+draft: false
+toc: true
 # menu: main
-featureImage: "/images/path/file.jpg" # Sets featured image on blog post.
-thumbnail: "/images/path/thumbnail.png" # Sets thumbnail image appearing inside card on homepage.
-shareImage: "/images/path/share.png" # Designate a separate image for social media sharing.
+featureImage: "/post/using-azure-static-web-apps/terraform_logo.png" # Sets featured image on blog post.
+thumbnail: "/post/using-azure-static-web-apps/terraform_logo.png" # Sets thumbnail image appearing inside card on homepage.
+shareImage: "/post/using-azure-static-web-apps/terraform_logo.png" # Designate a separate image for social media sharing.
 codeMaxLines: 300 # Override global value for how many lines within a code block before auto-collapsing.
 codeLineNumbers: true # Override global value for showing of line numbers within code block.
 figurePositionShow: true # Override global value for showing the figure label.
@@ -39,9 +39,9 @@ I'm running linux [System76 Lemur Pro w/ PopOS (ubuntu)](https://system76.com/la
 
 
 ```bash
-☁  aaronheld-blog [main] ⚡  uname
+⚡  uname
 Linux
-☁  aaronheld-blog [main] ⚡  az login
+⚡  az login
 The default web browser has been opened at https://login.microsoftonline.com/common/oauth2/authorize. Please continue the login in the web browser. If no web browser is available or if the web browser fails to open, use device code flow with `az login --use-device-code`.
 
 # Here is where I logged into the open browser window
@@ -74,6 +74,7 @@ Lets start with a minimal terraform file that just sets up a new Resource Group.
 You need to tell Terraform that you will be using the Azure provider and then add the code for a basic resource group.
 
 ```tf
+# file: blog.tf
 terraform {
   required_providers {
     azurerm = {
@@ -95,7 +96,7 @@ Whenever you change the providers block you will need to rerun `terraform init`
 
 My run looked something like this
 ```bash
-☁  using-azure-static-web-apps [main] ⚡  terraform init
+⚡  terraform init
 
 Initializing the backend...
 
@@ -112,7 +113,7 @@ you run "terraform init" in the future.
 Terraform has been successfully initialized!
 # trimmed output
 
-☁  using-azure-static-web-apps [main] ⚡  terraform plan
+⚡ terraform plan
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated
 with the following symbols:
@@ -133,8 +134,8 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 
 If everything looks good, lets create that resource group using `terraform apply`.  Note that you will prompted to confirm the creation of resources.  Eventually this will cost money, so please pay attention to what you create. 
 
-```tf
-☁  using-azure-static-web-apps [main] ⚡  terraform apply
+```bash
+⚡ terraform apply
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated
 with the following symbols:
@@ -169,7 +170,7 @@ After a few seconds you should see your new resource group in the [Azure Portal]
 
 or use the command line
 ```bash
-☁  using-azure-static-web-apps [main] ⚡  az group show --name test-resource-group --query 'properties.provisioningState' --out tsv
+⚡  az group show --name test-resource-group --query 'properties.provisioningState' --out tsv
 Succeeded
 ```
 
@@ -180,6 +181,7 @@ Before we move onto then next step, lets destroy the resource group using `terra
 Now that we have a resource group, lets put a static web app into it.  The terraform looks like this
 
 ```tf
+# add to blog.tf
 resource "azurerm_static_site" "web" {
   name = "web-myblog-prod-eastus"
   resource_group_name = azurerm_resource_group.rg.name
@@ -197,7 +199,7 @@ Plan: 2 to add, 0 to change, 0 to destroy.
 
 looks good, lets apply it
 
-```tf
+```bash
 ⚡  terraform apply
 
 Terraform used ....
@@ -221,10 +223,11 @@ Now we have 2 resources to edit the location, both the resource group and web ap
 
 Run a `terraform destroy` and refactor the terraform file to use variables as opposed to hardcoded values.
 
-Azure also has a convention where resource names should be in the form `{resourceType}-{name}-{tier/environment}-{region}` so we will do that as well.
+I like using the Azure convention where resource names should be in the form `{resourceType}-{name}-{tier/environment}-{region}` so we will do that as well.
 
 Adding some local variables to terraform looks like 
-```
+```tf
+# file: blog.tf
 locals {
   name = "myblog"
   location = "eastus2"
@@ -234,6 +237,7 @@ locals {
 and use them like so:
 
 ```tf
+# file: blog.tf
 resource "azurerm_resource_group" "rg" {
   name = "rg-${local.name}-prod-${local.location}"
   location = local.location
@@ -249,7 +253,7 @@ resource "azurerm_static_site" "web" {
 
 Running `terraform plan` will check the syntax and display the interpolated strings
 
-```tf
+```bash
 # azurerm_resource_group.rg will be created
   + resource "azurerm_resource_group" "rg" {
       + id       = (known after apply)
@@ -266,7 +270,7 @@ locals {
   name = "myblog"
   location = "eastus2"
   common_tags = {
-      created_by = "aarondheld@...."
+      created_by = "youremail@...."
       tier = "production"
       inspiration = "https://aaronheld.com"
   }
@@ -321,7 +325,8 @@ Run this using `terraform apply` and check your work
 }
 ```
 
-to see the web app try
+
+see if the static web app deployed 
 ```bash
 ⚡  az staticwebapp show web-myblog-prod-eastus2
 ```
@@ -331,6 +336,9 @@ if you want to get the default hostname
 ⚡  az staticwebapp show -n web-myblog-prod-eastus2 --query defaultHostname --out tsv
 
 # open in a browser
+# osx
+⚡  open http://`az staticwebapp show -n web-myblog-prod-eastus2 --query defaultHostname -o tsv --only-show-errors`
+# linux
 ⚡  firefox http://`az staticwebapp show -n web-myblog-prod-eastus2 --query defaultHostname -o tsv --only-show-errors`
 ```
 
@@ -342,3 +350,6 @@ finally, lets destroy the resources and move onto deploying a static app from gi
 
 ## Summary
 
+In this article we used Terraform to script the creation of an Azure Static web app.  We introduced variables and some scripting that will be the foundation of our infrastructure code as we progress.
+
+The next step is to get some content to our website.
