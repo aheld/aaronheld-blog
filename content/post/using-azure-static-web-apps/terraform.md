@@ -20,7 +20,12 @@ tags:
   - hosting
 ---
 
+Devops is many different things to many different people, but nearly all practitioners agree that infrastructure as code is a critical part.  So rather then use the Azure portal UI to create our desired resources we are going to script it in code.  We will have confidence that we can create, destroy and eventually scale resources as needed. 
+
+In this post we will create a Azure static using terraform, step by step.
+
 [Terraform](https://www.terraform.io/) is a great tool for scripting your infrastructure.  It has first class Azure providers and the security model integrates with the `az` command line. 
+
 
 ## Setup
 
@@ -29,22 +34,23 @@ In order to follow this example you will need
 2. [Terraform installed](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/azure-get-started)
 3. [az cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) installed
 
-This exercise can be done in the free plan, but using terraform its very easy to destroy the infrastructure and recreate it each time you want to learn.
+This exercise can be done in the free plan.  We will create and destroy the infrastructure.  If you neglect to destroy the resources you may wind up with charges. 
 
 ### Logging in to Azure
 
 Once the az cli is installed, run `az login` and follow the instructions. On some operating systems your browser will automatically open with a login page, Once you have logged in, return to the terminal.
 
-I'm running linux [System76 Lemur Pro w/ PopOS (ubuntu)](https://system76.com/laptops/lemur) and I've given my subscription the name *personal*.
+I'm running linux [System76 Lemur Pro w/ PopOS (ubuntu)](https://system76.com/laptops/lemur) and I've given my subscription the name *personal*.  If you run this on a new free account you may see something like "Pay as you go" for the name. 
 
 
 ```bash
 ⚡  uname
 Linux
+
 ⚡  az login
 The default web browser has been opened at https://login.microsoftonline.com/common/oauth2/authorize. Please continue the login in the web browser. If no web browser is available or if the web browser fails to open, use device code flow with `az login --use-device-code`.
 
-# Here is where I logged into the open browser window
+# The above command opens a browser window and you need to login to it.
 
 You have logged in. Now let us find all the subscriptions to which you have access...
 [
@@ -69,7 +75,7 @@ You have logged in. Now let us find all the subscriptions to which you have acce
 
 ### Base setup and Resource Group
 
-Lets start with a minimal terraform file that just sets up a new Resource Group. 
+Let's start with a minimal terraform file that just sets up a new _Resource Group_.
 
 You need to tell Terraform that you will be using the Azure provider and then add the code for a basic resource group.
 
@@ -90,11 +96,12 @@ resource "azurerm_resource_group" "rg" {
 }
 ```
 
-Run `terraform init` and then `terraform plan` to ensure we have it ready to go.  If this was successful then you will now see a `.terraform` directory has been created.
+Run `terraform init` and then `terraform plan` to ensure we have the syntax right.  If that was successful then you will now see a `.terraform` directory has been created.
 
-Whenever you change the providers block you will need to rerun `terraform init`
+Whenever you change the providers block you will need to rerun `terraform init`. For other changes you can just re-run the plan command.
 
 My run looked something like this
+
 ```bash
 ⚡  terraform init
 
@@ -111,7 +118,7 @@ so that Terraform can guarantee to make the same selections by default when
 you run "terraform init" in the future.
 
 Terraform has been successfully initialized!
-# trimmed output
+# note: I trimmed the output, you will see more
 
 ⚡ terraform plan
 
@@ -129,7 +136,7 @@ Terraform will perform the following actions:
     }
 
 Plan: 1 to add, 0 to change, 0 to destroy.
-#trimmed output
+# note: I trimmed the output, you will see more
 ```
 
 If everything looks good, lets create that resource group using `terraform apply`.  Note that you will prompted to confirm the creation of resources.  Eventually this will cost money, so please pay attention to what you create. 
