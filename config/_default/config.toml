@@ -3,7 +3,8 @@ baseurl = "/"
 copyright = "Copyright © 2000–2021 ; all rights reserved."
 # canonifyurls = true
 paginate = 10
-theme = "github.com/chipzoller/hugo-clarity"
+#theme = "github.com/chipzoller/hugo-clarity"
+theme = "PaperMod"
 
 DefaultContentLanguage = "en"
 # [languages]
