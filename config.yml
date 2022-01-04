@@ -2,8 +2,8 @@ baseurl: "http://localhost/"
 # theme: "PaperMod"
 
 paginate: 5
-theme: github.com/aheld/hugo-PaperMod
-# theme: hugo-PaperMod
+theme: github.com/adityatelange/hugo-PaperMod
+#theme: hugo-PaperMod
 title: "aarom"
 enableRobotsTXT: true
 buildDrafts: false
@@ -138,5 +138,5 @@ menu:
 
 module:
   imports:
-    - path: github.com/aheld/hugo-PaperMod
+    - path: github.com/adityatelange/hugo-PaperMod
       disable: false
