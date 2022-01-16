@@ -1,0 +1,148 @@
+baseurl: "http://localhost/"
+# theme: "PaperMod"
+
+paginate: 5
+theme: github.com/adityatelange/hugo-PaperMod
+#theme: hugo-PaperMod
+title: "Aaron Held's Blog"
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+googleAnalytics: UA-4123937-6
+
+minify:
+    disableXML: true
+    minifyOutput: true
+
+params:
+    env: production # to enable google analytics, opengraph, twitter-cards and schema.
+    title: "Aaron's Blog"
+    description: "ExampleSite description"
+    keywords: [Blog, Portfolio, PaperMod]
+    author: Aaron Held
+    image: "https://aaronheld.com/site_icons/aaron.jpeg"
+    DateFormat: "January 2, 2006"
+    defaultTheme: auto # dark, light
+    disableThemeToggle: false
+
+    ShowReadingTime: true
+    ShowShareButtons: true
+    ShowPostNavLinks: true
+    ShowBreadCrumbs: true
+    ShowCodeCopyButtons: false
+    disableSpecial1stPost: false
+    disableScrollToTop: false
+    comments: false
+    hidemeta: false
+    hideSummary: false
+    showtoc: false
+    tocopen: false
+
+    ShareButtons: ["twitter", "linkedin", "reddit", "facebook"]
+
+    assets:
+        # disableHLJS: true # to disable highlight.js
+        # disableFingerprinting: true
+        favicon: "https://www.aaronheld.com/site_icons/favicon-ico"
+        favicon16x16: "https://www.aaronheld.com/site_icons/favicon-16x16.png"
+        favicon32x32: "https://www.aaronheld.com/site_icons/favicon-32x32.png"
+        apple_touch_icon: "https://www.aaronheld.com/site_icons/apple-touch-icon.png"
+        safari_pinned_tab: "https://www.aaronheld.com/site_icons/apple-touch-icon.png"
+
+    label:
+        text: "Home"
+        icon: /site_icons/apple-touch-icon.png
+        iconHeight: 35
+
+    # profile-mode
+    profileMode:
+        enabled: false # needs to be explicitly set
+        title: ExampleSite
+        subtitle: "This is subtitle"
+        imageUrl: "<img location>"
+        imageWidth: 120
+        imageHeight: 120
+        imageTitle: my image
+        buttons:
+            - name: Posts
+              url: posts
+            - name: Tags
+              url: tags
+
+    # home-info mode
+    homeInfoParams:
+        Title: "Aaron's Blog"
+        Content: "I've been leading engineering teams and writing software 
+          since the last Millenium, and there is still so much to learn. 
+
+          I built the engineering team that helped Gopuff become Philadelphia's 
+          beloved unicorn, and what comes next will be even better!
+          "
+
+    socialIcons:
+        - name: twitter
+          url: "https://twitter.com/iamaaronheld"
+        - name: linkedin
+          url: "https://linkedin.com//in/aaronheld/"
+        - name: github
+          url: "https://github.com/aheld"
+
+    analytics:
+        google:
+            SiteVerificationTag: "XYZabc"
+
+    cover:
+        hidden: true # hide everywhere but not in structured data
+        hiddenInList: true # hide on list pages and home
+        hiddenInSingle: false # hide on single page
+
+    # editPost:
+        URL: "https://github.com/aheld/aaronheld-blog/content"
+        Text: "Suggest Changes" # edit text
+        appendFilePath: true # to append file path to Edit link
+
+    # for search
+    # https://fusejs.io/api/options.html
+    fuseOpts:
+        isCaseSensitive: false
+        shouldSort: true
+        location: 0
+        distance: 1000
+        threshold: 0.4
+        minMatchCharLength: 0
+        keys: ["title", "permalink", "summary", "content"]
+menu:
+    main:
+        - identifier: categories
+          name: categories
+          url: /categories/
+          weight: 10
+        - identifier: tags
+          name: tags
+          url: /tags/
+          weight: 20
+        - identifier: about
+          name: About Me
+          url: /about
+          weight: 40
+# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
+# pygmentsUseClasses: true
+# markup:
+#     highlight:
+#         # anchorLineNos: true
+#         codeFences: true
+#         guessSyntax: true
+#         lineNos: true
+#         style: monokai
+
+# module:
+#   imports:
+#     - path: github.com/yihui/hugo-xmin
+#       disable: false
+
+module:
+  imports:
+    - path: github.com/adityatelange/hugo-PaperMod
+      disable: false

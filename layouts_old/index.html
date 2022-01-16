@@ -1,0 +1,17 @@
+{{ define "main" }}
+{{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+<div class="grid-inverse wrap content">
+  <ul class="posts" id="posts">
+    {{range first 1 (where $pages "Params.featured" true)}}
+      {{ .Title }}
+    {{end}}
+    {{- range (.Paginate $pages).Pages }}
+      {{ partial "excerpt" . }}
+    {{- end }}
+    <li>
+      {{- template "_internal/pagination.html" . }}
+    </li>
+  </ul>
+  {{- partial "sidebar" . }}
+</div>
+{{ end }}
