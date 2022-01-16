@@ -2,10 +2,10 @@
 title: "Overview of Azure Static Web Apps" # Title of the blog post.
 date: 2021-07-13 # Date of post creation.
 description: "Azure static web apps are a new (2021) service offering that make deploying static and SPA apps (such as React and Vue) easy and extensible." # Description used for search engine.
-featured: true # Sets if post is a featured post, making appear on the home page side bar.
-draft: false # Sets whether to render this page. Draft of true will not be rendered.
+featured: false # Sets if post is a featured post, making appear on the home page side bar.
+draft: true # Sets whether to render this page. Draft of true will not be rendered.
 toc: false # Controls if a table of contents should be generated for first-level links automatically.
-menu: main
+# menu: main
 featureImage: "../appservicestatic-feature.png" # Sets featured image on blog post.
 thumbnail: "/post/using-azure-static-web-apps/appservicestatic-thumb.png" # Sets thumbnail image appearing inside card on homepage.
 shareImage: "/post/using-azure-static-web-apps/appservicestatic-thumb.png" # Designate a separate image for social media sharing.

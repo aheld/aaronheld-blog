@@ -4,7 +4,7 @@ baseurl: "http://localhost/"
 paginate: 5
 theme: github.com/adityatelange/hugo-PaperMod
 #theme: hugo-PaperMod
-title: "aarom"
+title: "Aaron Held's Blog"
 enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
@@ -21,9 +21,8 @@ params:
     title: "Aaron's Blog"
     description: "ExampleSite description"
     keywords: [Blog, Portfolio, PaperMod]
-    author: Me
-    author: ["Me", "You"] # multiple authors
-    # images: ["<link or of image for opengraph, twitter-cards>"]
+    author: Aaron Held
+    image: "https://aaronheld.com/site_icons/aaron.jpeg"
     DateFormat: "January 2, 2006"
     defaultTheme: auto # dark, light
     disableThemeToggle: false
@@ -41,18 +40,20 @@ params:
     showtoc: false
     tocopen: false
 
+    ShareButtons: ["twitter", "linkedin", "reddit", "facebook"]
+
     assets:
         # disableHLJS: true # to disable highlight.js
         # disableFingerprinting: true
-        favicon: "<link / abs url>"
-        favicon16x16: "<link / abs url>"
-        favicon32x32: "<link / abs url>"
-        apple_touch_icon: "<link / abs url>"
-        safari_pinned_tab: "<link / abs url>"
+        favicon: "https://www.aaronheld.com/site_icons/favicon-ico"
+        favicon16x16: "https://www.aaronheld.com/site_icons/favicon-16x16.png"
+        favicon32x32: "https://www.aaronheld.com/site_icons/favicon-32x32.png"
+        apple_touch_icon: "https://www.aaronheld.com/site_icons/apple-touch-icon.png"
+        safari_pinned_tab: "https://www.aaronheld.com/site_icons/apple-touch-icon.png"
 
     label:
         text: "Home"
-        icon: /apple-touch-icon.png
+        icon: /site_icons/apple-touch-icon.png
         iconHeight: 35
 
     # profile-mode
@@ -72,16 +73,20 @@ params:
 
     # home-info mode
     homeInfoParams:
-        Title: "Aaron's Blog \U0001F44B"
-        Content: Various musings that I hope you find interesting.
+        Title: "Aaron's Blog"
+        Content: "I've been leading engineering teams and writing software 
+          since the last Millenium, and there is still so much to learn. 
+          I built the engineering team that helped Gopuff become Philadelphia's 
+          beloved unicorn, and what comes next will be even better!
+          "
 
     socialIcons:
         - name: twitter
           url: "https://twitter.com/iamaaronheld"
         - name: linkedin
-          url: "https://linkedin.com"
+          url: "https://linkedin.com//in/aaronheld/"
         - name: github
-          url: "https://github.com/"
+          url: "https://github.com/aheld"
 
     analytics:
         google:
@@ -90,10 +95,10 @@ params:
     cover:
         hidden: true # hide everywhere but not in structured data
         hiddenInList: true # hide on list pages and home
-        hiddenInSingle: true # hide on single page
+        hiddenInSingle: false # hide on single page
 
-    editPost:
-        URL: "https://github.com/<path_to_repo>/content"
+    # editPost:
+        URL: "https://github.com/aheld/aaronheld-blog/content"
         Text: "Suggest Changes" # edit text
         appendFilePath: true # to append file path to Edit link
 
@@ -117,10 +122,10 @@ menu:
           name: tags
           url: /tags/
           weight: 20
-        - identifier: example
-          name: example.org
-          url: https://example.org
-          weight: 30
+        - identifier: about
+          name: About Me
+          url: /about
+          weight: 40
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 # pygmentsUseClasses: true
 # markup:
