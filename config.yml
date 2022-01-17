@@ -1,6 +1,4 @@
 baseurl: "http://localhost/"
-# theme: "PaperMod"
-
 paginate: 5
 theme: github.com/adityatelange/hugo-PaperMod
 #theme: hugo-PaperMod
@@ -9,8 +7,10 @@ enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
+enableGitInfo: true
 
-googleAnalytics: UA-4123937-6
+googleAnalytics: G-DSR2LKEM2B
+#googleAnalytics: G-MEASUREMENT_ID
 
 minify:
     disableXML: true
@@ -19,7 +19,7 @@ minify:
 params:
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
     title: "Aaron's Blog"
-    description: "Hompage for Aaron Held, who is a Philadelphia based software engineering manager currently at gopuf"
+    description: "Homepage for Aaron Held, who is a Philadelphia based software engineering manager currently at gopuf"
     keywords: [Blog, Portfolio, PaperMod]
     author: Aaron Held
     image: "https://aaronheld.com/site_icons/aaron.jpeg"
