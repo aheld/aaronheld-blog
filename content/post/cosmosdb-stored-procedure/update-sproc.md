@@ -9,6 +9,7 @@ shareImage: "/post/cosmosdb-stored-procedure/cosmosdb.png" # Designate a separat
 codeMaxLines: 10 # Override global value for how many lines within a code block before auto-collapsing.
 codeLineNumbers: true # Override global value for showing of line numbers within code block.
 figurePositionShow: true # Override global value for showing the figure label.
+Summary: The CosmosDB SQL is very flexible in returning objects and view projections, but it cannot Update documents via its SQL dialect.
 categories:
 - Azure
 tags:

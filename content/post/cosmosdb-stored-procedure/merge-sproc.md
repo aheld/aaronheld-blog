@@ -2,26 +2,31 @@
 title: "CosmosDB: A Stored Procedure to merge documents on read"
 date: "2020-04-28"
 #T08:14:45-04:00" #
-description: "An example of an Azure cosmosDB stored Procedure to retrieve multipe documents and return a merged payload."
-featured: false # Sets if post is a featured post, making appear on the home page side bar.
+description: "An example of an Azure cosmosDB stored Procedure to retrieve multiple documents and return a merged payload."
 draft: false # Sets whether to render this page. Draft of true will not be rendered.
 toc: true # Controls if a table of contents should be generated for first-level links automatically.
-# menu: main
 featureImage: "/post/cosmosdb-stored-procedure/cosmosdb.png" # Sets featured image on blog post.
 thumbnail: "/post/cosmosdb-stored-procedure/cosmosdb.png" # Sets thumbnail image appearing inside card on homepage.
 shareImage: "/post/cosmosdb-stored-procedure/cosmosdb.png" # Designate a separate image for social media sharing.
 codeMaxLines: 10 # Override global value for how many lines within a code block before auto-collapsing.
 codeLineNumbers: true # Override global value for showing of line numbers within code block.
+summary: The CosmosDB SQL API is very flexible in returning objects and view projections, but it cannot merge documents via its SQL dialect.
 categories:
 - Azure
 tags:
 - CosmosDB
-# comment: false # Disable comment if false.
+markup:
+  tableOfContents:
+    endLevel: 3
+    ordered: true
+    startLevel: 2
 ---
 
 ## Why stored procedures?
 
 The Cosmos SQL is very flexible in returning objects and view projections, but it cannot merge documents via its SQL dialect.
+
+   {{< callout title="Note:" note="This could be done with a User Defined Function (UDF) as well." >}}
 
 ## Use Case
 

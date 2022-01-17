@@ -1,6 +1,6 @@
 ---
 title: "CosmosDB: Hello Stored Procedures (sproc)" # Title of the blog post.
-date: 2020-04-27T21:45:20-04:00 # Date of post creation.
+date: 2020-04-26T21:45:20-04:00 # Date of post creation.
 description: "A tutorial showing how a CosmosBD Stored procedures (sprocs) can be deployed, updated and tested from code." # Description used for search engine.
 categories:
 - Azure
