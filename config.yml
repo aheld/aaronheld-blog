@@ -19,7 +19,7 @@ minify:
 params:
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
     title: "Aaron's Blog"
-    description: "ExampleSite description"
+    description: "Hompage for Aaron Held, who is a Philadelphia based software engineering manager currently at gopuf"
     keywords: [Blog, Portfolio, PaperMod]
     author: Aaron Held
     image: "https://aaronheld.com/site_icons/aaron.jpeg"
@@ -59,17 +59,17 @@ params:
     # profile-mode
     profileMode:
         enabled: false # needs to be explicitly set
-        title: ExampleSite
-        subtitle: "This is subtitle"
-        imageUrl: "<img location>"
-        imageWidth: 120
-        imageHeight: 120
-        imageTitle: my image
-        buttons:
-            - name: Posts
-              url: posts
-            - name: Tags
-              url: tags
+        # title: ExampleSite
+        # subtitle: "This is subtitle"
+        # imageUrl: "<img location>"
+        # imageWidth: 120
+        # imageHeight: 120
+        # imageTitle: my image
+        # buttons:
+        #     - name: Posts
+        #       url: posts
+        #     - name: Tags
+        #       url: tags
 
     # home-info mode
     homeInfoParams:
@@ -97,6 +97,8 @@ params:
         hidden: true # hide everywhere but not in structured data
         hiddenInList: true # hide on list pages and home
         hiddenInSingle: false # hide on single page
+        image: site_icons/og-graph.png
+        retlative: true
 
     # editPost:
         URL: "https://github.com/aheld/aaronheld-blog/content"
