@@ -1,6 +1,7 @@
 ---
-title: "Merge Sproc"
-date: 2020-04-28T08:14:45-04:00 #
+title: "CosmosDB: A Stored Procedure to merge documents on read"
+date: "2020-04-28"
+#T08:14:45-04:00" #
 description: "An example of an Azure cosmosDB stored Procedure to retrieve multipe documents and return a merged payload."
 featured: false # Sets if post is a featured post, making appear on the home page side bar.
 draft: false # Sets whether to render this page. Draft of true will not be rendered.
@@ -12,25 +13,25 @@ shareImage: "/post/cosmosdb-stored-procedure/cosmosdb.png" # Designate a separat
 codeMaxLines: 10 # Override global value for how many lines within a code block before auto-collapsing.
 codeLineNumbers: true # Override global value for showing of line numbers within code block.
 categories:
-  - Azure
+- Azure
 tags:
-  - CosmosDB
+- CosmosDB
 # comment: false # Disable comment if false.
 ---
 
 ## Why stored procedures?
 
-The Cosmos SQL is very flexable in returning objects and view projections, but it cannot merge documents via its SQL dialect.
+The Cosmos SQL is very flexible in returning objects and view projections, but it cannot merge documents via its SQL dialect.
 
 ## Use Case
 
-Imagine we have documents with a many to one relationship. For example we have a master coupon template that is the master and then a user level coupon. We need a query that will load both objects and then merge them into one combined document.
+Imagine we have documents in a collection that need to be 'joined'. In a simple case, we may have a template that is a master record and a user-level record with more details. We need a query that will load both objects and then merge them into one combined document.
 
 ## The Code
 
-We will building on the [previous](../hello-sproc/) but lets add some simple assertion testing.
+We will build on the [previous](../hello-sproc/) but add some simple assertion testing.
 
-In order to setup our test we will need 2 new functions, one to add a document, and one to remove it.
+To set up our test, we will need 2 new functions, one to add a document and one to remove it.
 
 ```js
 async function createDoc(doc) {
@@ -43,7 +44,7 @@ async function deleteDoc(doc) {
 }
 ```
 
-and for a fixture, lets generate a simplistic guid for an id
+and for a fixture, let us generate a simplistic guid for an id
 
 ```js
 function guid() {
@@ -82,8 +83,8 @@ function getFixtures(guid) {
 }
 ```
 
-and then modify our main function to result in a failing test that you can run over and over as we develop our merge sproc.
-This will fail because we have not uploaded the sproc to Azure yet. 
+And then modify our primary function to result in a failing test that you can run over and over as we develop our merge sproc.
+This will fail because we have not uploaded the sproc to Azure yet.
 
 ```js
 async function run() {
@@ -114,13 +115,13 @@ async function run() {
 run().then(console.log).catch(console.error)
 ```
 
-all you need now is the stored procedure to do the merge.
+All you need now is the stored procedure to do the merge.
 
 ```js
 const mergeSproc = {
     id: "mergeSproc_001",
     body: function (guid) {
-      var collection = getContext().getCollection()
+      var collection = getContext().getCollection()
       console.log("Sproc called with " + guid)
       var filterQuery = 
       {     
@@ -128,28 +129,28 @@ const mergeSproc = {
           'parameters' : [{'name':'@id1', 'value':'template-' + guid},
                           {'name':'@id2', 'value':'user-' + guid}]
       }
-      var isAccepted = collection.queryDocuments(
+      var isAccepted = collection.queryDocuments(
           collection.getSelfLink(), 
           filterQuery,
           {}, 
-          function (err, feed, options) { if (err) throw err
-            if (!feed || !feed.length) {
-              var response = getContext().getResponse()
+          function (err, feed, options) { if (err) throw err
+            if (!feed || !feed.length) {
+              var response = getContext().getResponse()
               response.setBody('no docs found....!.')
             }
-            else {
+            else {
               // Do the merge!
               var body = {merged: "yes"}
-              var response = getContext().getResponse()
+              var response = getContext().getResponse()
               response.setBody(body)
           }
       })
-      if (!isAccepted) throw new Error('The query was not accepted by the server.')
+      if (!isAccepted) throw new Error('The query was not accepted by the server.')
   }
 }
 ```
 
-lets break this down:
+let us break this down:
 ### SQL injection is bad, so lets use parameter substituions:
 
 ```js
@@ -160,25 +161,25 @@ lets break this down:
                       {'name':'@id2', 'value':'user-' + guid}]
   }
 ```
-This is not a model for proper NoSQL Schema, I wanted to keep the SQL simple for now so we could focus on the sproc and get a specific set of documents back.
+This is not a model for proper NoSQL Schema, I wanted to keep the SQL simple, for now, to focus on the sproc and get a specific set of documents back.
 
-This object complies with the well documented [SqlQuerySpec Interface](https://docs.microsoft.com/en-us/javascript/api/@azure/cosmos/sqlqueryspec?view=azure-node-latest) and will handle the proper formatting of strings vs numbers.  The type of the 'value' is any JSONValue. `boolean | number | string | null | JSONArray | JSONObject`, but it doesn't always do the right thing for complex types.
+This object complies with the well documented [SqlQuerySpec Interface](https://docs.microsoft.com/en-us/javascript/api/@azure/cosmos/sqlqueryspec?view=azure-node-latest) and will handle the proper formatting of strings vs numbers. The type of the 'value' is any JSONValue. `boolean | number | string | null | JSONArray | JSONObject`, but it doesn't always do the right thing for complex types.
 
 ### Start the async query
 ```js
-      var collection = getContext().getCollection()
-      var isAccepted = collection.queryDocuments(
+      var collection = getContext().getCollection()
+      var isAccepted = collection.queryDocuments(
           collection.getSelfLink(), 
           filterQuery,
           {}, 
-          function (err, feed, options) { if (err) throw err
+          function (err, feed, options) { if (err) throw err
 ```
 1. Get the current collection object from the content
 2. Call queryDocuments, passing in the collection link, SQL, [feed options](http://azure.github.io/azure-cosmosdb-js-server/Collection.html#.FeedOptions) and a [callback](http://azure.github.io/azure-cosmosdb-js-server/Collection.html#.FeedCallback).
-3. The queryDocuments will return False if the server rejected it.  if you have bad SQL it can be accepted and then an error is thrown
+3. The queryDocuments will return False if the server rejects it. if you enter bad SQL it may also be accepted and then throw an error later.
 4. throw errors result in proper HTTP codes being returned to the caller
 
-since you are already running in a partition, you don't need to reference the partition key in the filter query or request options.
+Since you are already running in a partition, you don't need to reference the partition key in the filter query or request options.
 
 :::tip pro tip
 This seems to be similar to the [V1 DocumentDB Syntax](https://github.com/Azure/azure-cosmosdb-node#readme) but you should read the [current documentation](http://azure.github.io/azure-cosmosdb-js-server/Collection.html)
@@ -186,15 +187,15 @@ This seems to be similar to the [V1 DocumentDB Syntax](https://github.com/Azure/
 
 ### The callback
 ```js
-          function (err, feed, responseOptions) { if (err) throw err
-            if (!feed || !feed.length) {
-              var response = getContext().getResponse()
+          function (err, feed, responseOptions) { if (err) throw err
+            if (!feed || !feed.length) {
+              var response = getContext().getResponse()
               response.setBody('no docs found....!.')
             }
-            else {
+            else {
               // Do the merge!
               var body = {merged: "yes"}
-              var response = getContext().getResponse()
+              var response = getContext().getResponse()
               response.setBody(body)
           }
 ```
@@ -205,7 +206,7 @@ This seems to be similar to the [V1 DocumentDB Syntax](https://github.com/Azure/
 
 ### Finish the code
 
-At this point you should have simple script that represents a failing test.  It should be fast and you can iterate on until yet get the merge right.
+At this point you should have simple script that represents a failing test. It should be fast and you can iterate on until yet get the merge right.
 
 You can extend the example to join records based on coupon_name by passing in just user_id.
 
@@ -216,16 +217,16 @@ const assert = require('assert')
 
 const { CosmosClient } = require('@azure/cosmos')
 
-const endpoint = 'https://gopuff-cosmos-v1-stage.documents.azure.com:443/'
+const endpoint = 'https://xxxxxxxxxxxxxx.documents.azure.com:443/'
 const key = process.env.cosmos_key
 const client = new CosmosClient({ endpoint, key });
 
-const container = client.database('cart').container('coupons')
+const container = client.database('dbname').container('coupons')
 
 const mergeSproc = {
     id: "mergeSproc_001",
     body: function (guid) {
-      var collection = getContext().getCollection()
+      var collection = getContext().getCollection()
       console.log("Sproc called with " + guid)
       var filterQuery = 
       {     
@@ -233,28 +234,28 @@ const mergeSproc = {
           'parameters' : [{'name':'@id1', 'value':'template-' + guid},
                           {'name':'@id2', 'value':'user-' + guid}]
       }
-      var isAccepted = collection.queryDocuments(
+      var isAccepted = collection.queryDocuments(
           collection.getSelfLink(), 
           filterQuery,
           {}, 
-          function (err, feed, options) { if (err) throw err
-            if (!feed || !feed.length) {
-              var response = getContext().getResponse()
+          function (err, feed, options) { if (err) throw err
+            if (!feed || !feed.length) {
+              var response = getContext().getResponse()
               response.setBody('no docs found....!.')
             }
-            else {
+            else {
               var master = {}
               var child = {}
               feed.forEach(doc => {
                 if (doc.master_details) master = doc
                 else child = doc
               })
-              var body = Object.assign({}, master, child)
-              var response = getContext().getResponse()
+              var body = Object.assign({}, master, child)
+              var response = getContext().getResponse()
               response.setBody(body)
           }
       })
-      if (!isAccepted) throw new Error('The query was not accepted by the server.')
+      if (!isAccepted) throw new Error('The query was not accepted by the server.')
   }
 }
 

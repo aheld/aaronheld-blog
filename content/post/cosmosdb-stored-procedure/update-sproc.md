@@ -1,10 +1,8 @@
 ---
-title: "Create a sproc to atomically update a document" # Title of the blog post.
-date: 2020-05-12 #
+title: "CosmosDB: Stored Procedure (sproc) to update a document"
+date: 2020-05-12
 description: "A example of a CosmosBD Stored procedures (sprocs) that will do an atomic update."
-featured: true # Sets if post is a featured post, making appear on the home page side bar.
-draft: false # Sets whether to render this page. Draft of true will not be rendered.
-toc: true # Controls if a table of contents should be generated for first-level links automatically.
+draft: false
 featureImage: "/post/cosmosdb-stored-procedure/cosmosdb.png" # Sets featured image on blog post.
 thumbnail: "/post/cosmosdb-stored-procedure/cosmosdb.png" # Sets thumbnail image appearing inside card on homepage.
 shareImage: "/post/cosmosdb-stored-procedure/cosmosdb.png" # Designate a separate image for social media sharing.
@@ -12,25 +10,27 @@ codeMaxLines: 10 # Override global value for how many lines within a code block 
 codeLineNumbers: true # Override global value for showing of line numbers within code block.
 figurePositionShow: true # Override global value for showing the figure label.
 categories:
-  - Azure
+- Azure
 tags:
-  - CosmosDB
+- CosmosDB
 ---
 
 ## Why stored procedure?
 
-The Cosmos SQL is very flexable, but the client cannot easily guarantee an atomic update.  It is possible to get a similar effect using the newer .Update method in the SDK along with a conditional header using the doc._etag.  But sometimes a stored procedure makes more sense. 
+The Cosmos SQL is flexible, but the client does not automatically guarantee an atomic update. It is possible to get a similar effect using the newer. Update method in the SDK along with a conditional header using the doc._etag. But sometimes, a stored procedure makes more sense.
+The client downloads the entire document and posts it back to the server to update. Using a stored procedure will reduce the latency since the data does not have to travel from the cloud to your client. Your use case and document size will determine what is best for you.
+
 
 ## Use Case
 
-Imagine we have documents with a counter field and we want to incement it by one every time it is called.  If we download the document, add 1, then post it back we run the risk of missing an update.
+Imagine we have large documents with a counter field, and we want to increment it by one every time it is called. If we download the document, add 1, and post it back, we increase the risk of missing an update. Using CosmosDB to store materialized view projections of things like a customer order history may fit this pattern.
 
 ## The Code
 
-We will building on the [previous](../merge-sproc/) but start to use Promises to simplify the sproc code.
+We will build on the [previous](../merge-sproc/) but use Promises to simplify the sproc code.
 
 
-### Lets start with out test runner
+### let us start with our test runner
 
 ```js
 async function run() {
@@ -90,7 +90,7 @@ function getFixtures(guid) {
 
 ### the stored procedure
 
-Since the sprocs use callbacks we would have to triple nest this.  
+Since the sprocs use callbacks we would have to triple nest this.
 1. Get the document
 2. update the document
 3. replace the document
@@ -110,7 +110,7 @@ const updateSproc = {
         .catch(setResponse)
 ```
 
-in order to get there lets start simply with a sproc that just retrieves the document.  It does not make the update.
+in order to get there lets start simply with a sproc that just retrieves the document. It does not make the update.
 
 ```js
 const updateSproc = {
@@ -124,9 +124,9 @@ const updateSproc = {
 
       function getDocument(documentLink) {
         return new Promise( (resolve, reject) =>{
-          var isAccepted = __.readDocument(documentLink, {}, function (err, feed, options) { 
+          var isAccepted = __.readDocument(documentLink, {}, function (err, feed, options) { 
             console.log("feed ", feed, err, "]")
-                if (err) reject(err)
+                if (err) reject(err)
                 resolve(feed)
             })
             if (!isAccepted) reject('The query was not accepted by the server.')
@@ -140,13 +140,13 @@ const updateSproc = {
 }
 ```
 
-At this point you may have a failing test (because doc.touched will be undefined).  Take some time to make this stable so that you can start iterating on the stored prod.
+At this point you may have a failing test (because doc.touched will be undefined). Take some time to make this stable so that you can start iterating on the stored prod.
 
 #### readDocument
 ```js
-var isAccepted = __.readDocument(documentLink, {}, function (err, feed, options) { 
+var isAccepted = __.readDocument(documentLink, {}, function (err, feed, options) { 
   console.log("feed ", feed, err, "]")
-  if (err) reject(err)
+  if (err) reject(err)
   resolve(feed)
 })
 ```
@@ -161,9 +161,9 @@ the new version is much more clear, but is condered the 'alternative link'.  The
 
 ### Finish the code
 
-At this point you should have simple script that represents a failing test.  It should be fast and you can iterate to explore how the sproc works.
+At this point you should have simple script that represents a failing test. It should be fast and you can iterate to explore how the sproc works.
 
-[Full Working Script](https://github.com/gopuff/snippets/blob/master/cosmosScripts/cosmso-update-sproc.js)
+[Full Working Script](https://gist.github.com/aheld/ab59bce3bd3b3d1115adbae7d6ca65be)
 
 #### Working sproc
 
@@ -196,9 +196,9 @@ const updateSproc = {
 
       function getDocument(documentLink) {
         return new Promise( (resolve, reject) =>{
-          var isAccepted = __.readDocument(documentLink, {}, function (err, feed, options) { 
+          var isAccepted = __.readDocument(documentLink, {}, function (err, feed, options) { 
             console.log("feed ", feed, err, "]")
-                if (err) reject(err)
+                if (err) reject(err)
                 resolve(feed)
             })
             if (!isAccepted) reject('The query was not accepted by the server.')
