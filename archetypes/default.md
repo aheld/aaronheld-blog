@@ -3,10 +3,13 @@ author: "Aaron Held"
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 description: "description"
-tags: ["shortcodes", "privacy"]
 ShowToc: true
+TocOpen: true
 draft: true
-
+categories:
+- Azure
+tags:
+- CosmosDB
 ---
 
 **Insert Lead paragraph here.**

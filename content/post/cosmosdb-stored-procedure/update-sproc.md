@@ -3,6 +3,8 @@ title: "CosmosDB: Stored Procedure (sproc) to update a document"
 date: 2020-05-12
 description: "A example of a CosmosBD Stored procedures (sprocs) that will do an atomic update."
 draft: false
+ShowToc: true
+TocOpen: true
 featureImage: "/post/cosmosdb-stored-procedure/cosmosdb.png" # Sets featured image on blog post.
 thumbnail: "/post/cosmosdb-stored-procedure/cosmosdb.png" # Sets thumbnail image appearing inside card on homepage.
 shareImage: "/post/cosmosdb-stored-procedure/cosmosdb.png" # Designate a separate image for social media sharing.
@@ -31,7 +33,7 @@ Imagine we have large documents with a counter field, and we want to increment i
 We will build on the [previous](../merge-sproc/) but use Promises to simplify the sproc code.
 
 
-### let us start with our test runner
+### Test runner
 
 ```js
 async function run() {

@@ -32,6 +32,11 @@ The Cosmos SQL is very flexible in returning objects and view projections, but i
 
 Imagine we have documents in a collection that need to be 'joined'. In a simple case, we may have a template that is a master record and a user-level record with more details. We need a query that will load both objects and then merge them into one combined document.
 
+```
+┌──────────┐       ┌──────────┐
+│ TEMPLATE │-|────<│ USER_DOC │
+└──────────┘       └──────────┘
+```
 ## The Code
 
 We will build on the [previous](../hello-sproc/) but add some simple assertion testing.

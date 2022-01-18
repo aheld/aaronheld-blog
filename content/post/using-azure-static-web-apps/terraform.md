@@ -4,7 +4,8 @@ date: 2021-08-27T08:33:08-04:00 # Date of post creation.
 description: "Example of how to setup an Azure Static Web App Using Terraform"
 featured: false 
 draft: false
-toc: true
+ShowToc: true
+TocOpen: true
 # menu: main
 featureImage: "/post/using-azure-static-web-apps/terraform_logo.png" # Sets featured image on blog post.
 thumbnail: "/post/using-azure-static-web-apps/terraform_logo.png" # Sets thumbnail image appearing inside card on homepage.
