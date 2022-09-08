@@ -5,7 +5,7 @@ date: 2022-09-08T10:19:51-04:00
 description: "Leaving gopuff was hard, time to reflect and celebrate the team we had"
 ShowToc: false
 TocOpen: false
-draft: true
+draft: false
 cover:
     image: "/post/farewell-triage-and-diversity/triage.jpg"
     alt: "People sitting at a desk working to solve a production issue on a Saturday morning Philladelphia"
