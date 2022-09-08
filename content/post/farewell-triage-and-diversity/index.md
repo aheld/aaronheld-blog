@@ -47,3 +47,6 @@ We could not have scaled our system without this team's participation.  I am gra
 - How much do your engineers truly respect the less technical folks who power the company?
 - Do engineers of similar backgrounds onboard and commit production code faster because of assumed familiarity?
 - Does your manager take goofy selfies while the entire team is heads down and focused??
+
+
+Please comment on [this post in linkedIn](https://www.linkedin.com/pulse/triage-diversity-moving-aaron-held/)
