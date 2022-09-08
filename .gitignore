@@ -6,3 +6,5 @@ resources/_gen/**
 infrastructure/*.tfplan
 infrastructure/*.tfstate*
 infrastructure/.terraform**
+
+.idea
