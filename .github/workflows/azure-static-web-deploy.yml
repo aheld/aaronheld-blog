@@ -20,21 +20,22 @@ on:
 jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     name: Build and Deploy Job
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           submodules: true
+          fetch-depth: 0
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3.0.0
         with:
           hugo-version: '0.140.2'
-          extended: true
+          # extended: true
 
       - name: Build
-        run: hugo --minify --baseUrl https://${{ secrets.HOST_NAME }}/
+        run: hugo --minify --baseURL https://${{ secrets.HOST_NAME }}/
 
       - name: Diagnostic
         run: |
