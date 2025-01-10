@@ -1,6 +1,6 @@
 ---
 title: "Deploying Hugo to Azure Static Web Apps using github actions" 
-date: 2021-10-31-27T10:00:08-04:00 
+date: 2021-10-27T08:33:08-04:00 # Date of post creation.
 description: "Example of how to build a hugo static site and deploy to Azure Static Web App Using Github Actions CI/CD"
 featured: false 
 draft: false

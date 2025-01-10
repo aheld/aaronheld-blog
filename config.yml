@@ -1,5 +1,6 @@
 baseurl: "http://localhost/"
-paginate: 5
+pagination:
+  pagerSize: 5
 theme: github.com/adityatelange/hugo-PaperMod
 #theme: hugo-PaperMod
 title: "Aaron Held's Blog"
@@ -8,6 +9,8 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 enableGitInfo: true
+ignoreLogs:
+  warning-goldmark-raw-html
 
 googleAnalytics: G-DSR2LKEM2B
 #googleAnalytics: G-MEASUREMENT_ID
@@ -40,7 +43,7 @@ params:
     showtoc: false
     tocopen: false
 
-    ShareButtons: ["twitter", "linkedin", "reddit", "facebook"]
+    ShareButtons: ["bluesky","linkedin", "reddit", "facebook"]
 
     assets:
         # disableHLJS: true # to disable highlight.js

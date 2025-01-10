@@ -8,3 +8,5 @@ infrastructure/*.tfstate*
 infrastructure/.terraform**
 
 .idea
+.DS_Store
+**/.DS_Store
