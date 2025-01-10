@@ -9,6 +9,7 @@ I've been excited about software since I discovered [Asyst](https://www.science.
 
 The data went from electrical impulses in a goat to analyzed output in record time, and I never had to do math by hand since!
 
- Since then, I've watched "the computer" go from my personal force multiplier to an indispensable part of most people's lives. 
- 
- While the tech world was innovating, I moved around the east coast and had a trilogy of children. I am happily married to a [Philly](https://www.visitphilly.com/) girl and made this city my home.
+ Since then, I've watched "the computer" go from my personal force multiplier to an indispensable part of most people's lives.
+
+ While the tech world was innovating, I moved around the east coast and had a trilogy of children. I am happily married to a [Philly](https://www.visitphilly.com/) native and made this city my home.
+
