@@ -1,0 +1,29 @@
+{{ define "main" }}
+<article itemscope itemtype="https://schema.org/Recipe">
+    <h1 itemprop="name">{{ .Title }}</h1>
+
+    <img itemprop="image" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Generic Food Image">
+
+    <p>Adapted From<br/>{{ with .Params.original_sources }}
+        {{ range . }}
+    <a itemprop="url" href="{{ .url }}"><span itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">{{.author}}</span></span>: {{.name}}</a></p>
+        {{ end }}
+    {{ end }}
+    </p>
+    <h2>Ingredients</h2>
+    <ul>
+        {{ range .Params.ingredients }}
+        <li itemprop="recipeIngredient">{{ . }}</li>
+        {{ end }}
+    </ul>
+
+    <h2>Instructions</h2>
+    <ol itemprop="recipeInstructions">
+        {{ range $index, $element := .Params.instructions }}
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/HowToStep">
+            <span itemprop="text">{{ . }}</span>
+        </li>
+        {{ end }}
+    </ol>
+</article>
+{{ end }}
