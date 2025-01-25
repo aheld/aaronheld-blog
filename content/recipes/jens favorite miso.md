@@ -1,5 +1,5 @@
 ---
-title: "Jen's favorite Miso-Mustard Dressing"
+title: "Jen's favorite Miso-Mustard bowl of Deliciousness"
 date: 2024-01-19
 draft: false
 original_sources: 
