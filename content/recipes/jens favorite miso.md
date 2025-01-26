@@ -2,6 +2,10 @@
 title: "Jen's favorite Miso-Mustard bowl of Deliciousness"
 date: 2024-01-19
 draft: false
+cover:
+  image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=600&h=200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  alt: "Miso bowl"
+  caption: "Image from https://unsplash.com/@nadineprimeau"
 original_sources: 
     - name: "Miso Dressing"
       author: Bon Appetit
@@ -21,3 +25,8 @@ instructions:
   - "Slowly stir in the oil while it emulsifies. You don't need to use all the oil, just keep adding until you get the consistency that you want."
 ---
 
+A few friends have asked me for this recipe.  It's a weekly staple in our house and both forgiving and versatile.  There are 3 main components. 
+
+## title here 
+
+1. The Miso Dressing
