@@ -95,6 +95,8 @@ params:
           url: "https://linkedin.com//in/aaronheld/"
         - name: github
           url: "https://github.com/aheld"
+        - name: bluesky
+          url: "https://bsky.app/profile/aaronheld.com"
 
     # analytics:
     #     google:
