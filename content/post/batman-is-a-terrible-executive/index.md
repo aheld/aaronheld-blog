@@ -2,18 +2,16 @@
 author: "Aaron Held"
 title: "Batman Is a Poor Executive"
 date: 2024-12-27
-description: "description"
+description: "Batman is a poor leader who doesn't effective solve problems"
 cover:
     image: "batman.jpeg"
     alt: "batman in a conference room, in front of a presentation"
     caption: "Batman, considering how to neutralize his colleagues"
-ShowToc: true
-TocOpen: true
 draft: false
 categories:
 - professional
 tags:
-- Health
+- Leadership
 ---
 
 The legendary W. Edwards Deming once said "A bad system will beat a good person every time." Playing Batman: Arkham Shadow recently, this quote kept resonating as I watched Commissioner Gordon - a dedicated public servant - struggle against Gotham's broken system.
