@@ -34,3 +34,5 @@ There is so much wisdom packed in here it's hard to decide what to pull out, but
 > —Gloria Steinem
 
 I highly recommend everyone watch her presentation. Remember the old person you help may be future you!
+
+If you want continue the conversation,  [comment on LinkedIn.](https://www.linkedin.com/feed/update/urn:li:activity:7290787107705376769/)
