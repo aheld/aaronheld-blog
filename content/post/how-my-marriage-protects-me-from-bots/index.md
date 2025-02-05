@@ -29,4 +29,4 @@ I’m keeping it because now it’s helping me find the bots.
 
 I replaced the name and image the post, but the text is unchanged.  The bot image is from https://medium.com/iconfinder/create-a-set-of-scalable-flat-robot-icons-in-adobe-illustrator-fb393e224d9b
 
-Feel free to comment on [LinedIn](https://www.linkedin.com/posts/aaronheld_does-my-marriage-need-more-fhir-originally-activity-7292936776883527680-D0Nf?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAABYtIIBRVQrGe5GRc8vPnSRr3--lonpOLQ), because they deserve it.
+Feel free to comment on [LinkedIn](https://www.linkedin.com/posts/aaronheld_does-my-marriage-need-more-fhir-originally-activity-7292936776883527680-D0Nf?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAABYtIIBRVQrGe5GRc8vPnSRr3--lonpOLQ), because they deserve it.
