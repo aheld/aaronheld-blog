@@ -18,8 +18,9 @@ tags:
 
 ### Does my marriage need more FHIR?
 
-I read this as being solicited to spice up my marriage. Wildly inappropriate for LinedIn 😂. 
-FHIR is pronounced "fire".
+I read this as being solicited to spice up my marriage. Wildly inappropriate for LinkedIn 😂. 
+
+(FHIR is pronounced "fire")
 
 Originally I added my 'Marriage to Jen' in my [LinkedIn work history](https://www.linkedin.com/in/aaronheld/) as a private joke.  Almost immediately it was effective in filtering sales and recruiting calls to let me know they had actually read my profile.
 
