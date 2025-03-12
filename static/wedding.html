@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Bingo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f3f3;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #d4668b;
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        
+        p.subtitle {
+            font-size: 1.2rem;
+            color: #777;
+            margin-top: 0;
+        }
+        
+        .bingo-card {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            gap: 10px;
+            width: 90%;
+            max-width: 600px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+        
+        .bingo-cell {
+            aspect-ratio: 1/1;
+            background-color: white;
+            border: 2px solid #d4668b;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, background-color 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            backface-visibility: hidden;
+        }
+        
+        .bingo-cell:hover {
+            transform: translateY(-5px);
+        }
+        
+        .bingo-cell.clicked {
+            background-color: #fbcfe0;
+            color: #b32a5e;
+            transform: rotateY(180deg);
+        }
+        
+        .free-space {
+            background-color: #fbcfe0;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #b32a5e;
+        }
+        
+        .reload-btn {
+            margin-top: 30px;
+            padding: 12px 25px;
+            background-color: #d4668b;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 12px rgba(212, 102, 139, 0.3);
+        }
+        
+        .reload-btn:hover {
+            background-color: #b32a5e;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .bingo-cell {
+                font-size: 14px;
+                padding: 5px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .bingo-cell {
+                font-size: 12px;
+                padding: 3px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Wedding Bingo</h1>
+        <p class="subtitle">Held/Pham Family Edition</p>
+    </header>
+    
+    <div class="bingo-card" id="bingoCard"></div>
+    
+    <button class="reload-btn" onclick="generateBingoCard()">New Card</button>
+    
+    <footer>
+        <p>Tap a square when you spot the action!</p>
+    </footer>
+    
+    <script>
+        // List of possible embarrassing scenarios
+        const scenarios = [
+            "Wears MAGA",
+            "Spills drink on groom",
+            "Drunk toast",
+            "Asks if bride is pregnent",
+            "criticizes venue choice",
+            "Neices wear inappropriate outfit",
+            "Family member curses during vows",
+            "Awkward 'as a child' story revealed",
+            "Relatives collide while dancing",
+            "Relative fixes groom's appearance",
+            "Relative asks about honeymoon sex",
+            "Loud unwanted advice",
+            "Relative Arrives late",
+            "Loud Racist joke",
+            "Grandparent falls asleep",
+            "Relative comments on cost",
+            "Ex-girlfriend mentioned",
+            "Someone unqualified takes over DJ duties",
+            "Family member gets too drunk",
+            "Childhood photos shared",
+            "Someone requests banned song",
+            "Plus one nobody knows",
+            "Ex-girlfriend mentioned",
+            "Relative mentions 'perfect match'",
+        ];
+        
+        // Function to shuffle array (Fisher-Yates algorithm)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+        
+        // Function to generate Bingo Card
+        function generateBingoCard() {
+            const bingoCard = document.getElementById('bingoCard');
+            bingoCard.innerHTML = '';
+            
+            // Shuffle the scenarios
+            const shuffledScenarios = shuffleArray([...scenarios]);
+            
+            // We need 24 items (5x5 grid minus the FREE center space)
+            const selectedScenarios = shuffledScenarios.slice(0, 24);
+            
+            // Create a 5x5 grid
+            for (let row = 0; row < 5; row++) {
+                for (let col = 0; col < 5; col++) {
+                    const cellIndex = row * 5 + col;
+                    const cell = document.createElement('div');
+                    cell.className = 'bingo-cell';
+                    
+                    // Make the center space FREE
+                    if (row === 2 && col === 2) {
+                        cell.textContent = 'FREE';
+                        cell.classList.add('free-space');
+                    } else {
+                        // Calculate the correct index in our selectedScenarios array
+                        let scenarioIndex;
+                        if (cellIndex < 12) { // Before the FREE space
+                            scenarioIndex = cellIndex;
+                        } else { // After the FREE space
+                            scenarioIndex = cellIndex - 1;
+                        }
+                        
+                        cell.textContent = selectedScenarios[scenarioIndex];
+                        
+                        // Add click event to mark/unmark cells
+                        cell.addEventListener('click', function() {
+                            this.classList.toggle('clicked');
+                        });
+                    }
+                    
+                    bingoCard.appendChild(cell);
+                }
+            }
+            
+            // Reset any previously clicked cells
+            document.querySelectorAll('.clicked').forEach(cell => {
+                if (!cell.classList.contains('free-space')) {
+                    cell.classList.remove('clicked');
+                }
+            });
+        }
+        
+        // Generate the initial bingo card when page loads
+        window.onload = generateBingoCard;
+    </script>
+</body>
+</html>
