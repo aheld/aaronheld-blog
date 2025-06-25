@@ -31,7 +31,7 @@ As the train trundled along, its usual rhythmic sound filled the background, but
 
 But then my daughters' voices echoed in my head—all those stories about "creepy old men" imposing unwanted conversations on captive audiences. Not that I needed my daughters to decode the universal body language of "leave me alone"... Was *I* the creepy old man, desperate for human connection? Had I become the oblivious one?
 
-My frustration changing to introspective concern.  I'm too young to be the creepy old guy in someone elses train story.
+My frustration changing to introspective concern.  I'm too young to be the creepy old guy in someone else's train story.
 
 As we rolled into Penn Station, I stood to retrieve my bag and spotted an older woman wrestling with her luggage in the overhead rack. I offered help; she accepted gratefully. I lifted down her bag, she nodded politely—but exchanged no words. Not even a "thank you."
 
