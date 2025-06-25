@@ -6,4 +6,4 @@ go 1.16
 
 //require github.com/aheld/hugo-PaperMod v0.0.0-20211030144712-59307c0750b5 // indirect
 
-require github.com/adityatelange/hugo-PaperMod v0.0.0-20250105143455-9f1f414be805 // indirect
+require github.com/adityatelange/hugo-PaperMod v0.0.0-20250524045829-5a4651783fa9 // indirect
