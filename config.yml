@@ -83,11 +83,10 @@ params:
     # home-info mode
     homeInfoParams:
         Title: "Aaron's Blog"
-        Content: "I've been leading engineering teams and writing software 
-          since the last Millennium, and there is still so much to learn. 
+        Content: "I've been leading engineering teams and building software for over two decades, and there's still so much to learn.
 
-          I built the engineering team that helped Gopuff become Philadelphia's 
-          beloved unicorn startup
+
+I built the engineering team that helped Gopuff become Philadelphia's beloved unicorn startup. Currently at Swiftly.com, I'm working to counter the damage done by the 'winner-take-most' mentality of overfunded startups. I believe regional grocery stores should thrive—we can do better than discount stores and dark kitchens. 
           "
 
     socialIcons:
