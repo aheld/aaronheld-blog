@@ -1,5 +1,5 @@
 ---
-title: "The Weapon by fredric brown"
+title: "The Weapon by Fredric Brown"
 date: 2025-08-27T00:00:00Z
 draft: false
 categories: ["Literature"]
@@ -21,3 +21,5 @@ cover:
 I think about this story a lot when I read the news these days, specially around how we are proudly rolling out AI
 
 Read [The Weapon @ Cyborg Ink](https://cyborgink.com/2022/11/04/the-weapon-fredric-brown-1951/?hl=en-US)
+
+[Comment on LinkedIn if this story resonated with you](https://www.linkedin.com/posts/aaronheld_ai-activity-7366496700917620737-yr6g?utm_source=share&utm_medium=member_desktop&rcm=ACoAAABYtIIBRVQrGe5GRc8vPnSRr3--lonpOLQ)
