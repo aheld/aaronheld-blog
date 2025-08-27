@@ -41,7 +41,7 @@ params:
     ShowPostNavLinks: true
     ShowBreadCrumbs: true
     ShowCodeCopyButtons: false
-    disableSpecial1stPost: false
+    disableSpecial1stPost: true
     disableScrollToTop: false
     comments: false
     hidemeta: false
@@ -68,26 +68,28 @@ params:
     # profile-mode
     profileMode:
         enabled: false # needs to be explicitly set
-        # title: ExampleSite
-        # subtitle: "This is subtitle"
-        # imageUrl: "<img location>"
-        # imageWidth: 120
-        # imageHeight: 120
-        # imageTitle: my image
-        # buttons:
-        #     - name: Posts
-        #       url: posts
-        #     - name: Tags
-        #       url: tags
+        title: "Aaron Held"
+        subtitle: "Engineering Leader & Software Architect"
+        imageUrl: "/site_icons/aaron-profile.png"
+        imageWidth: 120
+        imageHeight: 120
+        imageTitle: "Aaron Held"
+        buttons:
+            - name: Posts
+              url: posts
+            - name: About
+              url: about
+            - name: LinkedIn
+              url: https://linkedin.com/in/aaronheld/
 
     # home-info mode
     homeInfoParams:
-        Title: "Aaron's Blog"
-        Content: "I've been leading engineering teams and building software for over two decades, and there's still so much to learn.
+        Title: "👋 Hi, I'm Aaron Held"
+        Content: "**Engineering Leader & Software Architect**
 
+I've been leading engineering teams and building software for over two decades, and there's still so much to learn.
 
-I built the engineering team that helped Gopuff become Philadelphia's beloved unicorn startup. Currently at Swiftly.com, I'm working to counter the damage done by the 'winner-take-most' mentality of overfunded startups. I believe regional grocery stores should thrive—we can do better than discount stores and dark kitchens. 
-          "
+I built the engineering team that helped Gopuff become Philadelphia's beloved unicorn startup. Currently at Swiftly.com, I'm working to counter the damage done by the 'winner-take-most' mentality of overfunded startups. I believe regional grocery stores should thrive—we can do better than discount stores and dark kitchens."
 
     socialIcons:
         - name: linkedin

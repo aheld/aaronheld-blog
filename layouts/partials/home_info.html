@@ -1,0 +1,57 @@
+{{- with site.Params.homeInfoParams }}
+<article class="first-entry home-info">
+    <header class="entry-header">
+        <div class="home-info-content">
+            <div class="home-info-profile">
+                <img src="/site_icons/aaron-profile.png" alt="Aaron Held" class="profile-image" />
+                <div class="profile-text">
+                    <h1>{{ .Title | markdownify }}</h1>
+                    {{- with .Content }}
+                    <div class="entry-content">
+                        {{ . | markdownify }}
+                    </div>
+                    {{- end }}
+                </div>
+            </div>
+        </div>
+    </header>
+</article>
+
+<style>
+.home-info-profile {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    margin: 2rem 0;
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.profile-text {
+    flex: 1;
+}
+
+.home-info-content h1 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .home-info-profile {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .profile-image {
+        align-self: center;
+    }
+}
+</style>
+{{- end }}
