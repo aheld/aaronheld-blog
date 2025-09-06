@@ -8,11 +8,13 @@ Aaron Held's Blog is a Hugo-based static site using the PaperMod theme, deployed
 
 ## Development Commands
 
-### Hugo Development
+### Hugo Development  
 - `hugo server` - Start local development server at http://localhost:1313
 - `hugo server -D` - Include draft posts in local server
+- `hugo server --navigateToChanged` - Auto-navigate to changed content during development
 - `hugo` - Build static site to `/public` directory
 - `hugo --minify` - Build with minification (production build)
+- `hugo --minify --baseURL https://HOSTNAME/` - Production build with specific base URL
 
 ### Infrastructure Management
 - `cd infrastructure` - Navigate to Terraform directory
@@ -31,7 +33,7 @@ az account set --subscription="<subscription_id>"
 ## Architecture
 
 ### Technology Stack
-- **Hugo**: Static site generator (v0.140.2 in CI/CD)
+- **Hugo**: Static site generator (v0.146.0 in CI/CD)
 - **Theme**: PaperMod via Go modules (`github.com/adityatelange/hugo-PaperMod`)
 - **Hosting**: Azure Static Web Apps
 - **Infrastructure**: Terraform for Azure resource management
@@ -81,7 +83,7 @@ GitHub Actions automatically deploys on:
 
 ### Build Process
 1. Checkout with submodules
-2. Setup Hugo v0.140.2
+2. Setup Hugo v0.146.0
 3. Build with `hugo --minify --baseURL https://$HOST_NAME/`
 4. Deploy to Azure Static Web Apps
 
@@ -117,6 +119,66 @@ When modifying infrastructure:
 - Changes trigger manual deployment (excluded from CI/CD)
 
 When debugging deployment:
-- Check GitHub Actions logs for build errors
-- Verify Hugo version compatibility (currently 0.140.2)
+- Check GitHub Actions logs for build errors  
+- Verify Hugo version compatibility (currently 0.146.0)
 - Ensure all required secrets are configured
+
+## Git Commit Standards
+
+### Commit Message Format
+Follow this structure for all commits:
+
+**Subject Line (Required)**
+- Use sentence case with first letter capitalized
+- Be descriptive and specific about what changed
+- Examples: "Add new post: The Weapon by Fredric Brown", "Fix capitalization in title and add LinkedIn comment link"
+
+**Body (For Complex Changes)**
+- Use bullet points with hyphens for multiple changes
+- Start each bullet with action verb (Add, Fix, Update, Remove, etc.)
+- Be specific about what was modified and why
+- Example:
+  ```
+  - Enable home-info mode with professional introduction
+  - Add custom home_info.html template with profile photo
+  - Configure responsive design for mobile compatibility
+  ```
+
+**Footer (Required for Claude Code)**
+Always include this exact footer when working with Claude:
+```
+🤖 Generated with [Claude Code](https://claude.ai/code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>
+```
+
+### Content Publishing Workflow
+
+**Creating New Posts**
+1. Create directory: `content/post/post-slug-name/`
+2. Add `index.md` with proper front matter:
+   ```yaml
+   ---
+   title: "Post Title"
+   date: 2025-01-01T00:00:00Z
+   draft: false
+   categories: ["Category"]
+   tags: ["tag1", "tag2"]
+   ---
+   ```
+3. Add any images to the same directory
+4. Test locally with `hugo server`
+5. Commit and push to publish
+
+**Publishing Process**
+1. **Stage files**: `git add [files]`
+2. **Commit**: Use proper commit message format
+3. **Push**: `git push` triggers automatic deployment
+4. **Verify**: Check https://aaronheld.com after 2-3 minutes
+
+**Automatic Deployment**
+- Triggers on push to `main` branch
+- Uses Hugo 0.146.0 to build site
+- Deploys to Azure Static Web Apps
+- Excludes infrastructure/, archetypes/, README.md from triggering builds
+- memorize
