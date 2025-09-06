@@ -69,8 +69,44 @@ hugo server -D  # Include drafts during development
 hugo server     # Production preview
 ```
 
-### 7. Publish
-Remove `draft: true` from front matter or set `draft: false` when ready to publish.
+### 7. Publish to GitHub
+1. Stage and commit changes:
+```bash
+git add content/post/post-slug-name/
+git commit -m "$(cat <<'EOF'
+Add new post: Post Title
+
+🤖 Generated with [Claude Code](https://claude.ai/code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>
+EOF
+)"
+```
+
+2. Push to trigger deployment:
+```bash
+git push
+```
+
+### 8. Monitor Deployment
+Use the GitHub Actions monitor agent to track deployment:
+```
+Use the github-actions-monitor agent to check deployment status and wait for completion
+```
+- Agent will automatically check workflow run status
+- Deployment typically takes 1-2 minutes
+- Agent provides detailed error reporting if deployment fails
+- Agent confirms successful completion before proceeding
+
+### 9. Validate Publication
+Once deployment completes:
+1. Navigate to https://www.aaronheld.com/
+2. Verify post appears on homepage
+3. Click into post to validate:
+   - Header image displays correctly
+   - Attribution links work (both photographer and Unsplash)
+   - Content renders properly
+   - Tags and categories function
 
 ## Common Issues
 
@@ -81,8 +117,15 @@ Remove `draft: true` from front matter or set `draft: false` when ready to publi
 
 ### Image Issues
 - **File path**: Ensure image is in same directory as `index.md`
-- **Attribution**: Always include proper Unsplash attribution
+- **Attribution**: Always include proper Unsplash attribution with UTM parameters
 - **Alt text**: Provide descriptive alt text for accessibility
+- **Image cropping**: Use `magick convert input.jpg -gravity Center -crop 1080x600+0+0 header.jpg` for optimal header dimensions
+
+### Deployment Issues
+- **GitHub Actions failure**: The github-actions-monitor agent will provide detailed error logs
+- **Attribution links not working**: Ensure HTML anchor tags are properly formatted in front matter caption
+- **Site not updating**: Agent will confirm deployment completion before validation step
+- **Deployment timeout**: Agent monitors for up to 10 minutes before reporting timeout
 
 ## File Structure
 ```
@@ -94,11 +137,17 @@ content/post/post-slug-name/
 ## Tools Used
 - `mcp__unsplash__search_photos` - Find suitable images
 - `curl` - Download images
+- `ImageMagick` - Crop and optimize images
 - Hugo front matter - Configure post metadata
 - PaperMod theme - Cover image support
+- `github-actions-monitor` agent - Automated deployment monitoring
+- Browser MCP - Validate published site
 
 ## Notes
 - Always use landscape orientation for header images
 - Include both front matter caption and footer attribution
 - Test locally before publishing
 - Use descriptive, SEO-friendly descriptions
+- Use HTML anchor tags in front matter captions for UTM tracking
+- Follow CLAUDE.md commit message standards for all commits
+- Monitor deployment completion before validating publication
