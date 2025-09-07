@@ -400,7 +400,8 @@ Claude verifies the deployment:
 - **Deployment Status**: ✅ Monitors GitHub Actions completion
 
 This verification ensures that the content is what I expected.  Since I'm also using BrowserMCP, I can see my desktop browser loading the page and I can double check the layout
-```
+
+```bash
 ⏺ github-actions-monitor(Monitor publication deployment)
   ⎿  Done (14 tool uses · 75.9k tokens · 1m 57.4s)
 
