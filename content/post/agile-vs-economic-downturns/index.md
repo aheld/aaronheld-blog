@@ -12,13 +12,15 @@ cover:
 
 # Is the Economy derailing your Agile Transformations?
 
-Economic uncertainty hits. Teams that were thriving on collaborative decision-making suddenly go quiet. The same people who were debating sprint priorities and pushing back on requirements start waiting for marching orders from above.
+Economic uncertainty hits. Layoffs are all over the news and productivity suffers.
 
-Every time, my first instinct is to blame the budget cuts. But that's never it.
+Every time, I see people wanting to blame the loss or productivity on budget cuts and layoffs.  That is the short term impact, but I see longer term harm playing out.
+
+Teams that were thriving on collaborative decision-making suddenly go quiet. The same people who were debating sprint priorities and pushing back on requirements start waiting for marching orders from above.
 
 ## The real culprit? Psychological safety had left the building.
 
-Here's what I've noticed happens when the economy gets shaky:
+Here's what I've noticed happens:
 
 Teams that thrived on uncertainty suddenly crave certainty. The same people who embraced "fail fast" are now thinking "don't fail at all." Collaborative decision-making feels risky when your mortgage payment feels uncertain.
 
@@ -49,7 +51,11 @@ The question isn't how to force them back to Agile practices.
 
 It's how to rebuild safety when everything feels unsafe—and how to remind people that the best way to survive is often to help the whole ship sail to calmer waters.
 
-The tactic that has worked for me was to take a bit away from the 'self-organizing' nature of Agile and enforce a stronger process layer that has 'gates' on Agile ceremonies.  I try to appeal to the folks who want to follow the rules in front of them while supporting the Agile tenants that have proven to have better outcomes.
+The tactic that has worked for me at the team level was to take a bit away from the 'self-organizing' nature of Agile and enforce a stronger process layer that has 'gates' on Agile ceremonies.  I try to appeal to the folks who want to follow the rules in front of them while supporting the Agile tenants that have proven to have better outcomes.
+
+I’ve been in orgs that focused so hard on survival that when the economy opened up, they were unable to keep up with competitors who didn’t lose their long term focus.  I’ve also been or orgs that balanced this well.  Proactive communication, usually with a calm CFO at the helm can replace the fear of failures with slides showing our relality in revenue numbers and EBITA.  Step 1 of the cycle can be blunted with leadership handing down facts and clarity.
+
+I remember at one company during a recession, we looked at the sales pipline and indentifed the 'must win' opportunities necessary in order to make payroll.  We knew we had to work together to survive.  At larger companies, it is sadly normal to have a justifiable failure and blame another team when we don't achieve our goal.  Fortune 500 companies will be fine and if you can prove you did as you were told, then you can guide the ax elsewhere. 
 
 _Do you have similar experiences in the workplace?_
 
