@@ -36,8 +36,6 @@ This workflow file acts as a blueprint that transforms what could be a chaotic c
 
 The foundation of my Claude Code blogging workflow is an effective four-window setup that creates a comprehensive writing environment. Here's how the windows work together:
 
-```
-
 ![Four-window setup](screenshots/01-setup/01-four-window-setup.png)
 *Four windows working in harmony: Hugo server, Claude Code, VSCode editor, and mobile browser preview*
 
