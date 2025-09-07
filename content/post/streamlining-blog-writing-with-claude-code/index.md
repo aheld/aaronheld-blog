@@ -36,6 +36,8 @@ This workflow file acts as a blueprint that transforms what could be a chaotic c
 
 The foundation of my Claude Code blogging workflow is an effective four-window setup that creates a comprehensive writing environment. Here's how the windows work together:
 
+```
+
 ![Four-window setup](screenshots/01-setup/01-four-window-setup.png)
 *Four windows working in harmony: Hugo server, Claude Code, VSCode editor, and mobile browser preview*
 
@@ -45,8 +47,32 @@ hugo server -D --navigateToChanged
 ```
 This stays running throughout the entire writing process, providing instant feedback as content evolves. The `--navigateToChanged` flag automatically navigates your browser to updated content, making the feedback loop nearly instantaneous.
 
-![Hugo server running](screenshots/01-setup/01-hugo-server-output.png)
-*Hugo server providing real-time feedback at localhost:1313*
+```bash
+⚡ hugo server --navigateToChanged
+
+Watching for changes in /Users/aheld/Projects/aheld/aaronheld-blog/{archetypes,assets,content,i18n,layouts,static}
+Watching for config changes in /Users/aheld/Projects/aheld/aaronheld-blog/config.yml, /Users/aheld/Projects/aheld/aaronheld-blog/go.mod
+Start building sites …
+hugo v0.147.9+extended+withdeploy darwin/arm64 BuildDate=2025-06-23T08:22:20Z VendorInfo=brew
+
+
+                  │ EN
+──────────────────┼─────
+ Pages            │ 276
+ Paginator pages  │  43
+ Non-page files   │  47
+ Static files     │  20
+ Processed images │  26
+ Aliases          │  90
+ Cleaned          │   0
+
+Built in 132 ms
+Environment: "development"
+Serving pages from disk
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Press Ctrl+C to stop
+```
 
 ### Window 2: Claude Code Terminal (top right)
 This is where the collaboration happens. I use Claude Code for planning, research, writing, and even debugging the build process when needed. Claude provides the strategic thinking and content generation while I guide the direction.
@@ -78,8 +104,30 @@ One of Claude Code's most useful features for writers is the TodoWrite tool. Ins
  When the plan is done, write it to a local file under ./specs/
 ```
 
-![Claude planning with TodoWrite](screenshots/02-planning/02-claude-planning-todo-list.png)
-*Claude's TodoWrite tool breaking down the blog post into specific, actionable tasks* 
+```
+⏺ Perfect! I've created a comprehensive plan for your Claude
+  workflow blog article at specs/claude-workflow-blog-plan.md.
+
+  The plan includes:
+
+  10 detailed workflow steps from initial setup to post-publication
+  monitoring, with each step covering:
+  - Specific content to write
+  - Exact commands to capture/demonstrate
+  - Screenshots needed at each stage
+
+  Key features of the plan:
+  - Shows the dual-terminal approach (Hugo server running + Claude work terminal)
+  - Documents authentic workflow with real commands an outputs
+  - Includes proper screenshot organization and naming
+  - Follows your existing blog structure and commit message standards
+  - Balances technical detail with engaging storytelling
+
+  The plan is designed to create a 1500-2000 word articl that authentically demonstrates how you use Claude Code for blog writing while providing actionable guidance for readers.
+  Each step builds naturally on the previous one, showing the complete journey from idea to published post.
+
+  You can now follow this plan step-by-step to write the actual blog article, capturing real screenshots and command outputs as you go through your genuine workflow!
+   ```
 
 Here's what happened when I asked Claude to plan this blog post:
 
@@ -107,22 +155,60 @@ Claude Code excels at gathering context from multiple sources, making research f
 ### Mining Existing Content
 First, I used Claude's Grep tool to search through my years of blog content for related topics:
 
-![Searching existing content](screenshots/03-research/03-terminal-grep-results.png)
-*Grep search results showing 67 files containing workflow, AI, automation, or tool keywords*
-
-```bash
-grep -ri "workflow|AI|automation|tool" content/post/
 ```
+⏺ 🔍 Step 3: Content Research and Context Gathering
+
+  Now let's demonstrate Claude's research capabilities and how I
+  leverage existing blog content for context.
+
+  First, let's search for existing content related to workflows or AI:
+
+⏺ Search(pattern: "workflow|AI|automation|tool", path: "content/post")
+  ⎿  Found 67 files (ctrl+r to expand)
+
+⏺ Great! Let's look at some relevant posts that might provide context:
+
+⏺ Read(content/post/we-finally-care-about-context/index.md)
+  ⎿  Read 10 lines (ctrl+r to expand)
+
+⏺ Read(content/post/answers-chat-bot-for-your-wordpress-blog/index.md)
+  ⎿  Read 15 lines (ctrl+r to expand)
+
+⏺ Now let's demonstrate searching for more specific content:
+
+⏺ Bash(find content/post -name "*.md" | head -10)
+  ⎿  content/post/the-weapon-by-fredric-brown/index.md
+     content/post/agile-vs-economic-downturns/index.md
+     content/post/barcampphilly-was-a-success/index.md
+     … +9 lines (ctrl+r to expand)
+```
+
 
 This revealed relevant posts like "We Finally Care About Context" and "Answers Chat bot for your WordPress blog" - providing valuable context about my previous thoughts on AI and automation.
 
 ### Web Research for Current Information
 Since AI tooling evolves rapidly, I had Claude perform web research to get current information about Claude Code workflows in 2025:
 
-![Claude web research](screenshots/03-research/03-claude-web-research.png)
-*Claude performing WebSearch to gather current information about Claude Code best practices*
+``` 
+
+⏺ Now let me demonstrate using Claude's web research capabilities by
+  looking up current information about Claude Code:
+
+⏺ Web Search("Claude Code AI assistant blog writing workflow 2025")
+  ⎿  Did 1 search in 29s
+  ```
+
 
 The research revealed that Claude Code has evolved significantly, with developers reporting project completion in "30–45 minutes regardless of complexity" and new features like hooks for workflow automation. 
+
+```
+⏺ Perfect! This demonstrates multiple research capabilities
+This step demonstrates Claude's research capabilities:
+  - Searching existing content using Grep and Bash tools to find relevant past articles
+  - Web research using WebSearch to get current information about Claude Code
+  - Context synthesis combining multiple information sources to inform the writing process
+  - Knowledge integration connecting new research with existing blog content patterns
+```
 
 What was interestsing about this phase is that I didn't ask Claude to do ANY external research.  I left this in because my friend Claude seemed proud of this ability and I don't want it to feel unappreciated. 
 
@@ -169,10 +255,12 @@ Claude provides:
 Writing becomes a conversation:
 
 1. **Human**: "Expand the section on research methods"
-2. **Claude**: *Adds detailed content with examples and screenshots*
-3. **Human**: "This feels too technical - make it more accessible"  
-4. **Claude**: *Revises language and adds analogies*
-5. **Human**: "Perfect! Now add a transition to the next section"
+1. **Claude**: *Adds detailed content with examples and screenshots*
+1. **Human**: Reads and edits what the AI wrote
+1. **Claude**: *Adds detailed content with examples and screenshots*
+1. **Human**: "This feels too technical - make it more accessible"  
+1. **Claude**: *Revises language and adds analogies*
+1. **Human**: "Perfect! Now add a transition to the next section"
 
 This back-and-forth continues until the content feels right. It's collaborative editing at its finest.
 
@@ -229,13 +317,46 @@ Claude verifies the deployment:
 - **Deployment Status**: ✅ Monitors GitHub Actions completion
 
 This verification ensures that the content is what I expected.  Since I'm also using BrowserMCP, I can see my desktop browser loading the page and I can double check the layout
+```
+⏺ github-actions-monitor(Monitor publication deployment)
+  ⎿  Done (14 tool uses · 75.9k tokens · 1m 57.4s)
 
+⏺ 🎉 Publication Complete!
+
+  Your Claude Code workflow blog post is now live and public!
+
+  ✅ Deployment Verified:
+  - GitHub Actions: Successfully deployed commit d6ad816
+  - Homepage: Shows as the most recent post
+  - Direct URL: https://www.aaronheld.com/post/streamlining-blog-writi
+  ng-with-claude-code/ ← LIVE
+  - Content: All screenshots, formatting, and content displaying
+  perfectly
+
+  🎯 Meta Achievement Unlocked:
+  This blog post about the Claude Code workflow was created using the
+  exact workflow it describes - from initial planning with TodoWrite,
+  through collaborative writing, to automated deployment and
+  verification. The post serves as both documentation and
+  proof-of-concept!
+
+  📊 Final Stats:
+  - Complete workflow demonstrated: Planning → Research → Writing →
+  Publishing
+  - Real screenshots captured: Showing actual process steps
+  - Comprehensive guide: 1,500+ words with technical details
+  - Live example: The post itself proves the workflow works
+
+  Your readers now have a complete, authentic guide to AI-assisted
+  blogging with Claude Code, demonstrated through the very post
+  they're reading!
+```
 ## The Results: Why This Workflow Works
 
 After implementing this Claude Code + Hugo workflow, several key benefits have emerged:
 
 ### Time Savings Without Quality Loss
-What used to take me days writing and procrastinating now happens in 2-3 for focus effort. The quality has actually *improved*. The research phase is more thorough, the structure is more organized, and the iterative editing process catches issues I might have missed.
+What used to take me days writing and procrastinating now happens in 2-3 of focused effort. The quality has actually *improved*. The research phase is more thorough, the structure is more organized, and the iterative editing process catches issues I might have missed.
 
 ### Reduced Writer's Block
 The TodoWrite planning phase eliminates the blank page problem. Instead of staring at an empty document wondering where to start, I have a clear roadmap of specific tasks to complete.
