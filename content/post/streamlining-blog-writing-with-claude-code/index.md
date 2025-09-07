@@ -272,11 +272,11 @@ Before publishing, every blog post needs a compelling header image. Claude Code'
 
 For this blog post about AI-assisted writing, I searched for images that would capture the essence of the workflow:
 
-```
+```bash
 find a retro scifi image of a helpful robot writer, preferably from the pulp era
 ```
 
-Claude's Unsplash search returned several options, including vintage-style robots and futuristic writing scenes. The selected image perfectly captured the collaborative human-AI writing theme.
+Claude's Unsplash search returned several options, including vintage-style robots and futuristic writing scenes. It thought that the selected image perfectly captured the collaborative human-AI writing theme.
 
 ```bash
 ⏺ I'll help you find a retro sci-fi image of a helpful robot writer from the pulp era using Unsplash.
