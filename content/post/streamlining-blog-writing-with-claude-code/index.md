@@ -12,7 +12,7 @@ cover:
 
 ## Introduction
 
-After 25+ years of blogging and countless iterations of my writing and technical process, I've found something that actually makes writing *enjoyable* again: Claude Code. This isn't another "AI will replace writers" story - it's about how AI can my creativity while handling the tedious parts of content creation. It also actually helps me get to the publish stage.
+After 25+ years of blogging and countless iterations of my writing and technical process, I've found something that actually makes writing *enjoyable* again: Claude Code. This isn't another "AI will replace writers" story - it's about how AI can enhance my creative expression while handling the tedious parts of content creation. It also actually helps me get to the publish stage.
 
 Most of my blog posts are incomplete and first drafts that never get posted, now my **Robot Buddy** guides me through the end to end execution process.
 
@@ -41,7 +41,7 @@ The foundation of my Claude Code blogging workflow is an effective four-window s
 ![Four-window setup](screenshots/01-setup/01-four-window-setup.png)
 *Four windows working in harmony: Hugo server, Claude Code, VSCode editor, and mobile browser preview*
 
-### Window 1: Hugo Server Terminal (botttom right)
+### Window 1: Hugo Server Terminal (bottom right)
 ```bash
 hugo server -D --navigateToChanged
 ```
@@ -85,7 +85,7 @@ A browser window set to mobile emulation mode gives me immediate feedback on how
 
 The beauty of this four-window setup is the complete feedback loop: Claude generates content, I review it in VSCode, Hugo rebuilds it instantly, and I can immediately see both desktop and mobile presentations. It's like having a complete editorial and design team working in perfect synchronization.
 
-I enjoy using claude code in the terminal as opposed to a dedciated AI editor.  This gives me the freedom of choice.  When doing web front end work I'll often use neovim in this workflow and add an extra desktop browser preview window alongside the mobile view.  I've found that the VSCode markdown preview stays in sync much better and that is helpful in this context.
+I enjoy using claude code in the terminal as opposed to a dedicated AI editor.  This gives me the freedom of choice.  When doing web front end work I'll often use neovim in this workflow and add an extra desktop browser preview window alongside the mobile view.  I've found that the VSCode markdown preview stays in sync much better and that is helpful in this context.
 
 ## Step 1: Content Planning with Claude's TodoWrite
 
@@ -118,12 +118,12 @@ One of Claude Code's most useful features for writers is the TodoWrite tool. Ins
 
   Key features of the plan:
   - Shows the dual-terminal approach (Hugo server running + Claude work terminal)
-  - Documents authentic workflow with real commands an outputs
+  - Documents authentic workflow with real commands and outputs
   - Includes proper screenshot organization and naming
   - Follows your existing blog structure and commit message standards
   - Balances technical detail with engaging storytelling
 
-  The plan is designed to create a 1500-2000 word articl that authentically demonstrates how you use Claude Code for blog writing while providing actionable guidance for readers.
+  The plan is designed to create a 1500-2000 word article that authentically demonstrates how you use Claude Code for blog writing while providing actionable guidance for readers.
   Each step builds naturally on the previous one, showing the complete journey from idea to published post.
 
   You can now follow this plan step-by-step to write the actual blog article, capturing real screenshots and command outputs as you go through your genuine workflow!
@@ -210,7 +210,7 @@ This step demonstrates Claude's research capabilities:
   - Knowledge integration connecting new research with existing blog content patterns
 ```
 
-What was interestsing about this phase is that I didn't ask Claude to do ANY external research.  I left this in because my friend Claude seemed proud of this ability and I don't want it to feel unappreciated. 
+What was interesting about this phase is that I didn't ask Claude to do ANY external research.  I left this in because my friend Claude seemed proud of this ability and I don't want it to feel unappreciated. 
 
 ### Context Synthesis
 The magic happens when Claude combines historical context (your existing content) with current research (web findings) to inform the writing process. This isn't just information gathering - it's intelligent context weaving that ensures new content fits naturally with your existing body of work while incorporating the latest developments.
@@ -243,7 +243,7 @@ This isn't Claude writing *for* me - it's Claude writing *with* me. I provide:
 - **Direction and voice** - "Make this more conversational" or "Add a technical example here"
 - **Content expertise** - My writing experience and specific knowledge
 - **Quality control** - Reviewing each change to ensure it matches my style and intent
-- **Final version** - I usually write or rewrite most of the content on these pages. Hopefully you believe that I am writing this sentance write now, but a future workflow will have Claude trained on my personal style so.....
+- **Final version** - I usually write or rewrite most of the content on these pages. Hopefully you believe that I am writing this sentence right now, but a future workflow will have Claude trained on my personal style so.....
 
 Claude provides:
 - **Structure and flow** - Organizing thoughts into coherent sections
@@ -257,14 +257,98 @@ Writing becomes a conversation:
 1. **Human**: "Expand the section on research methods"
 1. **Claude**: *Adds detailed content with examples and screenshots*
 1. **Human**: Reads and edits what the AI wrote
-1. **Claude**: *Adds detailed content with examples and screenshots*
 1. **Human**: "This feels too technical - make it more accessible"  
 1. **Claude**: *Revises language and adds analogies*
-1. **Human**: "Perfect! Now add a transition to the next section"
+1. **Human**: Reads and edits what the AI wrote
 
 This back-and-forth continues until the content feels right. It's collaborative editing at its finest.
 
-## Step 4: Publishing and Deployment
+After the final step you may want to ask Claude to reload the content file if you made direct changes.
+
+## Step 4: Selecting a Header Image
+
+Before publishing, every blog post needs a compelling header image. Claude Code's integration with Unsplash makes finding the perfect image straightforward and ensures proper attribution.
+
+### Finding Images with Unsplash Integration
+
+For this blog post about AI-assisted writing, I searched for images that would capture the essence of the workflow:
+
+```
+find a retro scifi image of a helpful robot writer, preferably from the pulp era
+```
+
+Claude's Unsplash search returned several options, including vintage-style robots and futuristic writing scenes. The selected image perfectly captured the collaborative human-AI writing theme.
+
+```
+⏺ I'll help you find a retro sci-fi image of a helpful robot writer from the pulp era using Unsplash.
+
+⏺ unsplash - search_photos (MCP)(query: "retro robot writer typewriter vintage sci-fi", per_page: 5)
+  ⎿  ⚠ Large MCP response (~14.0k tokens), this can fill up context
+  ⎿  Found 2400 photos (page 1/480)
+
+⏺ These are great vintage typewriter images, but I notice they're actual typewriters rather than robots. Let me try a more specific search for retro sci-fi robots or pulp era illustrations:
+
+⏺ unsplash - search_photos (MCP)(query: "pulp sci-fi robot illustration vintage", per_page: 3)
+  ⎿  Found 2400 photos (page 1/800):
+  ⎿  {
+       "id": "kvX8IkD4OmQ",
+       "slug": "black-and-gray-bicycle-with-stand-kvX8IkD4OmQ",
+     … +120 lines (ctrl+r to expand)
+  ⎿  [Image]
+  ⎿  {
+       "id": "F799HJMu0kY",
+       "slug": "gray-and-blue-robot-toy-F799HJMu0kY",
+     … +117 lines (ctrl+r to expand)
+...
+
+⏺ Perfect! I found some great options. The second image with the gray and blue robot toy is perfect - it has a retro, helpful robot aesthetic that would work great as a featured image for your blog post. The third image of the Tin Man from Wizard of Oz also has a nice vintage robot feel.
+
+  For your blog post, I'd recommend the gray and blue robot toy (image #2) as it:
+  - Has a friendly, helpful appearance
+  - Retro sci-fi aesthetic without being too vintage/pulp
+  - Clean composition that would work well as a featured image
+
+> yes use #2
+
+⏺ Perfect! Now let's update the blog post front matter to use the correct image filename:
+
+⏺ Update(content/post/streamlining-blog-writing-with-claude-code/index.md)
+  ⎿  Updated
+
+⏺ Excellent! The image downloaded successfully (126k file size). Now let's test how it looks in the Hugo server by checking if it's accessible:
+...
+⏺ Perfect! Your blog post is now complete with:
+```
+### Automatic Attribution Handling
+
+One of the best features of Claude's Unsplash integration is automatic attribution handling. When you select an image, Claude provides the complete attribution text in proper markdown format:
+
+```markdown
+Photo by [Johnny Briggs](https://unsplash.com/@johnnyboylee?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/black-typewriter-on-brown-wooden-table-Q2sI-omncsk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+```
+
+This ensures proper credit to photographers while maintaining compliance with Unsplash's terms of service. The image is automatically downloaded to your post directory with an appropriate filename.
+
+### Integration with Hugo Front Matter
+
+The selected image integrates seamlessly with Hugo's front matter:
+
+```yaml
+cover:
+  image: "featured-image.jpg"
+  alt: "Modern workspace with laptop and coffee representing AI-assisted writing workflow"
+  caption: "The modern writer's setup: Where human creativity meets AI assistance"
+```
+
+This approach ensures your blog posts have professional, legally-compliant imagery that enhances the content rather than distracting from it.
+
+If you notice the image used here, it is **NOT** a grey and blue toy robot!  I went through a couple of images with claude, then just did a search myself.
+
+Personally I do not like AI art. Using that would be as lazy and unauthentic as if I'd just published the first version of this post that Claude spit out.  If you respect your customers, readers and people in general - don't be that lazy.
+
+There are many high quality and artistic images out there I would rather use my little blog to highlight someone's effort with an attribution link and my thanks!
+
+## Step 5: Publishing and Deployment
 
 The final step in the workflow demonstrates the seamless integration between content creation and deployment. Once the blog post is complete, publishing follows the established Git workflow with Claude's assistance for monitoring.
 
@@ -356,14 +440,14 @@ This verification ensures that the content is what I expected.  Since I'm also u
 After implementing this Claude Code + Hugo workflow, several key benefits have emerged:
 
 ### Time Savings Without Quality Loss
-What used to take me days writing and procrastinating now happens in 2-3 of focused effort. The quality has actually *improved*. The research phase is more thorough, the structure is more organized, and the iterative editing process catches issues I might have missed.
+What used to take me days writing and procrastinating now happens in 2-3 hours of focused effort. The quality has actually *improved*. The research phase is more thorough, the structure is more organized, and the iterative editing process catches issues I might have missed.
 
 ### Reduced Writer's Block
 The TodoWrite planning phase eliminates the blank page problem. Instead of staring at an empty document wondering where to start, I have a clear roadmap of specific tasks to complete.
 
 ### Better Research Integration
 Claude's ability to quickly search through my existing content and pull in current web research means my posts are better informed and more connected to my broader body of work.
-Note: For more in depth research, like my post on [Agile and Economic Downturns](https://www.aaronheld.com/post/agile-vs-economic-downturns/), I modify this workflow to create a blank post and do the research in Gemini.  Once I have my draft, I past it into vscode and continue to interate here, additionally using claude to find a non-AI generated image.
+Note: For more in depth research, like my post on [Agile and Economic Downturns](https://www.aaronheld.com/post/agile-vs-economic-downturns/), I modify this workflow to create a blank post and do the research in Gemini.  Once I have my draft, I paste it into vscode and continue to iterate here, additionally using claude to find a non-AI generated image.
 
 ### Authentic Collaboration
 This isn't AI replacing human creativity - it's AI amplifying it. My voice, expertise, and editorial judgment remain central to the process. Claude handles the mechanical aspects while I focus on the creative and strategic elements.
@@ -380,9 +464,9 @@ If you want to try this workflow yourself:
 
 The future of content creation isn't about AI replacing writers - it's about AI making writing more efficient, more research-driven, and frankly, more fun. Give it a try, and you might find that writing becomes enjoyable again.
 
-I'll get to a future post detailing my setup.  I heavily leverage a few MCPs and claude's sub-agents for efficient context use.  Much of my thinking around multi-step context files is around memory management and keeping the token use optimizes. This workflow works fine on my pro plan ($20/month at the time of this writing)
+I'll get to a future post detailing my setup.  I heavily leverage a few MCPs and claude's sub-agents for efficient context use.  Much of my thinking around multi-step context files is around memory management and keeping the token use optimized. This workflow works fine on my pro plan ($20/month at the time of this writing)
 
-*This entire blog post was written using the exact workflow described above, with real screenshots captured during the actual writing process. The meta-experience of documenting the process while using the process has been interestsing, becuase I keep tweaking the process as I use it.  I'll need to revise this post every few weeks at the rate AI workflows are evolving*
+*This entire blog post was written using the exact workflow described above, with real screenshots captured during the actual writing process. The meta-experience of documenting the process while using the process has been interesting, because I keep tweaking the process as I use it.  I'll need to revise this post every few weeks at the rate AI workflows are evolving*
 
 **If you are proud of your last project, then you didn't learn anything!**
 
