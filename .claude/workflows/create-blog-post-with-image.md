@@ -14,7 +14,7 @@ This workflow documents the process for creating a new blog post with a header i
 mkdir -p "content/post/post-slug-name"
 ```
 
-### 2. Create Initial Post File
+####  Create Initial Post File
 Create `content/post/post-slug-name/index.md` with basic front matter:
 ```yaml
 ---
@@ -27,6 +27,12 @@ tags: ["tag1", "tag2", "tag3"]
 ```
 
 **Important**: Use `"YYYY-MM-DD"` date format, not full timestamp format.
+
+### 2. Wait for the content
+Prompt the user to enter the content.
+
+Once the content is entered, read it and update the front matter created in the previous step
+
 
 ### 3. Find and Download Header Image
 1. Search Unsplash for relevant images:
