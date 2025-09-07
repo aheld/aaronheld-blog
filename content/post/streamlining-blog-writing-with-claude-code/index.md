@@ -89,7 +89,7 @@ I enjoy using claude code in the terminal as opposed to a dedicated AI editor.  
 
 One of Claude Code's most useful features for writers is the TodoWrite tool. Instead of starting with a blank page (the traditional writer's nightmare), I begin by having Claude break down the writing project into manageable tasks.
 
-```
+```bash
  build a plan to write a blog article about my local claude workflow
  to write blog articles.  I want to highlight the steps where I use
  the workflow.
@@ -104,7 +104,7 @@ One of Claude Code's most useful features for writers is the TodoWrite tool. Ins
 
 and the output
 
-```
+```bash
 ⏺ Perfect! I've created a comprehensive plan for your Claude
   workflow blog article at specs/claude-workflow-blog-plan.md.
 
@@ -127,7 +127,7 @@ and the output
   Each step builds naturally on the previous one, showing the complete journey from idea to published post.
 
   You can now follow this plan step-by-step to write the actual blog article, capturing real screenshots and command outputs as you go through your genuine workflow!
-   ```
+```
 
 Here's what happened when I asked Claude to plan this blog post:
 
@@ -155,7 +155,7 @@ Claude Code excels at gathering context from multiple sources, making research f
 ### Mining Existing Content
 First, I used Claude's Grep tool to search through my years of blog content for related topics:
 
-```
+```bash
 ⏺ 🔍 Step 3: Content Research and Context Gathering
 
   Now let's demonstrate Claude's research capabilities and how I
@@ -189,19 +189,18 @@ This revealed relevant posts like "We Finally Care About Context" and "Answers C
 ### Web Research for Current Information
 Since AI tooling evolves rapidly, I had Claude perform web research to get current information about Claude Code workflows in 2025:
 
-``` 
-
+```bash
 ⏺ Now let me demonstrate using Claude's web research capabilities by
   looking up current information about Claude Code:
 
 ⏺ Web Search("Claude Code AI assistant blog writing workflow 2025")
   ⎿  Did 1 search in 29s
-  ```
+```
 
 
 The research revealed that Claude Code has evolved significantly, with developers reporting project completion in "30–45 minutes regardless of complexity" and new features like hooks for workflow automation. 
 
-```
+```bash
 ⏺ Perfect! This demonstrates multiple research capabilities
 This step demonstrates Claude's research capabilities:
   - Searching existing content using Grep and Bash tools to find relevant past articles
@@ -222,7 +221,7 @@ Here's where things get meta - I'm actually writing this section while demonstra
 ### The Edit Tool in Action
 Rather than rewriting entire sections, Claude uses targeted edits to expand and improve content. For example, the astute reader will note that Claude originally planned to write about my 'Dual Terminal' workflow.  Upon reading that I realized it didn't match my screen, where I actually have four windows running. So I commanded the following:
 
-```
+```bash
  Change the setup from a "Dual Terminal Workflow"  to a 4 window
  workflow.  Highlight the same two terminals, but add the vscode editor
  (where I make live updates and review claude's changes) as well as a
@@ -279,7 +278,7 @@ find a retro scifi image of a helpful robot writer, preferably from the pulp era
 
 Claude's Unsplash search returned several options, including vintage-style robots and futuristic writing scenes. The selected image perfectly captured the collaborative human-AI writing theme.
 
-```
+```bash
 ⏺ I'll help you find a retro sci-fi image of a helpful robot writer from the pulp era using Unsplash.
 
 ⏺ unsplash - search_photos (MCP)(query: "retro robot writer typewriter vintage sci-fi", per_page: 5)
@@ -352,7 +351,7 @@ There are many high quality and artistic images out there I would rather use my 
 
 The final step in the workflow demonstrates the seamless integration between content creation and deployment. Once the blog post is complete, publishing follows the established Git workflow with Claude's assistance for monitoring.
 
-```
+```bash
 let's publish this!
 
 Commit the current changes, use the github-action agent to watch 
