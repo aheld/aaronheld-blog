@@ -89,7 +89,7 @@ I enjoy using claude code in the terminal as opposed to a dedicated AI editor.  
 
 One of Claude Code's most useful features for writers is the TodoWrite tool. Instead of starting with a blank page (the traditional writer's nightmare), I begin by having Claude break down the writing project into manageable tasks.
 
- ```
+```
  build a plan to write a blog article about my local claude workflow
  to write blog articles.  I want to highlight the steps where I use
  the workflow.
@@ -101,6 +101,8 @@ One of Claude Code's most useful features for writers is the TodoWrite tool. Ins
 
  When the plan is done, write it to a local file under ./specs/
 ```
+
+and the output
 
 ```
 ⏺ Perfect! I've created a comprehensive plan for your Claude
