@@ -1,6 +1,6 @@
 ---
 title: "Agile vs Economic Downturns"
-date: "2025-09-01"
+date: "2025-09-05"
 description: "How economic uncertainty erodes psychological safety and derails agile transformations."
 categories: ["Technology"]
 tags: ["agile", "economics", "management"]

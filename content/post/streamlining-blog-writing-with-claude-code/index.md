@@ -1,6 +1,6 @@
 ---
 title: "Streamlining Blog Writing with Claude Code: My Complete Workflow"
-date: "2025-09-01T20:00:00-05:00"
+date: "2025-09-06T20:00:00-05:00"
 draft: false
 categories: ["Development", "AI", "Workflow"]
 tags: ["claude", "ai", "hugo", "workflow", "automation", "blogging"]
