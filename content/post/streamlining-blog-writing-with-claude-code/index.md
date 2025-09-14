@@ -12,10 +12,9 @@ cover:
 
 ## Introduction
 
-After 25+ years of blogging and countless iterations of my writing and technical process, I've found something that actually makes writing *enjoyable* again: Claude Code. This isn't another "AI will replace writers" story - it's about how AI can enhance my creative expression while handling the tedious parts of content creation. It also actually helps me get to the publish stage.
-
-Most of my blog posts are incomplete and first drafts that never get posted, now my **Robot Buddy** guides me through the end to end execution process.
-
+For over 25 years, I've blogged through countless iterations of my writing and technical processes. Recently, I've found something that makes writing *enjoyable* again: Claude Code. This isn't another "AI will replace writers" story. It's about how AI can enhance creative expression by handling the tedious parts of content creation. Crucially, it helps me overcome the final hurdle: actually publishing.
+ 
+Most of my posts start as first drafts that never see the light of day. Now, my **Robot Buddy** guides me through the entire process, from idea to execution.
 In this post, I'll walk you through my complete workflow from initial idea to published post, showing exactly how Claude Code integrates with Hugo, my static site generator of choice. You'll see real screenshots, actual commands, and the genuine collaborative process that happens when human insight meets AI assistance.
 
 ## Following a Documented Workflow
@@ -142,11 +141,11 @@ Claude immediately created a structured task list:
 
 This planning phase serves two purposes:
 1. **Breaks down complexity** - Writing becomes a series of smaller, manageable tasks
-2. **Maintains focus** - Each task has a clear objective, preventing scope creep
+2. **Maintains focus** - Each task has a clear objective, preventing "scope creep"
 
 The TodoWrite tool also tracks progress in real-time, showing completed, in-progress, and pending tasks. It's like having a skilled project manager built into your writing process.
 
-Once this doc is written, I review it, edit it, and then ask Claude to reload it.
+After Claude generates the plan, I review and edit it, then ask Claude to reload the finalized version to ensure it's working from the correct blueprint.
 
 ## Step 2: Research and Context Gathering
 
@@ -242,11 +241,11 @@ This isn't Claude writing *for* me - it's Claude writing *with* me. I provide:
 - **Direction and voice** - "Make this more conversational" or "Add a technical example here"
 - **Content expertise** - My writing experience and specific knowledge
 - **Quality control** - Reviewing each change to ensure it matches my style and intent
-- **Final version** - I usually write or rewrite most of the content on these pages. Hopefully you believe that I am writing this sentence right now, but a future workflow will have Claude trained on my personal style so.....
+- **Final version** - I usually write or rewrite most of the content on these pages. Hopefully, you believe that I am writing this sentence right now, but a future workflow will have Claude trained on my personal style, so that distinction may become even blurrier.
 
 Claude provides:
 - **Structure and flow** - Organizing thoughts into coherent sections
-- **Research synthesis** - Weaving together information from multiple sources  
+- **Research synthesis** - Weaving together information from multiple sources
 - **Draft acceleration** - Turning rough ideas into polished prose
 - **Consistency** - Maintaining tone and style throughout long pieces
 
@@ -262,7 +261,7 @@ Writing becomes a conversation:
 
 This back-and-forth continues until the content feels right. It's collaborative editing at its finest.
 
-After the final step you may want to ask Claude to reload the content file if you made direct changes.
+If you make direct edits to the file outside of Claude's `Edit` tool, it's a good practice to ask Claude to reload the file to ensure it has the latest version.
 
 ## Step 4: Selecting a Header Image
 
@@ -320,7 +319,7 @@ Claude's Unsplash search returned several options, including vintage-style robot
 ```
 ### Automatic Attribution Handling
 
-One of the best features of Claude's Unsplash integration is automatic attribution handling. When you select an image, Claude provides the complete attribution text in proper markdown format:
+One of the best features of how I setup Claude's Unsplash integration is automatic attribution handling. When you select an image, Claude provides the complete attribution text in proper markdown format:
 
 ```markdown
 Photo by [Johnny Briggs](https://unsplash.com/@johnnyboylee?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/black-typewriter-on-brown-wooden-table-Q2sI-omncsk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
@@ -341,11 +340,11 @@ cover:
 
 This approach ensures your blog posts have professional, legally-compliant imagery that enhances the content rather than distracting from it.
 
-If you notice the image used here, it is **NOT** a grey and blue toy robot!  I went through a couple of images with claude, then just did a search myself.
+If you notice the image used here, it is **NOT** a grey and blue toy robot!  I went through a couple of images with claude, then just did a search myself.  Claude tries really hard, but sometimes I just need to do the work myself and provide feedback.
 
 Personally I do not like AI art. Using that would be as lazy and unauthentic as if I'd just published the first version of this post that Claude spit out.  If you respect your customers, readers and people in general - don't be that lazy.
 
-There are many high quality and artistic images out there I would rather use my little blog to highlight someone's effort with an attribution link and my thanks!
+There are many high quality and artistic images out there I would rather use my little blog to highlight someone's effort with an attribution link and my thanks!  The header image of the retro lamp and old typerwriter is both artistically interesting and technically photographed well.
 
 ## Step 5: Publishing and Deployment
 
@@ -440,14 +439,14 @@ This verification ensures that the content is what I expected.  Since I'm also u
 After implementing this Claude Code + Hugo workflow, several key benefits have emerged:
 
 ### Time Savings Without Quality Loss
-What used to take me days writing and procrastinating now happens in 2-3 hours of focused effort. The quality has actually *improved*. The research phase is more thorough, the structure is more organized, and the iterative editing process catches issues I might have missed.
+What used to take me days of writing and procrastination now happens in a few hours of focused effort. The quality has actually *improved*. The research phase is more thorough, the structure is more organized, and the iterative editing process catches issues I might have missed.
 
 ### Reduced Writer's Block
 The TodoWrite planning phase eliminates the blank page problem. Instead of staring at an empty document wondering where to start, I have a clear roadmap of specific tasks to complete.
 
 ### Better Research Integration
 Claude's ability to quickly search through my existing content and pull in current web research means my posts are better informed and more connected to my broader body of work.
-Note: For more in depth research, like my post on [Agile and Economic Downturns](https://www.aaronheld.com/post/agile-vs-economic-downturns/), I modify this workflow to create a blank post and do the research in Gemini.  Once I have my draft, I paste it into vscode and continue to iterate here, additionally using claude to find a non-AI generated image.
+Note: For more in-depth research, like my post on Agile and Economic Downturns, I modify this workflow. I first create a blank post and conduct the research in Gemini. Once I have a draft, I paste it into VS Code and continue iterating, using Claude for tasks like finding a non-AI-generated image.
 
 ### Authentic Collaboration
 This isn't AI replacing human creativity - it's AI amplifying it. My voice, expertise, and editorial judgment remain central to the process. Claude handles the mechanical aspects while I focus on the creative and strategic elements.
