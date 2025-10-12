@@ -4,6 +4,10 @@ date: 2025-10-12T00:00:00Z
 draft: false
 categories: ["professional"]
 tags: ["management", "engineering", "AI", "leadership"]
+cover:
+  image: "cover.jpg"
+  alt: "Dr. James Cassedy and Mrs. Senta Lowenstein collaborating"
+  caption: "Leadership collaboration through the decades"
 ---
 
 I got into management because I saw myself as a player-coach. I could create software *and* make my teams more effective. 
@@ -90,7 +94,9 @@ Skilled middle managers won't be replaced, how we deliver value will evolve.
 ---
 
 *Inspired by [Chris Dixon's career evolution](https://www.linkedin.com/feed/update/urn:li:activity:7382393361095376896/) and my earlier musings on my [role in empowering the next generation I get older](http://localhost:1313/post/the-aging-programmer/).*
-<!-- 
+
+*Cover image: Original public domain image from [National Library of Medicine](https://www.rawpixel.com/image/11361788/dr-james-cassedy-and-mrs-senta-lowenstein)*
+<!--
 *[Comment on LinkedIn](https://www.linkedin.com/in/aaronheld/) if this resonates with your experience.* -->
 
 #Leadership #Engineering #AI #Management
