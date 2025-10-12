@@ -8,9 +8,9 @@ tags: ["management", "engineering", "AI", "leadership"]
 
 I got into management because I saw myself as a player-coach. I could create software *and* make my teams more effective. 
 
-The most rewarding part? Shielding creative people from bad direction and then delivering results. Success gave me more influence to shape process and help my team be their best.
+The most rewarding part? Shielding creative people from bad direction and then watching them delivering results. Success gave me more influence to shape process and continue to help my teams be their best.
 
-Chris Dixon's recent, high-profile shift from "Management" back to "Engineer" made me pause. He's a true champion of the possible who had an outsized impact on my early career, and his move forced me to think about my own direction.
+Chris Dixon's recent, high-profile shift from "Management" back to "Engineer" made me pause. He's a true champion of the possible who had an outsized impact on my early career, and his move forced me to think about my own direction.  
 
 And it raises an interesting question: What happens to middle managers when AI changes everything?
 
@@ -34,7 +34,11 @@ Think about all those times engineers gave me feedback about context, direction,
 
 AI makes that translation less necessary. When individual contributors are amplified by AI, they can articulate problems and solutions far more completely. The gap between "knowing what to build" and "building it" narrows. Engineers will be able to communicate directly with decision-makers because the need for a translator—a middle manager—will shrink. What AI can't deliver is to ensure that this feedback is actually listened to, and not just heard. Having people like Chris on the team will ensure that this feedback will be listened to.
 
+Automations to facilliate direct communication between customers and creators will eliminate the middleman just as interenet marketplaces allow nearly any product to be sold directly to customers. 
+
 This isn't a threat to middle managers. It is a threat to executives who've been outsourcing their understanding. There's simply no need for a middle manager to educate them when our team can directly create value and communicate with customers, investors, and the CFO.
+
+Before AI, my workload was simply too broad to find the time for deep focus that is necessary to create software.  AI lets me park my context when I need to task shift and shortens the time nececssary for me to get back into a productive flow state.
 
 ## The Evolution, Not Extinction
 
@@ -43,24 +47,24 @@ Moving up to the exec level meant I needed to delegate more of the personally re
 AI brings that back.
 
 Instead of spending time on:
-- **Fighting to get engineering concerns heard**: Pushing technical reality upward through organizational resistance
-- **Translating technical decisions**: Converting engineering constraints into business language
-- **Absorbing bad direction**: Buffering the team from poorly thought-out mandates before they derail progress
-- **Attending hours of status meetings**: Coordinating instead of creating
+- **Fighting to get engineering concerns heard**
+- **Translating technical decisions**
+- **Absorbing bad direction**
+- **Attending hours of status meetings**
 
 We can focus on:
-- **Being force multipliers**: Hands-on engineers who can design, build, and deploy while mentoring others
-- **Building psychological safety**: Creating teams where people do their best work
-- **Solving complex problems**: Applying experience to truly novel challenges
-- **Creating value**: Actually building things instead of just coordinating them
+- **Being force multipliers**
+- **Building psychological safety**
+- **Solving complex problems**
+- **Creating value**
 
-The middle managers who spent their careers doing digital transformations and helping leadership understand software development cycles won't become obsolete. We'll just be freed from the translation work that was always a means to this end.
+The middle managers who spent their careers doing digital transformations and helping leadership understand software development cycles won't become obsolete. We have exactly the right understanding to turn strategy into execution, and now we are freed from the translation work that was always a means to this end.
 
 ## What This Demands from Leadership
 
-Here's the uncomfortable truth for current leadership: the future means we can simply go around leaders who don't step up.
+Here's my take on current leadership: the future means we can simply go around leaders who don't step up.
 
-When executives could rely on middle managers to translate and buffer, they could remain technically distant. AI removes that luxury. Leadership will need to:
+When executives could rely on middle managers to translate and buffer, they could remain technically distant and aloof from accountability. AI removes that luxury. Leadership will need to:
 
 - Develop genuine understanding of technical work (AI makes this more accessible than ever)
 - Provide meaningful strategic direction
@@ -73,21 +77,19 @@ Organizations that focused so hard on survival mode during transitions—losing 
 
 ## Back to What Matters
 
-Freeing middle managers isn't about going backward to some golden age. It's about returning to what made the role valuable in the first place—before it got buried under layers of organizational dysfunction.
+Freeing middle managers isn't about going backward or some mythical horizontal org. It's about returning to what made the role valuable in the first place—before it got buried under layers of organizational dysfunction.
 
 We became managers to multiply impact, not to leave technical work behind. We took on the translation burden because someone had to bridge the gap between engineering reality and business decision-making.
 
 AI doesn't replace that value. It redistributes it. The translation work becomes less necessary. The force multiplication becomes more possible.
 
-So yes, I'm optimistic about the future of middle management. Because the future looks a lot like what drew me to management in the first place: staying close to the craft while helping talented people do their best work.
+So yes, I'm optimistic about my future as an engineering leader. Because the future looks a lot like what drew me to management in the first place: staying close to the craft while helping talented people do their best work.
 
-That's not extinction. That's evolution.
-
-What part of the "translation work" are you most excited to shed?
+Skilled middle managers won't be replaced, how we deliver value will evolve.
 
 ---
 
-*Inspired by [Chris Dixon's career evolution](https://www.linkedin.com/feed/update/urn:li:activity:7382393361095376896/) and the realization that the best parts of management were never about the meetings.*
+*Inspired by [Chris Dixon's career evolution](https://www.linkedin.com/feed/update/urn:li:activity:7382393361095376896/) and my earlier musings on my [role in empowering the next generation I get older](http://localhost:1313/post/the-aging-programmer/).*
 <!-- 
 *[Comment on LinkedIn](https://www.linkedin.com/in/aaronheld/) if this resonates with your experience.* -->
 
