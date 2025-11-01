@@ -1,7 +1,7 @@
 ---
 title: "Why Your Strategic Planning Fails (And How to Fix It)"
 date: 2025-10-25T00:00:00Z
-draft: true
+draft: false
 series: ["Strategists Guide to Agile"]
 categories: ["professional"]
 tags: ["strategy", "agile", "planning", "leadership", "management"]

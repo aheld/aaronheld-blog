@@ -17,7 +17,24 @@ When activated, follow this complete workflow:
 - The blog post directory should be in `content/post/[slug-name]/`
 - Identify all files in that directory (typically `index.md` and any images)
 
-### 2. Commit and Push the Blog Post
+### 2. Check Draft Status
+
+**IMPORTANT - Draft Detection:**
+1. Read the `index.md` file in the blog post directory
+2. Check the front matter for `draft: true`
+3. If `draft: true` is found:
+   - Use the AskUserQuestion tool to ask: "This post is currently marked as draft. Would you like to set draft: false so it goes live when published?"
+   - Options:
+     - "Yes, publish it live" (description: "Change draft to false and publish the post")
+     - "No, keep it as draft" (description: "Commit and push but post won't be visible on the site")
+   - If user chooses "Yes, publish it live":
+     - Edit the file to change `draft: true` to `draft: false`
+     - Include this change in the commit
+   - If user chooses "No, keep it as draft":
+     - Proceed with commit but warn that post won't be publicly visible
+     - Skip the verification step (since draft posts return 404)
+
+### 3. Commit and Push the Blog Post
 
 **Git Operations:**
 1. **Add files**: Stage ONLY the files in the current blog post directory
@@ -45,22 +62,20 @@ When activated, follow this complete workflow:
 
 4. **Confirm push**: Report to user that files have been pushed and deployment has started
 
-### 3. Monitor GitHub Actions Deployment
+### 4. Monitor GitHub Actions Deployment
 
-**Use the Task tool with the github-actions-monitor agent:**
+**Monitor deployment using gh CLI:**
 
-After pushing, launch the github-actions-monitor agent to:
-- Monitor the GitHub Actions workflow status
-- Wait for the deployment to complete (success or failure)
+After pushing, monitor the GitHub Actions workflow:
+- Use `gh run list --repo aheld/aaronheld-blog --limit 1` to check status
+- Wait for deployment to complete (typically 1-2 minutes)
+- Check every 30 seconds until status shows "completed success"
 - Report any errors encountered during the build/deploy process
-- Confirm when deployment is successful
+- Confirm when deployment is successful with timestamp
 
-**Agent Prompt Template:**
-```
-Monitor the GitHub Actions deployment for the blog post that was just pushed. Check the latest workflow run status and let me know when the deployment completes (successfully or with errors). Focus on the most recent workflow run triggered by the push to main branch.
-```
+### 5. Verify Published Content
 
-### 4. Verify Published Content
+**ONLY if post is NOT a draft:**
 
 Once the deployment succeeds:
 
@@ -123,9 +138,10 @@ Once the deployment succeeds:
 
 ## Important Notes
 
+- **ALWAYS check draft status** before committing and ask user if they want to publish
 - Always confirm with user before committing if there are uncommitted changes outside the blog directory
-- Respect the draft flag in front matter - warn if publishing a draft
+- If post remains as draft, skip the verification step (drafts return 404)
 - Follow the exact commit message format specified in CLAUDE.md
-- Use the github-actions-monitor agent (don't try to monitor manually)
+- Use `gh run list` to monitor deployments directly (don't use the agent)
 - Allow 2-3 minutes for full deployment to Azure Static Web Apps
 - CDN propagation may take an additional 30-60 seconds
