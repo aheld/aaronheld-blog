@@ -182,3 +182,4 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 - Deploys to Azure Static Web Apps
 - Excludes infrastructure/, archetypes/, README.md from triggering builds
 - memorize
+- always remeber to write in my style

@@ -65,11 +65,20 @@ There is so much evidence about the importance of exploration, feelings, qualita
 
 An exec challenged me anyway. Why? Because a key customer had mentioned something "didn't look right" on one of our apps. Not broken. Not down. Just not right.
 
-The customer's perception mattered more than my metrics. At the end of the day, perception shapes reality more than numbers ever will.
+The customer's perception mattered more than my metrics. At the end of the day, perception shapes reality more than numbers ever will.  So we all KNOW that just optimizing metrics leads to a predictable and mediocre outcome, but we do it anyway.
+
+## Hail the Explorer
+
+[In the past I've talked about the importaince of Maintenance](https://aeon.co/essays/innovation-is-overvalued-maintenance-often-matters-more).  In hindsight I feel vindicated in this view.  Much of of my recent professional work has been bringing operational stability to fragile and cost prohibitive 'innovative' solutions. VC Money swung the pendulumn too far from building a sustainable business to building a marketing demo at scale.
+
+I see the same thing happening in this AI shift.  Business is again prioritizing a shallow gain and not realizing they are replacing the foundation that customer relationships and coroprate skills are both built on.
+
+> Never forget that an individual person with the discretion to take intelligent contextual action is worth a thousand algorithms. And we're in danger of forgetting that.
+><br/> https://www.youtube.com/watch?v=lhlS-Wds02M&t=1181s
 
 ## The Scarcity Shift
 
-But here's where Sutherland's reframe gets interesting for the AI doomsayers: scarcity creates value.
+I appreciated Sutherland's reframe that the AI doomsayers should adopt: scarcity creates value.
 
 AI is making information abundant. Answers are free. Solutions are instant. Code writes itself. Customer questions get resolved without humans ever touching them.
 
