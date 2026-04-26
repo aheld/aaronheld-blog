@@ -85,8 +85,8 @@ params:
     # home-info mode
     homeInfoParams:
         Title: "👋 Hi, I'm Aaron Held"
-        Content: |
-            I've been leading engineering teams for **two decades** — most recently at Swiftly, and before that building the team that helped Gopuff become Philly's beloved unicorn. I write here about **management, craft, AI, and the odd Batman comparison**.
+        # Content: |
+        #     I've been leading engineering teams for **two decades** — most recently at Swiftly, and before that building the team that helped Gopuff become Philly's beloved unicorn. I write here about **management, craft, AI, and the odd Batman comparison**.
 
     socialIcons:
         - name: linkedin
