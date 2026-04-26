@@ -1,0 +1,56 @@
+{{/* Aaron Held redesigned site header.
+     Replaces PaperMod's default header with the design-handoff chrome.
+     Keeps Hugo-driven menu data so config.yml `menu:` still works. */}}
+
+{{- $currentURL := .Permalink }}
+<header class="ah-site-header">
+    <div class="ah-site-header__inner">
+        <a class="ah-brand" href="{{ "" | absLangURL }}" aria-label="{{ site.Title }} — home">
+            <img class="ah-brand__mark" src="{{ "site_icons/apple-touch-icon.png" | absURL }}" alt="" />
+            <span class="ah-brand__name">
+                Aaron Held
+                <small>Engineering &amp; craft</small>
+            </span>
+        </a>
+
+        <nav class="ah-nav" aria-label="Primary">
+            <a href="{{ "" | absLangURL }}"{{ if .IsHome }} class="is-current"{{ end }}>Writing</a>
+            <a href="{{ "" | absLangURL }}#now">Now</a>
+            <a href="{{ "" | absLangURL }}#archive">Archive</a>
+            <a href="{{ "about/" | absLangURL }}">About</a>
+        </nav>
+
+        <div class="ah-header-utility">
+            <a class="ah-icon-btn ah-search-btn" href="{{ "search/" | absLangURL }}" aria-label="Search">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                <span>Search</span>
+                <kbd class="ah-kbd">⌘K</kbd>
+            </a>
+            {{- if (not site.Params.disableThemeToggle) }}
+            <button id="theme-toggle" class="ah-icon-btn" accesskey="t" aria-label="Toggle theme" title="Toggle theme">
+                <svg class="moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            </button>
+            {{- end }}
+        </div>
+    </div>
+</header>
+
+{{/* Inline CSS to swap which sun/moon icon is visible based on theme.
+     PaperMod's own CSS (which we keep for taxonomy/search/about pages)
+     does this with class hooks, but our redesign uses `data-theme`. */}}
+<style>
+    #theme-toggle .sun, :root[data-theme="dark"] #theme-toggle .moon { display: none; }
+    :root[data-theme="dark"] #theme-toggle .sun { display: inline; }
+    /* Add ⌘K keyboard shortcut for the search button */
+</style>
+<script>
+    (function() {
+        document.addEventListener('keydown', function(e) {
+            if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+                e.preventDefault();
+                window.location.href = "{{ "search/" | absLangURL }}";
+            }
+        });
+    })();
+</script>

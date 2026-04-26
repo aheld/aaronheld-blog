@@ -1,0 +1,29 @@
+{{/* Reusable post row component used by the home page Recent and Archive
+     lists, plus the "More posts" rail at the bottom of single posts.
+     Receives a single Page as the context. */}}
+<li>
+    <a class="ah-post-row" href="{{ .Permalink }}">
+        <div class="ah-post-row__date">{{ .Date.Format "Jan 02, '06" }}</div>
+        <div class="ah-post-row__body">
+            <h3 class="ah-post-row__title">{{ .Title }}</h3>
+            <p class="ah-post-row__summary">{{ .Description | default .Summary | plainify | truncate 220 }}</p>
+            <div class="ah-post-row__meta">
+                {{- with index .Params.categories 0 }}
+                    <span class="ah-post-row__category">{{ . }}</span>
+                {{- end }}
+                {{- if .Params.categories }}<span>·</span>{{ end }}
+                <span>{{ .ReadingTime }} min</span>
+                {{- $tags := .Params.tags }}
+                {{- $realTags := slice }}
+                {{- range $tags }}{{ if . }}{{ $realTags = $realTags | append . }}{{ end }}{{ end }}
+                {{- with $realTags }}
+                    <span>·</span>
+                    <span class="ah-post-row__tags">
+                        {{- range first 3 . }}<span>{{ . }}</span>{{ end }}
+                    </span>
+                {{- end }}
+            </div>
+        </div>
+        <div class="ah-post-row__arrow">→</div>
+    </a>
+</li>

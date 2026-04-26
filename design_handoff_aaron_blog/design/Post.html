@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Won't Kill the Middle Manager, It Will Free Them — Aaron Held</title>
+  <meta name="description" content="I got into management because I saw myself as a player-coach. Here's what actually changes for middle managers when AI enters the picture — and what it quietly frees us from." />
+  <link rel="icon" type="image/png" href="assets/favicon-32x32.png" />
+
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem("ah-theme");
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", stored || (prefersDark ? "dark" : "light"));
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="stylesheet" href="assets/colors_and_type.css" />
+  <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="post.css" />
+</head>
+<body class="ah-body">
+
+  <div class="reading-progress" id="progress" aria-hidden="true"></div>
+
+  <!-- ============== HEADER (shared with home) ============== -->
+  <header class="site-header" data-screen-label="01 Header">
+    <div class="site-header__inner">
+      <a class="brand" href="Home.html" aria-label="Aaron Held — home">
+        <img class="brand__mark" src="assets/apple-touch-icon.png" alt="" />
+        <span class="brand__name">
+          Aaron Held
+          <small>Engineering &amp; craft</small>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="Home.html" class="is-current">Writing</a>
+        <a href="Home.html#now">Now</a>
+        <a href="Home.html#archive">Archive</a>
+        <a href="#">About</a>
+      </nav>
+      <div class="header-utility">
+        <button class="icon-btn search-btn" aria-label="Search">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <span>Search</span>
+          <kbd class="kbd">⌘K</kbd>
+        </button>
+        <button class="icon-btn" id="theme-btn" aria-label="Toggle theme">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============== ARTICLE ============== -->
+  <article data-screen-label="02 Post">
+
+    <!-- Breadcrumb -->
+    <nav class="post-crumbs" aria-label="Breadcrumb">
+      <a href="Home.html">Writing</a>
+      <span class="sep">/</span>
+      <a href="Home.html?cat=Management">Management</a>
+      <span class="sep">/</span>
+      <span>AI Won't Kill the Middle Manager</span>
+    </nav>
+
+    <!-- Header -->
+    <header class="post-header">
+      <div class="kicker"><span class="dot" aria-hidden="true"></span>Management · Featured essay</div>
+      <h1>AI Won't Kill the Middle Manager, It Will Free Them</h1>
+      <p class="lede">I got into management because I saw myself as a player-coach. Here's what actually changes for middle managers when AI enters the picture — and what it quietly frees us from.</p>
+
+      <div class="post-meta-bar">
+        <a class="author" href="#">
+          <img src="assets/aaron-profile.png" alt="" />
+          <span>
+            Aaron Held
+            <small>Engineering Leader · Philadelphia</small>
+          </span>
+        </a>
+        <span class="spacer"></span>
+        <span class="pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Oct 12, 2025
+        </span>
+        <span class="pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          6 min read
+        </span>
+        <span class="pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V6a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+          12 comments
+        </span>
+      </div>
+    </header>
+
+    <!-- Cover image -->
+    <div class="post-cover">
+      <figure>
+        <img
+          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&auto=format&fit=crop&q=80"
+          alt="A team gathered around a table working together — diverse hands collaborating"
+          loading="eager"
+          width="1600" height="900" />
+        <figcaption>Leadership collaboration through the decades — and what changes when the translator becomes a tool, not a person.</figcaption>
+      </figure>
+    </div>
+
+    <!-- Body -->
+    <div class="post-body" id="post-body">
+      <p>I got into management because I saw myself as a player-coach. I could create software <em>and</em> make my teams more effective.</p>
+
+      <p>The most rewarding part? Shielding creative people from bad direction and then watching them deliver results. Success gave me more influence to shape process and continue to help my teams be their best.</p>
+
+      <p>Chris Dixon's recent, high-profile shift from "Management" back to "Engineer" made me pause. He's a true champion of the possible who had an outsized impact on my early career, and his move forced me to think about my own direction.</p>
+
+      <p>And it raises an interesting question: <strong>What happens to middle managers when AI changes everything?</strong></p>
+
+      <h2 id="shield-amplifier">The Shield and the Amplifier <a href="#shield-amplifier" class="anchor" aria-label="Anchor link">#</a></h2>
+
+      <p>I've spent my career playing two roles that seemed contradictory but were actually complementary.</p>
+
+      <p><strong>The Shield.</strong> Protecting engineers from terrible ideas and organizational chaos. When the C-suite wanted to rewrite the platform in the hot new framework they'd just heard about, I absorbed that directive and translated it into something that wouldn't destroy six months of progress for a passing fad. They want it right now, when the right answer may be next week or never.</p>
+
+      <p><strong>The Amplifier.</strong> Carrying technical truth upward when executives didn't want to hear it. Engineers would tell me about architectural constraints, technical debt, or operational issues that leadership needed to understand. When executives pushed back, I could handle the blowback on my team's behalf. I actually learned to enjoy and seek this conflict.</p>
+
+      <blockquote>
+        It's not that the work was different. It's that organizational conditions demanded different things from me.
+      </blockquote>
+
+      <h2 id="what-ai-changes">What AI Actually Changes <a href="#what-ai-changes" class="anchor" aria-label="Anchor link">#</a></h2>
+
+      <p>Here's the optimistic realization: AI isn't going to put junior engineers out of work. Instead, it's going to demand that leaders who rely on the status quo step up their game and provide truly meaningful direction and deliver outcomes.</p>
+
+      <p>Think about all those times engineers gave me feedback about context, direction, or operational issues that I had to deliver to executives. All those conversations where I translated technical constraints into business language. AI makes that translation less necessary. When individual contributors are amplified by AI, they can articulate problems and solutions far more completely.</p>
+
+      <div class="callout">
+        <div class="callout-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+          The threat isn't to middle managers
+        </div>
+        <p>It's to executives who've been outsourcing their understanding. There's no need for a middle manager to educate them when our team can directly create value and communicate with customers, investors, and the CFO.</p>
+      </div>
+
+      <h2 id="evolution">The Evolution, Not Extinction <a href="#evolution" class="anchor" aria-label="Anchor link">#</a></h2>
+
+      <p>Moving up to the exec level meant I needed to delegate more of the personally rewarding work of creating and focus entirely on budgets and processes. I did it because that's what "career progression" was supposed to look like. But I always knew the best parts of my job were when I could still contribute technically while multiplying team effectiveness.</p>
+
+      <p>AI brings that back. Instead of spending time on:</p>
+
+      <ul>
+        <li><strong>Fighting</strong> to get engineering concerns heard</li>
+        <li><strong>Translating</strong> technical decisions into business language</li>
+        <li><strong>Absorbing</strong> bad direction</li>
+        <li><strong>Attending</strong> hours of status meetings</li>
+      </ul>
+
+      <p>We can focus on:</p>
+
+      <ul>
+        <li><strong>Being</strong> force multipliers</li>
+        <li><strong>Building</strong> psychological safety</li>
+        <li><strong>Solving</strong> complex problems</li>
+        <li><strong>Creating</strong> value, directly</li>
+      </ul>
+
+      <h2 id="what-this-demands">What This Demands from Leadership <a href="#what-this-demands" class="anchor" aria-label="Anchor link">#</a></h2>
+
+      <p>Here's my take on current leadership: the future means we can simply go around leaders who don't step up. When executives could rely on middle managers to translate and buffer, they could remain technically distant and aloof from accountability. AI removes that luxury.</p>
+
+      <p>The organizations that win won't eliminate middle managers. They'll empower us to do what we've always done best: <strong>multiply the effectiveness of talented people while contributing directly to outcomes</strong>.</p>
+
+      <h2 id="back-to-what-matters">Back to What Matters <a href="#back-to-what-matters" class="anchor" aria-label="Anchor link">#</a></h2>
+
+      <p>Freeing middle managers isn't about going backward or some mythical horizontal org. It's about returning to what made the role valuable in the first place — before it got buried under layers of organizational dysfunction.</p>
+
+      <p>So yes, I'm optimistic about my future as an engineering leader. Because the future looks a lot like what drew me to management in the first place: <em>staying close to the craft while helping talented people do their best work.</em></p>
+
+      <hr class="section-rule" />
+
+      <p style="font-size: 14px; color: var(--fg-3);">Inspired by <a href="#">Chris Dixon's career evolution</a> and my earlier musings on <a href="#">the role of empowering the next generation as I get older</a>. Cover image: original public domain image from the National Library of Medicine.</p>
+    </div>
+
+    <!-- Footer rail: tags + share -->
+    <div class="post-footer-rail">
+      <div class="post-tags">
+        <a href="#">management</a>
+        <a href="#">engineering</a>
+        <a href="#">AI</a>
+        <a href="#">leadership</a>
+      </div>
+      <div class="share-row" aria-label="Share">
+        <a href="#" aria-label="Share on Bluesky" title="Bluesky">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 10.8C10.3 7.6 5.9 4 4 4 2 4 2 5 2 6s1 5 2 6 5 2 8 2 7-1 8-2 2-5 2-6 0-2-2-2c-1.9 0-6.3 3.6-8 6.8z"/></svg>
+        </a>
+        <a href="#" aria-label="Share on LinkedIn" title="LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5V9h3zM6.5 7.7a1.8 1.8 0 110-3.6 1.8 1.8 0 010 3.6zM19 19h-3v-5.3c0-1.3-.5-2.1-1.6-2.1-.9 0-1.4.6-1.6 1.2-.1.2-.1.5-.1.8V19h-3V9h3v1.3c.4-.6 1.1-1.5 2.7-1.5 2 0 3.5 1.3 3.5 4.1z"/></svg>
+        </a>
+        <a href="#" aria-label="Share on Reddit" title="Reddit">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="9"/><circle cx="9" cy="13" r="1"/><circle cx="15" cy="13" r="1"/><path d="M9 16c1 1 4 1 5 0"/><path d="M16 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="m14.5 7.5-2.5 4"/></svg>
+        </a>
+        <a href="#" aria-label="Copy link" title="Copy link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Author card -->
+    <aside class="author-card" aria-label="About the author">
+      <img src="assets/aaron-profile.png" alt="Aaron Held" />
+      <div>
+        <h4>Aaron Held</h4>
+        <p>Engineering leader, software architect, and Philadelphia transplant. Currently at Swiftly.com. Previously built the engineering team that helped Gopuff become Philly's beloved unicorn startup. Writes about management, craft, and the occasional Batman comparison.</p>
+        <div class="links">
+          <a href="#">Subscribe via RSS</a>
+          <a href="https://linkedin.com/in/aaronheld/">LinkedIn</a>
+          <a href="https://github.com/aheld">GitHub</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Prev / Next -->
+    <nav class="prev-next" aria-label="Post navigation">
+      <a href="#" class="prev">
+        <div class="label">← Previous</div>
+        <div class="title">We Finally Care About Context</div>
+      </a>
+      <a href="#" class="next">
+        <div class="label">Next →</div>
+        <div class="title">The North Star: Why Engineering Teams Need a Vision to Navigate By</div>
+      </a>
+    </nav>
+
+    <!-- More posts (compact) -->
+    <section class="more-posts" aria-labelledby="more-head">
+      <div class="more-head" id="more-head">More from Aaron</div>
+      <ul class="post-list" id="more-list"></ul>
+    </section>
+
+  </article>
+
+  <!-- Sticky in-page TOC (desktop only) -->
+  <aside class="toc-rail" aria-label="On this page">
+    <div class="toc-title">On this page</div>
+    <ul id="toc">
+      <li><a href="#shield-amplifier">The Shield and the Amplifier</a></li>
+      <li><a href="#what-ai-changes">What AI Actually Changes</a></li>
+      <li><a href="#evolution">The Evolution, Not Extinction</a></li>
+      <li><a href="#what-this-demands">What This Demands from Leadership</a></li>
+      <li><a href="#back-to-what-matters">Back to What Matters</a></li>
+    </ul>
+  </aside>
+
+  <footer class="site-footer">
+    <div>© 2026 Aaron Held · Built with Hugo + PaperMod</div>
+    <div class="site-footer__socials">
+      <a href="https://linkedin.com/in/aaronheld/" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5V9h3zM6.5 7.7a1.8 1.8 0 110-3.6 1.8 1.8 0 010 3.6zM19 19h-3v-5.3c0-1.3-.5-2.1-1.6-2.1-.9 0-1.4.6-1.6 1.2-.1.2-.1.5-.1.8V19h-3V9h3v1.3c.4-.6 1.1-1.5 2.7-1.5 2 0 3.5 1.3 3.5 4.1z"/></svg></a>
+      <a href="https://github.com/aheld" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.56 9.56 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.69-4.57 4.94.36.31.68.92.68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0012 2z"/></svg></a>
+    </div>
+  </footer>
+
+  <script src="posts-data.js"></script>
+  <script>
+    (function () {
+      // Theme toggle
+      document.getElementById("theme-btn").addEventListener("click", function () {
+        var cur = document.documentElement.getAttribute("data-theme");
+        var next = cur === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", next);
+        try { localStorage.setItem("ah-theme", next); } catch (e) {}
+      });
+
+      // Reading progress
+      var bar = document.getElementById("progress");
+      var body = document.getElementById("post-body");
+      function tick() {
+        if (!body) return;
+        var rect = body.getBoundingClientRect();
+        var denom = Math.max(1, rect.height - window.innerHeight);
+        var pct = Math.max(0, Math.min(1, -rect.top / denom));
+        bar.style.width = (pct * 100) + "%";
+      }
+      document.addEventListener("scroll", tick, { passive: true });
+      window.addEventListener("resize", tick);
+      tick();
+
+      // TOC active section
+      var tocLinks = document.querySelectorAll("#toc a");
+      var headings = Array.from(tocLinks).map(function (a) {
+        var id = a.getAttribute("href").slice(1);
+        return { id: id, el: document.getElementById(id), link: a };
+      }).filter(function (h) { return h.el; });
+      function tocTick() {
+        var y = window.scrollY + 120;
+        var current = headings[0];
+        for (var i = 0; i < headings.length; i++) {
+          if (headings[i].el.offsetTop <= y) current = headings[i];
+        }
+        tocLinks.forEach(function (a) { a.classList.remove("is-active"); });
+        if (current) current.link.classList.add("is-active");
+      }
+      document.addEventListener("scroll", tocTick, { passive: true });
+      tocTick();
+
+      // More posts (re-uses home's row pattern)
+      function shortDate(iso) {
+        var d = new Date(iso + "T00:00:00");
+        return d.toLocaleDateString("en-US", { month: "short", day: "2-digit" }) + "\u202f" + d.getFullYear().toString().slice(2);
+      }
+      var more = document.getElementById("more-list");
+      var picks = window.AH_POSTS.filter(function (p) { return p.slug !== "ai-wont-kill-the-middle-manager"; }).slice(0, 4);
+      picks.forEach(function (p) {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a class="post-row" href="#">' +
+            '<div class="post-row__date">' + shortDate(p.date) + '</div>' +
+            '<div class="post-row__body">' +
+              '<h3 class="post-row__title">' + p.title + '</h3>' +
+              '<p class="post-row__summary">' + p.summary + '</p>' +
+              '<div class="post-row__meta">' +
+                '<span class="post-row__category">' + p.category + '</span>' +
+                '<span>·</span><span>' + p.readingTime + ' min</span>' +
+              '</div>' +
+            '</div>' +
+            '<div class="post-row__arrow">→</div>' +
+          '</a>';
+        more.appendChild(li);
+      });
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+{{- define "main" }}
+{{- $allPosts := where site.RegularPages "Type" "post" }}
+{{- $featured := first 2 (where $allPosts "Params.featured" true) }}
+{{- if lt (len $featured) 2 }}
+    {{/* Fallback: if fewer than 2 posts are flagged featured, use the newest 2 */}}
+    {{- $featured = first 2 $allPosts }}
+{{- end }}
+{{- $featuredSlugs := slice }}
+{{- range $featured }}{{ $featuredSlugs = $featuredSlugs | append .File.UniqueID }}{{ end }}
+
+{{/* Posts excluding featured: Recent (next 6) and Archive (rest) */}}
+{{- $rest := where $allPosts "File.UniqueID" "not in" $featuredSlugs }}
+{{- $recent := first 6 $rest }}
+{{- $recentSlugs := slice }}
+{{- range $recent }}{{ $recentSlugs = $recentSlugs | append .File.UniqueID }}{{ end }}
+{{- $archive := where $rest "File.UniqueID" "not in" $recentSlugs }}
+
+{{- $thisYearPosts := where $allPosts "Date.Year" now.Year }}
+
+<div class="ah-main ah-home">
+
+    <!-- Hero -->
+    <section class="ah-hero" aria-labelledby="ah-hero-title">
+        <img class="ah-hero__avatar" src="{{ "site_icons/aaron-profile.png" | absURL }}" alt="Aaron Held" width="96" height="96" />
+        <div>
+            <div class="ah-hero__eyebrow"><span class="dot" aria-hidden="true"></span>Writing from Philadelphia</div>
+            <h1 id="ah-hero-title">Hello friend, I'm Aaron.</h1>
+            <div class="ah-hero__sub">
+                {{- with site.Params.homeInfoParams.Content }}
+                    {{ . | markdownify }}
+                {{- else }}
+                    <p>I've been leading engineering teams for <strong>two decades</strong> — most recently at Swiftly, and before that building the team that helped Gopuff become Philly's beloved unicorn. I write here about <strong>management, craft, AI, and the odd Batman comparison</strong>.</p>
+                {{- end }}
+            </div>
+            <div class="ah-hero__meta">
+                <span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                    {{ len $thisYearPosts }} post{{ if ne (len $thisYearPosts) 1 }}s{{ end }} this year
+                </span>
+                <a href="{{ "index.xml" | absURL }}">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+                    RSS
+                </a>
+                <span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg>
+                    Archive of {{ len $allPosts }}
+                </span>
+            </div>
+        </div>
+    </section>
+
+    {{/* ---------- Categories ---------- */}}
+    <!-- {{- with .Site.Taxonomies.categories }}
+    <div class="ah-section-head">
+        <h2>Filter</h2>
+    </div>
+    <div class="ah-chips" role="tablist" aria-label="Browse by category">
+        <a class="ah-chip is-active" href="{{ "" | absLangURL }}">All</a>
+        {{- range $name, $taxonomy := . }}
+            <a class="ah-chip" href="{{ "categories/" | absLangURL }}{{ $name | urlize }}/">{{ $name | title }}</a>
+        {{- end }}
+    </div>
+    {{- end }} -->
+
+    {{/* ---------- Featured ---------- */}}
+    {{- with $featured }}
+    <div class="ah-section-head">
+        <h2>Featured</h2>
+        <a class="ah-section-head__link" href="{{ "post/" | absLangURL }}">All writing →</a>
+    </div>
+    <div class="ah-featured">
+        {{- range . }}
+            {{- $kicker := index .Params.categories 0 | default "Essay" }}
+            <a class="ah-featured-card" href="{{ .Permalink }}">
+                <div class="ah-featured-card__kicker">{{ if .Params.featured }}Featured{{ else }}{{ $kicker }}{{ end }}</div>
+                <h3 class="ah-featured-card__title">{{ .Title }}</h3>
+                <p class="ah-featured-card__summary">{{ .Description | default .Summary | plainify | truncate 200 }}</p>
+                <div class="ah-featured-card__meta">
+                    <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+                    <span>·</span>
+                    <span>{{ .ReadingTime }} min read</span>
+                    {{- with index .Params.categories 0 }}
+                        <span>·</span>
+                        <span>{{ . }}</span>
+                    {{- end }}
+                </div>
+            </a>
+        {{- end }}
+    </div>
+    {{- end }}
+    {{/* ---------- Now + tag cloud ----------
+         Now items live in data/now.yaml. Edit there to update. */}}
+    {{- $now := site.Data.now }}
+    <section class="ah-meta-strip" id="now" aria-labelledby="now-head">
+        <div>
+            <h3 id="now-head">
+                Now
+                {{- with $now.updated }}
+                    <span class="ah-now-updated">Updated {{ (time .).Format "Jan 2, 2006" }}</span>
+                {{- end }}
+            </h3>
+            <ul class="ah-now-list">
+                {{- range $now.items }}
+                    <li><span>{{ .label }}</span><span>{{ .value | markdownify }}</span></li>
+                {{- end }}
+            </ul>
+        </div>
+        <div>
+            <h3>Common topics</h3>
+            <div class="ah-tag-cloud">
+                {{- $tags := .Site.Taxonomies.tags }}
+                {{- $sortedTags := slice }}
+                {{- range $name, $taxonomy := $tags }}
+                    {{- $sortedTags = $sortedTags | append (dict "name" $name "count" (len $taxonomy)) }}
+                {{- end }}
+                {{- range first 14 (sort $sortedTags "count" "desc") }}
+                    <a href="{{ "tags/" | absLangURL }}{{ .name | urlize }}/">{{ .name }}</a>
+                {{- end }}
+            </div>
+        </div>
+    </section>
+
+    {{/* ---------- Recent ---------- */}}
+    {{- with $recent }}
+    <div class="ah-section-head">
+        <h2>Recent</h2>
+        <a class="ah-section-head__link" href="#archive">Older posts →</a>
+    </div>
+    <ul class="ah-post-list">
+        {{- range . }}
+            {{ partial "ah-post-row.html" . }}
+        {{- end }}
+    </ul>
+    {{- end }}
+
+    {{/* ---------- Archive (dense) ---------- */}}
+    {{- with $archive }}
+    <div class="ah-section-head" id="archive">
+        <h2>Archive</h2>
+        <a class="ah-section-head__link" href="{{ "archives/" | absLangURL }}">By year →</a>
+    </div>
+    <ul class="ah-post-list is-dense">
+        {{- range . }}
+            {{ partial "ah-post-row.html" . }}
+        {{- end }}
+    </ul>
+    {{- end }}
+
+</div>
+{{- end }}

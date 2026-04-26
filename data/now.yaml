@@ -1,0 +1,18 @@
+# "Now" strip on the home page. Edit this file to update what you're up to —
+# no template changes required. The `updated:` date renders next to the
+# section heading so stale states are visible.
+#
+# See specs/spec-design-handoff-deferred.md (item #1) for the design history.
+
+updated: 2026-04-25
+items:
+  - label: Working At
+    value: Swiftly.com
+  - label: Living In
+    value: Philadelphia, PA
+  - label: Reading
+    value: Reversal, a Lincoln Lawyer novel by Michael Connelly
+  - label: Building
+    value: A homeserver with all my CDs and DVDs ripped to it
+  - label: Thinking about
+    value: How to prevent AI from making community the scarce resource

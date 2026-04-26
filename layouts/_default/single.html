@@ -1,0 +1,191 @@
+{{- define "main" }}
+{{- $allPosts := where site.RegularPages "Type" "post" }}
+{{- $kicker := "" }}
+{{- with index .Params.categories 0 }}{{ $kicker = . }}{{ end }}
+{{- if .Params.kicker }}{{ $kicker = .Params.kicker }}{{ end }}
+
+{{/* Reading-progress bar — width updated by JS in extend_footer.html */}}
+<div class="ah-reading-progress" id="ah-progress" aria-hidden="true"></div>
+
+<div class="ah-post">
+<article>
+
+    {{/* ---------- Breadcrumb ---------- */}}
+    <nav class="ah-post-crumbs" aria-label="Breadcrumb">
+        <a href="{{ "" | absLangURL }}">Writing</a>
+        {{- with index .Params.categories 0 }}
+        <span class="sep">/</span>
+        <a href="{{ "categories/" | absLangURL }}{{ . | urlize }}/">{{ . }}</a>
+        {{- end }}
+        <span class="sep">/</span>
+        <span>{{ .Title | truncate 60 }}</span>
+    </nav>
+
+    {{/* ---------- Header ---------- */}}
+    <header class="ah-post-header">
+        {{- with $kicker }}
+        <div class="kicker"><span class="dot" aria-hidden="true"></span>{{ . }}{{ if $.Params.featured }} · Featured essay{{ end }}</div>
+        {{- end }}
+        <h1>{{ .Title }}</h1>
+        {{- with .Description }}
+        <p class="lede">{{ . }}</p>
+        {{- end }}
+
+        <div class="ah-post-meta-bar">
+            <a class="author" href="{{ "about/" | absLangURL }}">
+                <img src="{{ "site_icons/aaron-profile.png" | absURL }}" alt="" />
+                <span>
+                    {{ site.Params.author | default "Aaron Held" }}
+                    <small>Engineering Leader · Philadelphia</small>
+                </span>
+            </a>
+            <span class="spacer"></span>
+            <span class="pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                {{ .Date.Format "Jan 2, 2006" }}
+            </span>
+            <span class="pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                {{ .ReadingTime }} min read
+            </span>
+        </div>
+    </header>
+
+    {{/* ---------- Cover image ---------- */}}
+    {{- $cover := .Params.cover }}
+    {{- if and $cover $cover.image (not (or $cover.hidden $cover.hiddenInSingle)) }}
+        {{- $imgPath := $cover.image }}
+        {{/* Prefer the co-located page resource (works for any post with the
+             image alongside index.md), then fall back to a static-root path. */}}
+        {{- $resource := .Resources.GetMatch $imgPath }}
+        {{- $img := "" }}
+        {{- with $resource }}
+            {{- $img = .Permalink }}
+        {{- end }}
+        {{- if not $img }}
+            {{- if hasPrefix $imgPath "http" }}
+                {{- $img = $imgPath }}
+            {{- else if hasPrefix $imgPath "/" }}
+                {{- $img = $imgPath | absURL }}
+            {{- else }}
+                {{- $img = (path.Join .RelPermalink $imgPath) | absURL }}
+            {{- end }}
+        {{- end }}
+        <div class="ah-post-cover">
+            <figure>
+                <img src="{{ $img }}" alt="{{ $cover.alt | default .Title }}" loading="eager" />
+                {{- with $cover.caption }}
+                <figcaption>{{ . | markdownify }}</figcaption>
+                {{- end }}
+            </figure>
+        </div>
+    {{- end }}
+
+    {{/* ---------- Body ---------- */}}
+    <div class="ah-post-body" id="ah-post-body">
+        {{- if not (.Param "disableAnchoredHeadings") }}
+            {{- partial "anchored_headings.html" .Content -}}
+        {{- else }}
+            {{ .Content }}
+        {{- end }}
+    </div>
+
+    {{/* ---------- Footer rail (tags + share) ---------- */}}
+    {{- if or .Params.tags (.Param "ShowShareButtons") }}
+    <div class="ah-post-footer-rail">
+        <div class="ah-post-tags">
+            {{- range .Params.tags }}
+                <a href="{{ "tags/" | absLangURL }}{{ . | urlize }}/">#{{ . }}</a>
+            {{- end }}
+        </div>
+        {{- if .Param "ShowShareButtons" }}
+        <div class="ah-share-row">
+            {{- $title := .Title }}
+            {{- $url := .Permalink }}
+            {{- $shareBtns := .Param "ShareButtons" }}
+            {{- if in $shareBtns "bluesky" }}
+            <a href="https://bsky.app/intent/compose?text={{ printf "%s %s" $title $url | urlquery }}" target="_blank" rel="noopener" aria-label="Share on Bluesky">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 10.8C10.3 7.6 5.9 4 4 4 2 4 2 5 2 6s1 5 2 6 5 2 8 2 7-1 8-2 2-5 2-6-0-2-2-2c-1.9 0-6.3 3.6-8 6.8z"/></svg>
+            </a>
+            {{- end }}
+            {{- if in $shareBtns "linkedin" }}
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ $url | urlquery }}" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5V9h3zM6.5 7.7a1.8 1.8 0 110-3.6 1.8 1.8 0 010 3.6zM19 19h-3v-5.3c0-1.3-.5-2.1-1.6-2.1-.9 0-1.4.6-1.6 1.2-.1.2-.1.5-.1.8V19h-3V9h3v1.3c.4-.6 1.1-1.5 2.7-1.5 2 0 3.5 1.3 3.5 4.1z"/></svg>
+            </a>
+            {{- end }}
+            {{- if in $shareBtns "reddit" }}
+            <a href="https://www.reddit.com/submit?url={{ $url | urlquery }}&title={{ $title | urlquery }}" target="_blank" rel="noopener" aria-label="Share on Reddit">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><circle cx="9" cy="13" r="1.2" fill="#fff"/><circle cx="15" cy="13" r="1.2" fill="#fff"/><path d="M8 16c1 1 2.5 1.5 4 1.5s3-.5 4-1.5" stroke="#fff" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>
+            </a>
+            {{- end }}
+            {{- if in $shareBtns "facebook" }}
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ $url | urlquery }}" target="_blank" rel="noopener" aria-label="Share on Facebook">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9V14.9H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4H15.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg>
+            </a>
+            {{- end }}
+        </div>
+        {{- end }}
+    </div>
+    {{- end }}
+
+    {{/* ---------- Author card ---------- */}}
+    <aside class="ah-author-card">
+        <img src="{{ "site_icons/aaron-profile.png" | absURL }}" alt="{{ site.Params.author }}" />
+        <div>
+            <h4>{{ site.Params.author | default "Aaron Held" }}</h4>
+            <p>{{ site.Params.authorBio | default "Engineering leader and software architect based in Philadelphia. I write about management, craft, AI, and the occasional Batman comparison." }}</p>
+            <div class="links">
+                {{- range site.Params.socialIcons }}
+                    <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name | humanize }}</a>
+                {{- end }}
+            </div>
+        </div>
+    </aside>
+
+    {{/* ---------- Prev / Next ---------- */}}
+    {{- if .Param "ShowPostNavLinks" }}
+    {{- $prev := .PrevInSection }}
+    {{- $next := .NextInSection }}
+    {{- if or $prev $next }}
+    <div class="ah-prev-next">
+        {{- if $prev }}
+        <a class="prev" href="{{ $prev.Permalink }}">
+            <div class="label">← Previous</div>
+            <div class="title">{{ $prev.Title }}</div>
+        </a>
+        {{- else }}<div></div>{{ end }}
+        {{- if $next }}
+        <a class="next" href="{{ $next.Permalink }}">
+            <div class="label">Next →</div>
+            <div class="title">{{ $next.Title }}</div>
+        </a>
+        {{- else }}<div></div>{{ end }}
+    </div>
+    {{- end }}
+    {{- end }}
+
+    {{/* ---------- More posts ---------- */}}
+    {{- $current := . }}
+    {{- $more := first 4 (where (where $allPosts "Permalink" "ne" .Permalink) "Date" "ne" .Date) }}
+    {{- with $more }}
+    <section class="ah-more-posts">
+        <div class="more-head">More from Aaron</div>
+        <ul class="ah-post-list">
+            {{- range . }}
+                {{ partial "ah-post-row.html" . }}
+            {{- end }}
+        </ul>
+    </section>
+    {{- end }}
+
+</article>
+</div>
+
+{{/* ---------- TOC rail (desktop only) ---------- */}}
+{{- if .Param "showtoc" | default false }}
+<aside class="ah-toc-rail" id="ah-toc-rail" aria-label="Table of contents">
+    <div class="toc-title">On this page</div>
+    {{ .TableOfContents }}
+</aside>
+{{- end }}
+{{- end }}

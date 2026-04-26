@@ -1,0 +1,46 @@
+{{/* Aaron Held redesign — single-post enhancements.
+     Powers the reading-progress bar and active-TOC highlighting.
+     Both are no-ops on pages where the target elements don't exist. */}}
+
+{{- if eq .Kind "page" }}
+<script>
+(function () {
+    var body = document.getElementById('ah-post-body');
+    var progress = document.getElementById('ah-progress');
+    var tocRail = document.getElementById('ah-toc-rail');
+    if (!body) return;
+
+    var headings = Array.prototype.slice.call(body.querySelectorAll('h2'));
+    var tocLinks = tocRail ? Array.prototype.slice.call(tocRail.querySelectorAll('a')) : [];
+
+    function update() {
+        // Reading progress: 0% at top of post, 100% at bottom
+        if (progress) {
+            var rect = body.getBoundingClientRect();
+            var max = rect.height - window.innerHeight;
+            var pct = max > 0 ? Math.max(0, Math.min(1, -rect.top / max)) : 0;
+            progress.style.width = (pct * 100) + '%';
+        }
+
+        // Active TOC: closest H2 above (scrollY + 120) threshold
+        if (tocLinks.length && headings.length) {
+            var threshold = window.scrollY + 120;
+            var activeId = null;
+            for (var i = 0; i < headings.length; i++) {
+                if (headings[i].offsetTop <= threshold) {
+                    activeId = headings[i].id;
+                }
+            }
+            tocLinks.forEach(function (a) {
+                var href = a.getAttribute('href') || '';
+                a.classList.toggle('is-active', href === '#' + activeId);
+            });
+        }
+    }
+
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+})();
+</script>
+{{- end }}

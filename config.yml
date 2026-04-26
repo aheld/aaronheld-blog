@@ -85,11 +85,8 @@ params:
     # home-info mode
     homeInfoParams:
         Title: "👋 Hi, I'm Aaron Held"
-        Content: "**Engineering Leader & Software Architect**
-
-I've been leading engineering teams and building software for over two decades, and there's still so much to learn.
-
-I built the engineering team that helped Gopuff become Philadelphia's beloved unicorn startup. Currently at Swiftly.com, I'm working to counter the damage done by the 'winner-take-most' mentality of overfunded startups. I believe regional grocery stores should thrive—we can do better than discount stores and dark kitchens."
+        Content: |
+            I've been leading engineering teams for **two decades** — most recently at Swiftly, and before that building the team that helped Gopuff become Philly's beloved unicorn. I write here about **management, craft, AI, and the odd Batman comparison**.
 
     socialIcons:
         - name: linkedin

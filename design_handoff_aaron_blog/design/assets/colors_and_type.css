@@ -1,0 +1,179 @@
+/* ============================================================
+   Aaron Held Design System — Colors & Type
+   Rooted in the PaperMod theme used at aaronheld.com.
+   Palette is intentionally restrained: paper, ink, a single
+   accent red pulled from the apple-touch-icon / logo mark.
+   ============================================================ */
+
+:root {
+    /* ---------- Raw palette ---------- */
+
+    /* Neutrals — warm-gray "paper and ink" */
+    --ah-paper:        rgb(255, 255, 255); /* page background, light */
+    --ah-paper-2:      rgb(250, 250, 250); /* subtle section fill */
+    --ah-ink:          rgb(30, 30, 30);    /* primary text, light */
+    --ah-ink-2:        rgb(108, 108, 108); /* secondary text / meta */
+    --ah-ink-3:        rgb(214, 214, 214); /* tertiary / disabled */
+    --ah-border:       rgb(238, 238, 238); /* hairlines */
+    --ah-content:      rgb(31, 31, 31);    /* body copy */
+
+    /* Dark mode neutrals (PaperMod defaults) */
+    --ah-paper-dark:   rgb(29, 30, 32);
+    --ah-paper-2-dark: rgb(46, 46, 51);
+    --ah-ink-dark:     rgb(218, 218, 219);
+    --ah-ink-2-dark:   rgb(155, 156, 157);
+    --ah-ink-3-dark:   rgb(65, 66, 68);
+    --ah-border-dark:  rgb(51, 51, 51);
+    --ah-content-dark: rgb(196, 196, 197);
+
+    /* Code surfaces */
+    --ah-code-bg:        rgb(245, 245, 245);
+    --ah-code-block-bg:  rgb(28, 29, 33);   /* dark terminal even in light mode */
+    --ah-code-bg-dark:   rgb(55, 56, 62);
+    --ah-code-block-bg-dark: rgb(46, 46, 51);
+
+    /* Accent — sampled from the apple-touch-icon "shield" ring.
+       Used sparingly: logo mark, link underlines on hover, pull-quotes. */
+    --ah-accent:        #d64545;          /* captain-america red */
+    --ah-accent-ink:    #b13838;          /* pressed / darker */
+    --ah-accent-soft:   #fbeaea;          /* wash background */
+
+    /* Supporting hues sampled from the avatar (blue tee) — used for tags only */
+    --ah-tag:           #2f6fb3;
+    --ah-tag-soft:      #e7eff8;
+
+    /* ---------- Semantic color tokens ---------- */
+    --fg-1: var(--ah-ink);           /* primary headline / strong text */
+    --fg-2: var(--ah-content);       /* body copy */
+    --fg-3: var(--ah-ink-2);         /* meta, captions, dates */
+    --fg-4: var(--ah-ink-3);         /* disabled */
+
+    --bg-1: var(--ah-paper);         /* page */
+    --bg-2: var(--ah-paper-2);       /* card / subtle surface */
+    --bg-3: var(--ah-code-bg);       /* inline code / quiet fill */
+
+    --border-1: var(--ah-border);
+    --accent:   var(--ah-accent);
+    --accent-ink: var(--ah-accent-ink);
+    --accent-soft: var(--ah-accent-soft);
+
+    /* ---------- Type system ----------
+       Aaron's site ships the system stack (PaperMod default).
+       We keep that as the canonical body face and add a
+       serif voice for long-form pull-quotes, which shows up
+       in blockquotes on the real site via italics. */
+
+    --font-sans:
+        -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-serif:
+        'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia,
+        'Times New Roman', serif;
+    --font-mono:
+        'Monaco', 'Menlo', 'Ubuntu Mono', 'SF Mono', Consolas, monospace;
+
+    /* Scale (body = 18px like PaperMod) */
+    --fs-xs:   14px;
+    --fs-sm:   16px;
+    --fs-base: 18px;
+    --fs-md:   20px;
+    --fs-lg:   24px;
+    --fs-xl:   32px;
+    --fs-2xl:  40px;
+    --fs-3xl:  48px;
+
+    --lh-tight: 1.2;
+    --lh-snug:  1.35;
+    --lh-base:  1.6;
+
+    --fw-regular: 400;
+    --fw-medium:  500;
+    --fw-semi:    600;
+    --fw-bold:    700;
+
+    /* ---------- Layout tokens ---------- */
+    --gap:         24px;
+    --content-gap: 20px;
+    --nav-width:   1024px;
+    --main-width:  720px; /* narrow, reading-optimized column */
+    --header-height: 60px;
+    --footer-height: 60px;
+    --radius:      8px;
+    --radius-sm:   4px;
+    --radius-lg:   12px;
+    --radius-pill: 999px;
+
+    /* ---------- Elevation ---------- */
+    --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-2: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-3: 0 8px 24px rgba(0, 0, 0, 0.10);
+}
+
+/* Dark-mode overrides */
+:root[data-theme="dark"] {
+    --fg-1: var(--ah-ink-dark);
+    --fg-2: var(--ah-content-dark);
+    --fg-3: var(--ah-ink-2-dark);
+    --fg-4: var(--ah-ink-3-dark);
+    --bg-1: var(--ah-paper-dark);
+    --bg-2: var(--ah-paper-2-dark);
+    --bg-3: var(--ah-code-bg-dark);
+    --border-1: var(--ah-border-dark);
+}
+
+/* ============================================================
+   Semantic element defaults — drop-in reading styles
+   ============================================================ */
+
+.ah-body {
+    font-family: var(--font-sans);
+    font-size: var(--fs-base);
+    line-height: var(--lh-base);
+    color: var(--fg-2);
+    background: var(--bg-1);
+    word-break: break-word;
+}
+
+.ah-h1 { font-size: var(--fs-3xl); line-height: var(--lh-tight); font-weight: var(--fw-bold);   color: var(--fg-1); letter-spacing: -0.01em; }
+.ah-h2 { font-size: var(--fs-2xl); line-height: var(--lh-tight); font-weight: var(--fw-bold);   color: var(--fg-1); letter-spacing: -0.005em; }
+.ah-h3 { font-size: var(--fs-xl);  line-height: var(--lh-snug);  font-weight: var(--fw-semi);   color: var(--fg-1); }
+.ah-h4 { font-size: var(--fs-lg);  line-height: var(--lh-snug);  font-weight: var(--fw-semi);   color: var(--fg-1); }
+.ah-h5 { font-size: var(--fs-md);  line-height: var(--lh-snug);  font-weight: var(--fw-semi);   color: var(--fg-1); }
+
+.ah-lede { font-size: var(--fs-md); line-height: var(--lh-base); color: var(--fg-2); }
+.ah-p    { font-size: var(--fs-base); line-height: var(--lh-base); color: var(--fg-2); margin: 0 0 1em; }
+.ah-meta { font-size: var(--fs-xs);  color: var(--fg-3); letter-spacing: 0.01em; }
+
+.ah-a    { color: var(--fg-1); text-decoration: none; box-shadow: inset 0 -1px 0 var(--fg-3); transition: box-shadow .15s ease, color .15s ease; }
+.ah-a:hover { color: var(--accent); box-shadow: inset 0 -1px 0 var(--accent); }
+
+.ah-code {
+    font-family: var(--font-mono);
+    font-size: 0.92em;
+    background: var(--bg-3);
+    padding: 0.15em 0.4em;
+    border-radius: var(--radius-sm);
+    color: var(--fg-1);
+}
+
+.ah-pre {
+    font-family: var(--font-mono);
+    background: var(--ah-code-block-bg);
+    color: #e6e6e6;
+    padding: 16px 18px;
+    border-radius: var(--radius);
+    line-height: 1.4;
+    font-size: var(--fs-sm);
+    overflow-x: auto;
+}
+
+.ah-quote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--fs-lg);
+    line-height: var(--lh-snug);
+    color: var(--fg-1);
+    border-left: 3px solid var(--accent);
+    padding: 0.1em 0 0.1em 1.1em;
+    margin: 1.5em 0;
+}

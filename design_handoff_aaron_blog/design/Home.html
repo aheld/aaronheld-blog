@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aaron Held — Notes on engineering, management, and Philly</title>
+  <meta name="description" content="Aaron Held writes about engineering leadership, AI, craft, and the city of Philadelphia. Long-form essays, no hot takes." />
+  <link rel="icon" type="image/png" href="assets/favicon-32x32.png" />
+
+  <!-- Theme bootstrap: no-flash dark mode. Runs before CSS so the initial paint is correct. -->
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem("ah-theme");
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var theme = stored || (prefersDark ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="stylesheet" href="assets/colors_and_type.css" />
+  <link rel="stylesheet" href="home.css" />
+
+  <!-- React + Babel only for the tweaks panel; the page itself is static HTML. -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body class="ah-body">
+
+  <!-- ============== HEADER ============== -->
+  <header class="site-header" data-screen-label="01 Header">
+    <div class="site-header__inner">
+      <a class="brand" href="#" aria-label="Aaron Held — home">
+        <img class="brand__mark" src="assets/apple-touch-icon.png" alt="" />
+        <span class="brand__name">
+          Aaron Held
+          <small>Engineering &amp; craft</small>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#" class="is-current">Writing</a>
+        <a href="#now">Now</a>
+        <a href="#archive">Archive</a>
+        <a href="#">About</a>
+      </nav>
+
+      <div class="header-utility">
+        <button class="icon-btn search-btn" id="search-btn" aria-label="Search">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <span>Search</span>
+          <kbd class="kbd">⌘K</kbd>
+        </button>
+        <button class="icon-btn" id="theme-btn" aria-label="Toggle theme" title="Toggle theme">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============== MAIN ============== -->
+  <main data-screen-label="01 Home">
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero__avatar" src="assets/aaron-profile.png" alt="Aaron Held" width="96" height="96" />
+      <div>
+        <div class="hero__eyebrow"><span class="dot" aria-hidden="true"></span>Writing from Philadelphia</div>
+        <h1 id="hero-title"><span class="wave" aria-hidden="true">👋</span> Hi, I'm Aaron.</h1>
+        <p class="hero__sub">
+          I've been leading engineering teams for <strong>two decades</strong> — most recently at Swiftly, and before that building the team that helped Gopuff become Philly's beloved unicorn. I write here about <strong>management, craft, AI, and the odd Batman comparison</strong>.
+        </p>
+        <div class="hero__meta">
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            12 posts this year
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h12a4 4 0 0 1 0 8H4z"/><path d="M4 12h14a4 4 0 0 1 0 8H4z"/></svg>
+            RSS
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg>
+            Archive of 82
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Category chips -->
+    <div class="section-head">
+      <h2>Filter</h2>
+    </div>
+    <div class="chips" id="chips" role="tablist" aria-label="Filter posts by category">
+      <!-- chips render here -->
+    </div>
+
+    <!-- Featured -->
+    <div class="section-head">
+      <h2>Featured</h2>
+      <a class="section-head__link" href="#">All writing →</a>
+    </div>
+    <div class="featured" id="featured">
+      <!-- featured cards render here -->
+    </div>
+
+    <!-- Recent -->
+    <div class="section-head">
+      <h2>Recent</h2>
+      <a class="section-head__link" href="#archive">Older posts →</a>
+    </div>
+    <ul class="post-list" id="post-list">
+      <!-- list renders here -->
+    </ul>
+
+    <!-- Now + tags -->
+    <section class="meta-strip" id="now" aria-labelledby="now-head">
+      <div>
+        <h3 id="now-head">Now</h3>
+        <ul class="now-list" id="now-list"></ul>
+      </div>
+      <div>
+        <h3>Common topics</h3>
+        <div class="tag-cloud">
+          <a href="#">management</a>
+          <a href="#">leadership</a>
+          <a href="#">AI</a>
+          <a href="#">engineering</a>
+          <a href="#">strategy</a>
+          <a href="#">agile</a>
+          <a href="#">craft</a>
+          <a href="#">community</a>
+          <a href="#">hugo</a>
+          <a href="#">philadelphia</a>
+          <a href="#">documentation</a>
+          <a href="#">career</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Archive anchor (dense) -->
+    <div class="section-head" id="archive">
+      <h2>Archive</h2>
+      <a class="section-head__link" href="#">By year →</a>
+    </div>
+    <ul class="post-list is-dense" id="archive-list"></ul>
+
+  </main>
+
+  <footer class="site-footer">
+    <div>© 2026 Aaron Held · Built with Hugo + PaperMod</div>
+    <div class="site-footer__socials">
+      <a href="https://linkedin.com/in/aaronheld/" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5V9h3zM6.5 7.7a1.8 1.8 0 110-3.6 1.8 1.8 0 010 3.6zM19 19h-3v-5.3c0-1.3-.5-2.1-1.6-2.1-.9 0-1.4.6-1.6 1.2-.1.2-.1.5-.1.8V19h-3V9h3v1.3c.4-.6 1.1-1.5 2.7-1.5 2 0 3.5 1.3 3.5 4.1z"/></svg></a>
+      <a href="https://github.com/aheld" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.56 9.56 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.69-4.57 4.94.36.31.68.92.68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0012 2z"/></svg></a>
+      <a href="https://bsky.app/profile/aaronheld.com" aria-label="Bluesky"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 10.8C10.3 7.6 5.9 4 4 4 2 4 2 5 2 6s1 5 2 6 5 2 8 2 7-1 8-2 2-5 2-6-0-2-2-2c-1.9 0-6.3 3.6-8 6.8z"/></svg></a>
+    </div>
+  </footer>
+
+  <!-- Data + static rendering. This is plain JS because the page itself must be fast and cacheable. -->
+  <script src="posts-data.js"></script>
+  <script>
+    (function () {
+      var TWEAKS = /*EDITMODE-BEGIN*/{
+        "layout": "featured-cards",
+        "showArchive": true,
+        "showNow": true,
+        "showFilter": true,
+        "accent": "#d64545",
+        "density": "comfortable"
+      }/*EDITMODE-END*/;
+
+      // ---- State (in-memory only; Tweaks panel handles persistence) ----
+      var state = {
+        layout: TWEAKS.layout,        // "featured-cards" | "compact-list"
+        density: TWEAKS.density,      // "comfortable" | "dense"
+        activeCategory: "all",
+        showArchive: TWEAKS.showArchive,
+        showNow: TWEAKS.showNow,
+        showFilter: TWEAKS.showFilter,
+        accent: TWEAKS.accent,
+      };
+
+      function fmtDate(iso) {
+        var d = new Date(iso + "T00:00:00");
+        return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+      }
+      function shortDate(iso) {
+        var d = new Date(iso + "T00:00:00");
+        return d.toLocaleDateString("en-US", { month: "short", day: "2-digit" }) + "\u202f" + d.getFullYear().toString().slice(2);
+      }
+
+      function render() {
+        document.documentElement.style.setProperty("--ah-accent", state.accent);
+        document.documentElement.style.setProperty("--accent", state.accent);
+
+        renderChips();
+        renderFeatured();
+        renderRecent();
+        renderArchive();
+        renderNow();
+        applyVisibility();
+      }
+
+      function applyVisibility() {
+        document.getElementById("chips").style.display = state.showFilter ? "" : "none";
+        document.getElementById("chips").previousElementSibling.style.display = state.showFilter ? "" : "none";
+        document.getElementById("now").style.display = state.showNow ? "" : "none";
+        document.getElementById("archive").style.display = state.showArchive ? "" : "none";
+        document.getElementById("archive-list").style.display = state.showArchive ? "" : "none";
+      }
+
+      function renderChips() {
+        var el = document.getElementById("chips");
+        el.innerHTML = "";
+        window.AH_CATEGORIES.forEach(function (c) {
+          var btn = document.createElement("button");
+          btn.className = "chip" + (state.activeCategory === c.key ? " is-active" : "");
+          btn.textContent = c.label;
+          btn.setAttribute("role", "tab");
+          btn.setAttribute("aria-selected", state.activeCategory === c.key);
+          btn.addEventListener("click", function () {
+            state.activeCategory = c.key;
+            render();
+          });
+          el.appendChild(btn);
+        });
+      }
+
+      function filtered() {
+        return state.activeCategory === "all"
+          ? window.AH_POSTS
+          : window.AH_POSTS.filter(function (p) { return p.category === state.activeCategory; });
+      }
+
+      function renderFeatured() {
+        var el = document.getElementById("featured");
+        el.className = "featured" + (state.layout === "compact-list" ? " is-compact" : "");
+        el.innerHTML = "";
+        var picks = filtered().filter(function (p) { return p.featured; }).slice(0, 2);
+        if (picks.length === 0) { picks = filtered().slice(0, 2); }
+        picks.forEach(function (p) {
+          var a = document.createElement("a");
+          a.className = "featured-card";
+          a.href = "#" + p.slug;
+          a.innerHTML =
+            '<div class="featured-card__kicker">' + (p.featured ? "Featured" : p.category) + '</div>' +
+            '<h3 class="featured-card__title">' + p.title + '</h3>' +
+            '<p class="featured-card__summary">' + p.summary + '</p>' +
+            '<div class="featured-card__meta">' +
+              '<span>' + fmtDate(p.date) + '</span>' +
+              '<span>·</span>' +
+              '<span>' + p.readingTime + ' min read</span>' +
+              '<span>·</span>' +
+              '<span>' + p.category + '</span>' +
+            '</div>';
+          el.appendChild(a);
+        });
+      }
+
+      function renderRecent() {
+        var el = document.getElementById("post-list");
+        el.className = "post-list" + (state.density === "dense" ? " is-dense" : "");
+        el.innerHTML = "";
+        var posts = filtered().slice(2, 8); // after featured
+        posts.forEach(function (p) { el.appendChild(row(p)); });
+      }
+
+      function renderArchive() {
+        var el = document.getElementById("archive-list");
+        el.innerHTML = "";
+        var posts = window.AH_POSTS.slice(8); // everything past recent
+        posts.forEach(function (p) { el.appendChild(row(p)); });
+      }
+
+      function row(p) {
+        var li = document.createElement("li");
+        var tagsHTML = p.tags.slice(0, 3).map(function (t) { return '<span>' + t + '</span>'; }).join("");
+        li.innerHTML =
+          '<a class="post-row" href="#' + p.slug + '">' +
+            '<div class="post-row__date">' + shortDate(p.date) + '</div>' +
+            '<div class="post-row__body">' +
+              '<h3 class="post-row__title">' + p.title + '</h3>' +
+              '<p class="post-row__summary">' + p.summary + '</p>' +
+              '<div class="post-row__meta">' +
+                '<span class="post-row__category">' + p.category + '</span>' +
+                '<span>·</span>' +
+                '<span>' + p.readingTime + ' min</span>' +
+                '<span>·</span>' +
+                '<span class="post-row__tags">' + tagsHTML + '</span>' +
+              '</div>' +
+            '</div>' +
+            '<div class="post-row__arrow">→</div>' +
+          '</a>';
+        return li;
+      }
+
+      function renderNow() {
+        var el = document.getElementById("now-list");
+        el.innerHTML = "";
+        window.AH_NOW_ITEMS.forEach(function (it) {
+          var li = document.createElement("li");
+          li.innerHTML = '<span>' + it.label + '</span><span>' + it.value + '</span>';
+          el.appendChild(li);
+        });
+      }
+
+      // Theme toggle
+      document.getElementById("theme-btn").addEventListener("click", function () {
+        var cur = document.documentElement.getAttribute("data-theme");
+        var next = cur === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", next);
+        try { localStorage.setItem("ah-theme", next); } catch (e) {}
+      });
+
+      // Cmd/Ctrl-K intercept for search
+      document.addEventListener("keydown", function (e) {
+        if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+          e.preventDefault();
+          document.getElementById("search-btn").focus();
+        }
+      });
+
+      // Expose state hooks for tweaks panel
+      window.__AH_HOME = {
+        get state() { return state; },
+        set: function (patch) { Object.assign(state, patch); render(); },
+      };
+
+      render();
+    })();
+  </script>
+
+  <!-- Tweaks panel (loaded last; never blocks the page) -->
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" data-presets="react">
+    const { useEffect } = React;
+
+    function HomeTweaks() {
+      const [tweaks, setTweak] = window.useTweaks({
+        layout: "featured-cards",
+        density: "comfortable",
+        showFilter: true,
+        showArchive: true,
+        showNow: true,
+        accent: "#d64545",
+      });
+
+      // Push into the page's runtime state whenever any tweak changes.
+      useEffect(() => {
+        if (window.__AH_HOME) window.__AH_HOME.set(tweaks);
+      }, [tweaks]);
+
+      return (
+        <window.TweaksPanel title="Tweaks">
+          <window.TweakSection title="Layout">
+            <window.TweakRadio
+              label="Featured section"
+              value={tweaks.layout}
+              onChange={(v) => setTweak("layout", v)}
+              options={[
+                { value: "featured-cards", label: "Cards" },
+                { value: "compact-list", label: "Compact" },
+              ]}
+            />
+            <window.TweakRadio
+              label="Post density"
+              value={tweaks.density}
+              onChange={(v) => setTweak("density", v)}
+              options={[
+                { value: "comfortable", label: "Comfortable" },
+                { value: "dense", label: "Dense" },
+              ]}
+            />
+          </window.TweakSection>
+
+          <window.TweakSection title="Sections">
+            <window.TweakToggle label="Category filter"  value={tweaks.showFilter}  onChange={(v) => setTweak("showFilter", v)} />
+            <window.TweakToggle label="Now + topics"     value={tweaks.showNow}     onChange={(v) => setTweak("showNow", v)} />
+            <window.TweakToggle label="Archive section"  value={tweaks.showArchive} onChange={(v) => setTweak("showArchive", v)} />
+          </window.TweakSection>
+
+          <window.TweakSection title="Accent">
+            <window.TweakColor label="Accent color" value={tweaks.accent} onChange={(v) => setTweak("accent", v)} />
+          </window.TweakSection>
+        </window.TweaksPanel>
+      );
+    }
+
+    // Expose TweaksPanel/useTweaks/controls on window so this module can see them
+    // (the starter puts them in module scope). We re-require by calling the
+    // panel after it's been set up; the starter assigns to window itself when loaded.
+    const mount = document.createElement("div");
+    document.body.appendChild(mount);
+    ReactDOM.createRoot(mount).render(<HomeTweaks />);
+  </script>
+
+</body>
+</html>
