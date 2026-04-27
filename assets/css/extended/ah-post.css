@@ -146,11 +146,11 @@
     margin: 40px auto 0;
     padding: 0 24px;
     font-size: 18px;
-    line-height: 1.7;
+    /* line-height: 1.7; */
     color: var(--fg-2);
 }
-.ah-post-body > * + * { margin-top: 1.1em; }
-.ah-post-body p { margin: 0; text-wrap: pretty; }
+.ah-post-body > * + * { margin-top: 1em; }
+.ah-post-body p { margin: 0; text-wrap: pretty;margin-top: 1.3em; }
 .ah-post-body h2 {
     font-size: 26px;
     line-height: 1.2;

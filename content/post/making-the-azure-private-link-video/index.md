@@ -2,7 +2,7 @@
 title: "The Island of Misfit Toys: Making the Azure Private Link Video"
 date: "2026-04-26"
 draft: false
-description: "How a research deep-dive, a too-good-to-make first script, and an honest second one became a 5-minute explainer on Azure Private Link, and why the pivot mattered more than the cuts."
+description: "How my initial researched deep-dive created an excellent first storyboarded script, and how my second draft became the 5-minute explainer on Azure Private Link that I wanted."
 categories: ["AI", "Workflow", "Video"]
 tags: ["claude", "claude-code", "video", "remotion", "azure", "content-production", "workflow"]
 cover:
@@ -11,7 +11,7 @@ cover:
   caption: "The Island of Misfit Toys: Slonik the elephant and the AKS shipping-container pods, who didn't make it into the final cut"
 ---
 
-I have an Island of Misfit Toys.
+## I'm creating Island of Forgotten Dreams.
 
 That's Slonik up there in the cover image, a friendly PostgreSQL elephant sitting behind a desk under a neon "OPEN FOR BUSINESS" sign, watching a line of AKS (Azure Kubernetes Service) shipping containers wait their turn at the door. He was going to star in a video about Azure Private Link. He had a co-star, too: Ricky the Raccoon, our hacker, who shows up first in a hard hat with a jackhammer, then in a top hat and monocle, and finally in a fedora and trench coat where he's figured out how to spin up his own Azure VM and walk straight in through the "Allow public access from any Azure service" checkbox. There was a *circus tent*, somewhere in Act 2, representing the entirety of Azure's customer base flooding through that checkbox like a carnival.
 
