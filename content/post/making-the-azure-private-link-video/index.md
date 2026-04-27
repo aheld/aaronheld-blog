@@ -11,9 +11,7 @@ cover:
   caption: "The Island of Misfit Toys: Slonik the elephant and the AKS shipping-container pods, who didn't make it into the final cut"
 ---
 
-## I'm creating Island of Forgotten Dreams.
-
-That's Slonik up there in the cover image, a friendly PostgreSQL elephant sitting behind a desk under a neon "OPEN FOR BUSINESS" sign, watching a line of AKS (Azure Kubernetes Service) shipping containers wait their turn at the door. He was going to star in a video about Azure Private Link. He had a co-star, too: Ricky the Raccoon, our hacker, who shows up first in a hard hat with a jackhammer, then in a top hat and monocle, and finally in a fedora and trench coat where he's figured out how to spin up his own Azure VM and walk straight in through the "Allow public access from any Azure service" checkbox. There was a *circus tent*, somewhere in Act 2, representing the entirety of Azure's customer base flooding through that checkbox like a carnival.
+That's Slonik up there in the storyboard image, a friendly PostgreSQL elephant sitting behind a desk under a neon "OPEN FOR BUSINESS" sign, watching a line of AKS (Azure Kubernetes Service) shipping containers wait their turn at the door. He was going to star in a video about Azure Private Link. He had a co-star, too: Ricky the Raccoon, our hacker, who shows up first in a hard hat with a jackhammer, then in a top hat and monocle, and finally in a fedora and trench coat where he's figured out how to spin up his own Azure VM and walk straight in through the "Allow public access from any Azure service" checkbox. There was a *circus tent*, somewhere in Act 2, representing the entirety of Azure's customer base flooding through that checkbox like a carnival.
 
 I love every one of them. None of them are in the [video I actually shipped](https://www.youtube.com/watch?v=EFtAm-Ao_kM). That video has no elephant. No costumes. No carnival. Just clean architecture diagrams, a numbered DNS resolution chain, and a raccoon silhouette who never says a word.
 
