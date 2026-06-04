@@ -1,0 +1,23 @@
+<p>Adapted From<br/>{{ with .Params.original_sources }}
+    {{ range . }}
+<a itemprop="url" href="{{ .url }}"><span itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">{{.author}}</span></span>: {{.name}}</a></p>
+    {{ end }}
+{{ end }}
+</p>
+{{- partial "anchored_headings.html" "<h2 id=\"recipe-card\">Recipe</h2>" -}}
+
+{{- partial "anchored_headings.html" "<h3 id=\"ingredients\">Ingredients</h3>" -}}
+<ul>
+    {{ range .Params.ingredients }}
+    <li itemprop="recipeIngredient">{{ . }}</li>
+    {{ end }}
+</ul>
+
+<h2>Instructions</h2>
+<ol itemprop="recipeInstructions">
+    {{ range $index, $element := .Params.instructions }}
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/HowToStep">
+        <span itemprop="text">{{ . }}</span>
+    </li>
+    {{ end }}
+</ol>

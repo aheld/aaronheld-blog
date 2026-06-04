@@ -27,6 +27,5 @@ instructions:
 
 A few friends have asked me for this recipe.  It's a weekly staple in our house and both forgiving and versatile.  There are 3 main components. 
 
-## title here 
-
-1. The Miso Dressing
+The Miso Dressing
+: The star of the show, make it a day early so it can mellow in the fridge   
