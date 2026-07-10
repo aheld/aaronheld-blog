@@ -64,3 +64,5 @@ So the prescription is attribution work, and it cuts both ways: trace the boring
 That promotion went through, but only because someone in the room was willing to argue with the dashboard. Their systems never gave them a war room to be seen in. That was the whole point.
 
 Haaland's club doesn't pay him to touch the ball. They pay him to put it in the net, and the scoreboard settles the argument. Our scoreboard exists too. We just have to do the harder work of connecting the quiet effort to it. So before your next calibration cycle, look again at the flattest dashboard on your team. Are we promoting the people who make the most noise, or the people who ensure the team puts points on the board?
+
+[Comment on LinkedIn if this story resonated with you](https://www.linkedin.com/posts/aaronheld_leadership-engineering-management-share-7481383834505097216-WZu1/)
