@@ -1,0 +1,107 @@
+<svg viewBox="0 0 960 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t d" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title id="t">Data flow — one market, from URL to live row</title>
+  <desc id="d">A process flow. The top row runs left to right: harvestor URL, scrape, extract and geocode, then the drop-zone. A connector drops to the bottom row, which runs right to left: load, extraction_reviews pending, admin diff queue, approve to live. An amber feedback arrow returns from approve back to the start, showing the loop. Two human gates are marked: eyeballing the JSON before load, and approving in the queue.</desc>
+  <defs>
+    <marker id="ah" markerWidth="10" markerHeight="10" refX="7.5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L7.5,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+    <marker id="ahA" markerWidth="10" markerHeight="10" refX="7.5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L7.5,3 L0,6 Z" fill="#d97706"/>
+    </marker>
+    <style>
+      .title{font-size:19px;font-weight:700;fill:#0f172a}
+      .ntitle{font-size:13.5px;font-weight:700;fill:#0f172a}
+      .nsub{font-size:10px;font-weight:400;fill:#475569}
+      .dtitle{font-size:13.5px;font-weight:700;fill:#ffffff}
+      .dsub{font-size:10px;font-weight:400;fill:#e2e8f0}
+      .num{font-size:12px;font-weight:700;fill:#ffffff}
+      .leg{font-size:11px;font-weight:500;fill:#475569}
+      .gate{font-size:9.5px;font-weight:700;fill:#92400e;letter-spacing:.02em}
+      .floop{font-size:10.5px;font-weight:700;fill:#b45309}
+      .cap{font-size:11px;font-weight:500;fill:#64748b}
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="960" height="470" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="480" y="30" text-anchor="middle" class="title">Data flow — one market, from URL to live row</text>
+
+  <!-- legend -->
+  <circle cx="46" cy="56" r="7" fill="#2563eb"/><text x="60" y="60" class="leg">Step</text>
+  <rect x="112" y="49" width="13" height="13" rx="2" fill="#475569"/><text x="131" y="60" class="leg">Datastore</text>
+  <rect x="224" y="49" width="13" height="13" rx="2" fill="#fef3c7" stroke="#fcd34d"/><text x="243" y="60" class="leg">Human gate</text>
+  <line x1="344" y1="56" x2="372" y2="56" stroke="#d97706" stroke-width="2"/><text x="380" y="60" class="leg">Feedback loop</text>
+
+  <!-- main-flow arrows (row 1, L→R) -->
+  <line x1="220" y1="150" x2="258" y2="150" stroke="#64748b" stroke-width="1.8" marker-end="url(#ah)"/>
+  <line x1="460" y1="150" x2="498" y2="150" stroke="#64748b" stroke-width="1.8" marker-end="url(#ah)"/>
+  <line x1="700" y1="150" x2="738" y2="150" stroke="#64748b" stroke-width="1.8" marker-end="url(#ah)"/>
+  <!-- connector row1 -> row2 -->
+  <line x1="840" y1="196" x2="840" y2="286" stroke="#64748b" stroke-width="1.8" marker-end="url(#ah)"/>
+  <!-- row 2 arrows (R→L) -->
+  <line x1="740" y1="334" x2="702" y2="334" stroke="#64748b" stroke-width="1.8" marker-end="url(#ah)"/>
+  <line x1="500" y1="334" x2="462" y2="334" stroke="#64748b" stroke-width="1.8" marker-end="url(#ah)"/>
+  <line x1="260" y1="334" x2="222" y2="334" stroke="#64748b" stroke-width="1.8" marker-end="url(#ah)"/>
+  <!-- feedback loop (amber, returns up the left) -->
+  <path d="M120,286 C58,262 58,224 120,198" fill="none" stroke="#d97706" stroke-width="2.2" marker-end="url(#ahA)"/>
+  <text x="138" y="246" class="floop">loop</text>
+
+  <!-- ROW 1 -->
+  <!-- n1 -->
+  <rect x="20" y="104" width="200" height="92" rx="11" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.4"/>
+  <circle cx="40" cy="122" r="13" fill="#2563eb"/><text x="40" y="126" text-anchor="middle" class="num">1</text>
+  <text x="122" y="150" text-anchor="middle" class="ntitle">harvestor &lt;url&gt;</text>
+  <text x="122" y="170" text-anchor="middle" class="nsub">operator starts the run</text>
+
+  <!-- n2 -->
+  <rect x="260" y="104" width="200" height="92" rx="11" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.4"/>
+  <circle cx="280" cy="122" r="13" fill="#2563eb"/><text x="280" y="126" text-anchor="middle" class="num">2</text>
+  <text x="362" y="150" text-anchor="middle" class="ntitle">scrape</text>
+  <text x="362" y="170" text-anchor="middle" class="nsub">Firecrawl → markdown</text>
+
+  <!-- n3 -->
+  <rect x="500" y="104" width="200" height="92" rx="11" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.4"/>
+  <circle cx="520" cy="122" r="13" fill="#2563eb"/><text x="520" y="126" text-anchor="middle" class="num">3</text>
+  <text x="602" y="150" text-anchor="middle" class="ntitle">extract + geocode</text>
+  <text x="602" y="170" text-anchor="middle" class="nsub">Claude · US Census</text>
+
+  <!-- n4 datastore -->
+  <path d="M744,116 L744,184 A96,11 0 0 0 936,184 L936,116 Z" fill="#475569" stroke="#334155"/>
+  <ellipse cx="840" cy="116" rx="96" ry="11" fill="#5b6b80" stroke="#334155"/>
+  <circle cx="760" cy="120" r="13" fill="#2563eb"/><text x="760" y="124" text-anchor="middle" class="num">4</text>
+  <text x="840" y="152" text-anchor="middle" class="dtitle">Drop-zone</text>
+  <text x="840" y="170" text-anchor="middle" class="dsub">timestamped JSON · replay</text>
+
+  <!-- eyeball gate on connector -->
+  <rect x="762" y="232" width="156" height="18" rx="5" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="840" y="245" text-anchor="middle" class="gate">HUMAN EYEBALLS JSON FIRST</text>
+
+  <!-- ROW 2 -->
+  <!-- n5 -->
+  <rect x="740" y="288" width="200" height="92" rx="11" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.4"/>
+  <circle cx="760" cy="306" r="13" fill="#2563eb"/><text x="760" y="310" text-anchor="middle" class="num">5</text>
+  <text x="840" y="334" text-anchor="middle" class="ntitle">load</text>
+  <text x="840" y="354" text-anchor="middle" class="nsub">dedup · diff vs live</text>
+
+  <!-- n6 datastore -->
+  <path d="M504,300 L504,368 A96,11 0 0 0 696,368 L696,300 Z" fill="#475569" stroke="#334155"/>
+  <ellipse cx="600" cy="300" rx="96" ry="11" fill="#5b6b80" stroke="#334155"/>
+  <circle cx="520" cy="304" r="13" fill="#2563eb"/><text x="520" y="308" text-anchor="middle" class="num">6</text>
+  <text x="600" y="336" text-anchor="middle" class="dtitle">extraction_reviews</text>
+  <text x="600" y="354" text-anchor="middle" class="dsub">pending · not live yet</text>
+
+  <!-- n7 -->
+  <rect x="260" y="288" width="200" height="92" rx="11" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.4"/>
+  <circle cx="280" cy="306" r="13" fill="#2563eb"/><text x="280" y="310" text-anchor="middle" class="num">7</text>
+  <text x="362" y="334" text-anchor="middle" class="ntitle">admin diff queue</text>
+  <text x="362" y="354" text-anchor="middle" class="nsub">per-field accept / override</text>
+
+  <!-- n8 -->
+  <rect x="20" y="288" width="200" height="92" rx="11" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.4"/>
+  <circle cx="40" cy="306" r="13" fill="#2563eb"/><text x="40" y="310" text-anchor="middle" class="num">8</text>
+  <rect x="74" y="280" width="92" height="16" rx="5" fill="#fef3c7" stroke="#fcd34d"/><text x="120" y="292" text-anchor="middle" class="gate">HUMAN GATE</text>
+  <text x="122" y="334" text-anchor="middle" class="ntitle">approve → live</text>
+  <text x="122" y="354" text-anchor="middle" class="nsub">markets · vendors</text>
+
+  <!-- caption -->
+  <text x="480" y="434" text-anchor="middle" class="cap">Feedback loop: per-field decisions → quality score → prompt iteration. Human edits become sticky and survive the next crawl.</text>
+</svg>

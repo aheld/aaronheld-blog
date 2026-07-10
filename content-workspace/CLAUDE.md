@@ -41,6 +41,7 @@ content-workspace/
 ├── 04_publish_amplify/   ← L4: blog → LinkedIn → back-link → Bluesky/Threads
 │
 ├── feature-requests/     ← PRDs for blog features content surfaces a need for
+├── _completed/           ← close-out summaries, one per published piece
 └── _archive/             ← finished pieces' working files, foldered by slug
 ```
 
@@ -83,7 +84,7 @@ If during drafting a piece would clearly be better with a blog feature that does
 
 ### Archiving
 
-After a piece is published and amplified, move its working folders into `_archive/[slug]/` so the active stage folders stay clean. The published post itself lives in `content/post/[slug]/index.md` (Hugo's domain) — only the working artifacts get archived here.
+After a piece is published and amplified, write a close-out summary in `_completed/[slug].md` (what it argues, how it moved through the pipeline, decisions and lessons — see `CONTEXT.md`), then move its working folders into `_archive/[slug]/` so the active stage folders stay clean. The published post itself lives in `content/post/[slug]/index.md` (Hugo's domain) — only the working artifacts get archived here.
 
 ## Relationship to the Existing Hugo Repo
 

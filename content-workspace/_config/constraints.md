@@ -43,6 +43,11 @@ Specifically: the word "delve" is a known AI tell and is banned regardless of co
 
 The post's closing should land — see `voice-and-tone.md`.
 
+### No negation-then-correction framing
+The "It isn't X. It's Y." / "The problem isn't X, it's Y" rhythm reads as AI-generated text (Aaron flagged this directly, 2026-07-10). State the point affirmatively. If the contrast is essential, restructure so the wrong idea appears as something a person actually said or believed, then answer it. A deliberate aphoristic parallel can earn a pass, but it must be a conscious choice, not the default rhythm, and never twice in one piece.
+- ❌ "The problem isn't the heroes. It's the reward system."
+- ✅ "The blame belongs upstream, with the reward system."
+
 ### No false dichotomies
 "You either X or Y" framings are usually wrong. The audience (per `audience.md`) is smart enough to spot them. Acknowledge the third option, even briefly.
 

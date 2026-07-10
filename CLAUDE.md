@@ -50,6 +50,7 @@ If the request crosses both (e.g., "the post needs a feature the blog doesn't ha
 │   ├── 03_draft/          ← stage 3
 │   ├── 04_publish_amplify/← stage 4
 │   ├── feature-requests/  ← PRDs surfaced during drafting
+│   ├── _completed/        ← close-out summaries per published piece
 │   └── _archive/          ← finished pieces' working files
 │
 ├── content/post/          ← Hugo's published posts (output of stage 4)

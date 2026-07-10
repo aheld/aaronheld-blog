@@ -42,6 +42,12 @@ Every stage reads `_config/` as background. The files there are layered by ICM:
 | `platforms.md` | L2 | LinkedIn / Bluesky / Threads / blog SEO requirements. Dated, re-checked annually. |
 | `constraints.md` | L3 | Hard rules: no em dashes, no AI hedging, image rights, accessibility, etc. |
 
+## Completed pieces (`_completed/`)
+
+When a piece finishes stage 4, it gets a close-out summary at `_completed/[slug].md`: what the post argues, how it moved through the pipeline, the decisions and pivots that shaped it, voice/process lessons captured along the way, amplification links, and commits. One file per published piece.
+
+This is distinct from `_archive/`, which holds the raw working artifacts (research, outline, draft files). The `_completed/` summary is the readable retrospective; the archive is the evidence. Write the summary at close-out, while the decisions are still fresh, and link anything durable it surfaced (e.g., a new rule added to `_config/constraints.md`).
+
 ## Working Folder Convention
 
 For a piece with slug `the-quiet-cost-of-rewrites`, files live at:
