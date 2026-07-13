@@ -1,12 +1,12 @@
 ---
-title: "Documenting data flows with video beats mermaid???"
+title: "Documentation with video beats mermaid???"
 date: 2026-07-13T00:00:00Z
 draft: false
 description: "I documented the same data pipeline two ways, a written C4 doc and a five-minute animated video. Both took me about hour. I expected video to be much better, but judge for yourself.  I think there is a future where video will be table stakes."
 categories: ["AI", "Workflow", "Video", "Architecture"]
 tags: ["architecture", "documentation", "c4-model", "video", "remotion", "claude"]
 cover:
-  image: "harvester-admin-queue.jpg"
+  image: "harvester-admin-queue.jpeg"
   alt: "The Market Finder admin extraction-review queue showing a 100 percent clean rate against an 80 percent target, two pending records, and 946 reviewed, with pending rows for a vendor, Cherri Blossom Farm, and a market, Pretzel Park Farmers Market"
   caption: "The Market Finder review queue: AI-extracted records waiting for a human to approve before they reach the live directory."
 ---
