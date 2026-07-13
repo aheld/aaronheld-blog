@@ -1,5 +1,5 @@
 ---
-title: "Same Architecture, One Hour Each"
+title: "Documenting data flows with video beats mermaid???"
 date: 2026-07-13T00:00:00Z
 draft: false
 description: "I documented the same data pipeline two ways, a written C4 doc and a five-minute animated video, in about an hour each. The tie is real, and it's a trap. Here's what each medium actually does, and when video earns its hour."
