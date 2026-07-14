@@ -92,6 +92,8 @@ I'll keep writing the diagram first, every time. Partly from habit but mostly be
 
 Go look at the last architecture doc you shipped. Does anything in it change state over time? If it does, every reader is animating that loop in their head right now, each one a little differently, and you're the only one who can run it for them once, correctly.
 
+[Comment on LinkedIn](https://www.linkedin.com/posts/aaronheld_documentation-with-video-beats-mermaid-share-7482627959799894016-Dxf1/) and tell me where the diagram still wins.
+
 [^tversky]: Barbara Tversky, Julie Bauer Morrison, and Mireille Bétrancourt, "Animation: Can It Facilitate?", *International Journal of Human-Computer Studies* 57, no. 4 (2002): 247–262.
 
 [^mayer]: Richard E. Mayer, *Multimedia Learning*, 3rd ed. (Cambridge University Press, 2020).

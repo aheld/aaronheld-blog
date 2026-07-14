@@ -73,6 +73,12 @@ Non-negotiable. Accessibility is a constraint, not a preference.
 ### Image attribution
 Always credit. Caption with photographer name + Unsplash URL when using Unsplash. Public-domain SF covers note the work and original publication.
 
+### Cover image dimensions (16:9, hard crop)
+The blog's custom cover CSS (`assets/css/extended/ah-post.css`, `.ah-post-cover img`) forces `aspect-ratio: 16 / 9` with `object-fit: cover`. Any cover that isn't 16:9 gets cropped to fill, and the crop is out of your control (it slices the overflow edges).
+- **Crop/produce every cover image at 16:9.** Target **2048 × 1152** (2x the 1024px max display width, crisp on retina). Acceptable: 1600×900. Floor: 1024×576. Wider than 2048 is wasted bytes; the cover never renders larger than 1024 CSS px.
+- Frame the subject inside the safe 16:9 area, don't rely on the full source frame surviving. Screenshots especially: crop to the meaningful region before setting as cover.
+- If a specific image genuinely needs a taller ratio, change the CSS rule instead of fighting the crop, but that affects every post's cover.
+
 ## Sourcing rules
 
 ### Every research source has a real citation
