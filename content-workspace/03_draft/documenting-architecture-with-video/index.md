@@ -1,7 +1,7 @@
 ---
 title: "Documentation with video beats mermaid???"
 date: 2026-07-13T00:00:00Z
-draft: false
+draft: true
 description: "I documented the same data pipeline two ways, a written C4 doc and a five-minute animated video. Both took me about hour. I expected video to be much better, but judge for yourself.  I think there is a future where video will be table stakes."
 categories: ["AI", "Workflow", "Video", "Architecture"]
 tags: ["architecture", "documentation", "c4-model", "video", "remotion", "claude"]
@@ -51,9 +51,9 @@ And the abstract "review gate" has a real face. This is the actual screen, one A
 
 ![The Market Finder admin extraction-review screen for Pretzel Park Farmers Market. Most fields read "No change"; one field, coords, is highlighted as added, changing from empty to a latitude and longitude pair, with Accept, Keep, and Edit buttons in the decision column.](harvester-admin-diff.jpg)
 
-## The hour-each is real
+## The hour-each is real, and it's a trap
 
-Now the part my contrarian agent and I distrusted. The tie holds, but only on top of a stack of prior work.
+Now the part I distrusted. The tie holds, but only on top of a stack of prior work.
 
 The **marginal cost** was a tie. About an hour each. The written doc was AI-drafted from documentation that already existed in the codebase. The video was generated from that doc and its diagrams. Neither started from a blank page, and the blank page is where the hours actually live.
 
@@ -69,7 +69,7 @@ Here's the tool the polished version would show, and the reason I'm comfortable 
 
 ## Did the motion teach, or did I just enjoy making it
 
-I have to be honest about who's grading this. I built both artifacts, and the maker is the worst possible judge of an explanation, because he supplies the missing understanding without noticing. The video also came second, and the second telling of anything is clearer than the first whether or not it moves. Making videos on Youtube is way more rewarding than adding a page to a wiki.
+I have to be honest about who's grading this. I built both artifacts, and the maker is the worst possible judge of an explanation, because he supplies the missing understanding without noticing. The video also came second, and the second telling of anything is clearer than the first whether or not it moves.
 
 The research agrees I should be careful. Barbara Tversky's review of a decade of animation studies found that when a static graphic and an animation carry the same information, the animation often fails to win, because motion is transient: it plays at the animator's pace, and the viewer loses the control a page gives them to dwell, re-inspect, and compare two regions side by side.[^tversky] That critique is exactly why the video ends on a recap frame built to be paused, ships with chapter markers, and links the written doc as the companion you read when you want to stop and stare. Richard Mayer's multimedia work points the other way: narration synchronized with the matching visual engages two channels at once, which is the harvester video's whole trick.[^mayer]
 
@@ -77,11 +77,11 @@ So I'll concede the strongest objection outright. The written doc stays canonica
 
 What the video has that the doc doesn't is attention. A complete C4 document that a reader abandons at section two has taught nothing, however correct it is. If the animation's real advantage is that people watch it to the end, then effectiveness includes who shows up, and that's a field result the lab studies weren't measuring.
 
-## Where they are worth the effort
+## When each earns its hour
 
-I am thinking that video is right given some conditions on the system and audience:
+Video earned its hour here because several things stacked at once, and I'd only reach for it again when they do:
 
-- The essential system behavior is **dynamic**, a loop or a protocol or a failure cascade, not a layout. If the hard part is where things are, the diagram already wins.
+- The essential behavior is **dynamic**, a loop or a protocol or a failure cascade, not a layout. If the hard part is where things are, the diagram already wins.
 - The pipeline is **already amortized**. If your first video would take days, the honest cost isn't an hour.
 - The audience is **wide or recurring**, every new hire or a public channel, enough to justify the polish tax a one-time handoff never would.
 - The system is **stable** enough to outlive the render, so the thing you paid to polish doesn't lie within the month.
@@ -92,7 +92,7 @@ I'll keep writing the diagram first, every time. Partly from habit but mostly be
 
 Go look at the last architecture doc you shipped. Does anything in it change state over time? If it does, every reader is animating that loop in their head right now, each one a little differently, and you're the only one who can run it for them once, correctly.
 
-[Comment on LinkedIn](https://www.linkedin.com/posts/aaronheld_documentation-with-video-beats-mermaid-share-7482627959799894016-Dxf1/) and let me know if you are going to adopt video for documentation.
+[Comment on LinkedIn](https://www.linkedin.com/posts/aaronheld_documentation-with-video-beats-mermaid-share-7482627959799894016-Dxf1/) and tell me where the diagram still wins.
 
 [^tversky]: Barbara Tversky, Julie Bauer Morrison, and Mireille Bétrancourt, "Animation: Can It Facilitate?", *International Journal of Human-Computer Studies* 57, no. 4 (2002): 247–262.
 
@@ -100,4 +100,4 @@ Go look at the last architecture doc you shipped. Does anything in it change sta
 
 ---
 
-*Related posts: [The Island of Misfit Toys](/post/making-the-azure-private-link-video/) on how this video workflow got built, and [Streamlining Blog Writing with Claude Code](/post/streamlining-blog-writing-with-claude-code/) on the pipeline that produced this article. The full written architecture doc for the harvester lives [with its code](https://github.com/aheld/aaronheld-blog/blob/2a996ae00b1d6faae9acf5770c30df76f766eef0/content-workspace/01_research/documenting-architecture-with-video/harvestor-architecture.md).*
+*Sibling posts: [The Island of Misfit Toys](/post/making-the-azure-private-link-video/) on how this video workflow got built, and [Streamlining Blog Writing with Claude Code](/post/streamlining-blog-writing-with-claude-code/) on the pipeline that produced this article. The full written architecture doc for the harvester lives [with its code](https://github.com/aheld/aaronheld-blog/blob/2a996ae00b1d6faae9acf5770c30df76f766eef0/content-workspace/01_research/documenting-architecture-with-video/harvestor-architecture.md).*

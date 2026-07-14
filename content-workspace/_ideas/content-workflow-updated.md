@@ -1,0 +1,1 @@
+time to update https://www.aaronheld.com/post/streamlining-blog-writing-with-claude-code/ with this new content-workflow
