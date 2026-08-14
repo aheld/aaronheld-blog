@@ -108,3 +108,5 @@ Never skip leg day. What does your Sprint Zero look like? I'd genuinely like to 
 Coach knows why the team didn't get the **W**.
 
 *"It's because you SKIPPED... LEG... DAY!!" (Coach McMurray, Letterkenny). [GIF via Tenor](https://tenor.com/view/letterkenny-coach-leg-day-gif-376703195721350186).*
+
+[Comment on LinkedIn if this story resonated with you](https://www.linkedin.com/posts/aaronheld_ai-neverskiplegday-foundations-activity-7494095059928104960-GrZs/)
