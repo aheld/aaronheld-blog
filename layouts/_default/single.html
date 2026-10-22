@@ -132,7 +132,7 @@
     <aside class="ah-author-card">
         <img src="{{ "site_icons/aaron-profile.png" | absURL }}" alt="{{ site.Params.author }}" />
         <div>
-            <h4>{{ site.Params.author | default "Aaron Held" }}</h4>
+            <p class="ah-author-card__name">{{ site.Params.author | default "Aaron Held" }}</p>
             <p>{{ site.Params.authorBio | default "Engineering leader and software architect based in Philadelphia. I write about management, craft, AI, and the occasional Batman comparison." }}</p>
             <div class="links">
                 {{- range site.Params.socialIcons }}
@@ -169,7 +169,7 @@
     {{- $more := first 4 (where (where $allPosts "Permalink" "ne" .Permalink) "Date" "ne" .Date) }}
     {{- with $more }}
     <section class="ah-more-posts">
-        <div class="more-head">More from Aaron</div>
+        <h2 class="more-head">More from Aaron</h2>
         <ul class="ah-post-list">
             {{- range . }}
                 {{ partial "ah-post-row.html" . }}

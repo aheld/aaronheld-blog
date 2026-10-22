@@ -83,7 +83,7 @@ then you bind a drop-down list to "select distinct salesrep.id from reportview"
 
 this antiquated approach has the benefit of both the form construction as well as the report generation being based off the sames business rules - row level restrictions. Sometimes I miss the stateful, context rich, execution environment of an old school desktop application.
 
-### Hypermedia approach
+## Hypermedia approach
 
 How does hypermedia lend itself to a cleaner solution?
 

@@ -10,7 +10,7 @@ Chat based interfaces, backed by powerful AI (Artificial Intelligence), are effe
 
 When blogging became popular a number of companies sought to ‘commoditize’ the complexity of setting up a server and running custom website software. Wordpress is the undisputed winner of ‘personal blog software’. What Wordpress has done for websites and content management Microsoft is doing for AI. The haven’t won yet, Amazon, IBM and others are all in this together. I’m working on an Amazon bot in parallel to this so that I can compare and contrast the services.
 
-In order for a chatbot to be useful, it needs data to provide. Microsoft has created a ‘Question and Answer’ service that provides for the common use cases. In many cities navigating the Office of Property Management is daunting task, so lets build a chatbot to help users get answers to the [Philadelphia OPM FAQ![](/assets/posts/images/MS-bot-intro-OPM.png)](http://www.phila.gov/OPA/Pages/FAQ.aspx)
+In order for a chatbot to be useful, it needs data to provide. Microsoft has created a ‘Question and Answer’ service that provides for the common use cases. In many cities navigating the Office of Property Management is daunting task, so lets build a chatbot to help users get answers to the [Philadelphia OPM FAQ![Philadelphia Office of Property Assessment FAQ page](/assets/posts/images/MS-bot-intro-OPM.png)](http://www.phila.gov/OPA/Pages/FAQ.aspx)
 
 Once we have created the service, we will develop a [quick wordpress plugin](https://github.com/aheld/wp_chatbot) in order to connect the service to your blog.
 
@@ -24,17 +24,17 @@ From the top menu click ‘create new service’. You will be promoted to login 
 
 Give your bot a friendly name and paste in a URL of a FAQ page for the service to scrape. You can also upload a data file or questions and answers, and there are API calls to add or refresh content from existing URLs.
 
-[![](/assets/posts/images/MS-bot-create-1024x726.png)](http://www.aaronheld.com/wp-content/uploads/2017/04/MS-bot-create.png) [ ](http://www.aaronheld.com/wp-content/uploads/2017/04/MS-bot-edit-kb.png)[](http://www.aaronheld.com/wp-content/uploads/2017/04/MS-bot-settings.png) 
+[![QnA Maker service creation form with a FAQ URL entered](/assets/posts/images/MS-bot-create-1024x726.png)](http://www.aaronheld.com/wp-content/uploads/2017/04/MS-bot-create.png) 
 
-Once the service has completed scraping the provided URL you will see a list of the questions and answers![](/assets/posts/images/MS-bot-edit-kb-1024x686.png)
+Once the service has completed scraping the provided URL you will see a list of the questions and answers![QnA Maker knowledge base editor listing scraped questions and answers](/assets/posts/images/MS-bot-edit-kb-1024x686.png)
 
 on this screen you can edit and update questions and answers. Click the ’test’ option on the left to test out the chatbot and train it.
 
-![](/assets/posts/images/MS-bot-training-1024x668.png)
+![QnA Maker test pane for training the bot's responses](/assets/posts/images/MS-bot-training-1024x668.png)
 
 When you are satisfied with the results, click ’Save and Train’ and then ‘Publish’.
 
-Before we can build the Wordpress plugin, lets try a simple PHP script to ensure we have connectivity. In order to access the API, you will need 2 variables. The GUID of your knowledgebase and your subscriber key. The simplest way to get them is by clicking the ’settings’ tab and looking at the code sample provided:![](/assets/posts/images/MS-bot-settings-1024x259.png)
+Before we can build the Wordpress plugin, lets try a simple PHP script to ensure we have connectivity. In order to access the API, you will need 2 variables. The GUID of your knowledgebase and your subscriber key. The simplest way to get them is by clicking the ’settings’ tab and looking at the code sample provided:![QnA Maker settings tab showing the knowledge base ID and subscription key sample](/assets/posts/images/MS-bot-settings-1024x259.png)
 
 test our a simple PHP script to connect to the service. Replace the `{Knowledgebase ID}` and `{Subscription-Key`} with the variables from your service.
 

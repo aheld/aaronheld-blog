@@ -32,7 +32,7 @@
     --ah-accent-ink:    #b13838;
     --ah-accent-soft:   #fbeaea;
 
-    --ah-tag:           #2f6fb3;
+    --ah-tag:           #2a66a6;
     --ah-tag-soft:      #e7eff8;
 
     /* ---------- Semantic tokens ---------- */
@@ -49,6 +49,8 @@
     --accent:   var(--ah-accent);
     --accent-ink: var(--ah-accent-ink);
     --accent-soft: var(--ah-accent-soft);
+    /* Accent for small text (kickers): passes WCAG AA 4.5:1 on bg-1/bg-2. */
+    --accent-text: var(--ah-accent-ink);
 
     /* ---------- Type ---------- */
     --font-sans:
@@ -108,6 +110,7 @@
     --bg-2: var(--ah-paper-2-dark);
     --bg-3: var(--ah-code-bg-dark);
     --border-1: var(--ah-border-dark);
+    --accent-text: #ef8080;
 }
 
 /* ============================================================

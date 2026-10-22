@@ -1,3 +1,11 @@
+---
+# Working notes for the post, not a page on the site.
+build:
+  render: never
+  list: never
+  publishResources: false
+---
+
 # Screenshot Capture Checklist
 
 ## Before Starting
