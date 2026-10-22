@@ -45,7 +45,7 @@
     font-size: 12px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-text);
     font-weight: 600;
     margin-bottom: 14px;
 }
@@ -138,6 +138,7 @@
     max-width: var(--main-width);
     margin: 0 auto;
 }
+.ah-post-cover figcaption a { text-decoration: underline; text-underline-offset: 2px; }
 
 /* ---------- Body ---------- */
 
@@ -187,11 +188,13 @@
 .ah-post-body em { font-style: italic; }
 .ah-post-body a {
     color: var(--fg-1);
-    text-decoration: none;
-    box-shadow: inset 0 -1px 0 var(--fg-3);
-    transition: box-shadow .15s ease, color .15s ease;
+    text-decoration: underline;
+    text-decoration-color: var(--fg-3);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: text-decoration-color .15s ease, color .15s ease;
 }
-.ah-post-body a:hover { color: var(--accent); box-shadow: inset 0 -1px 0 var(--accent); }
+.ah-post-body a:hover { color: var(--accent); text-decoration-color: var(--accent); }
 .ah-post-body ul, .ah-post-body ol { padding-left: 1.4em; margin: 0; }
 .ah-post-body li { margin: 0.4em 0; }
 .ah-post-body li::marker { color: var(--fg-3); }
@@ -333,7 +336,7 @@ hr.section-rule {
     border-radius: var(--radius-lg);
 }
 .ah-author-card img { width: 64px; height: 64px; border-radius: 50%; }
-.ah-author-card h4 { margin: 0 0 4px; font-size: 16px; color: var(--fg-1); }
+.ah-author-card .ah-author-card__name { margin: 0 0 4px; font-size: 16px; font-weight: 600; color: var(--fg-1); }
 .ah-author-card p { margin: 0 0 10px; font-size: 14px; color: var(--fg-2); line-height: 1.55; }
 .ah-author-card .links { display: flex; gap: 12px; font-size: 13px; flex-wrap: wrap; }
 .ah-author-card .links a {
@@ -397,7 +400,7 @@ hr.section-rule {
     letter-spacing: 0.14em;
     color: var(--fg-3);
     font-weight: 600;
-    margin-bottom: 16px;
+    margin: 0 0 16px;
 }
 
 /* ---------- Sticky TOC rail (desktop only) ---------- */
@@ -452,3 +455,8 @@ hr.section-rule {
     .ah-author-card { grid-template-columns: 1fr; text-align: left; }
     .ah-author-card img { width: 56px; height: 56px; }
 }
+
+/* Hugo's default Monokai highlighter writes inline colors; two of them
+   fall below WCAG AA 4.5:1 on its #272822 background. Lift them. */
+.highlight span[style*="color:#f92672"] { color: #ff5c93 !important; }
+.highlight span[style*="color:#75715e"] { color: #a39f8a !important; }

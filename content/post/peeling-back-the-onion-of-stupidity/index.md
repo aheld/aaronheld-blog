@@ -10,7 +10,7 @@ tags:
   - "stupid"
 ---
 
-I've mentioned the book [Adrenaline Junkies](http://www.amazon.com/gp/product/0932633676?ie=UTF8&tag=aarhel-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0932633676)![](http://www.assoc-amazon.com/e/ir?t=aarhel-20&l=as2&o=1&a=0932633676) in a previous post and I'm not seeing the value in a common language for discussing problems.
+I've mentioned the book [Adrenaline Junkies](http://www.amazon.com/gp/product/0932633676?ie=UTF8&tag=aarhel-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0932633676) in a previous post and I'm not seeing the value in a common language for discussing problems.
 
 Today's pattern is the 'Onion of Stupidity'.  This is a common pattern where you build up hack upon workaround upon compromise, inject a little shortsightedness and wind up seeing a good chunk of your effort goes into cleaning it up.  A [colleague](http://codeartisan.blogspot.com/ "Jon Moore's blog") here promoted the term "technical debt" to describe issues were we these types of issues and help us prioritize them.  I'm thinking that my Onion is more about 'strategy debt'.  The onion is usually built with best intentions at all sides.
 

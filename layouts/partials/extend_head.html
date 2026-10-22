@@ -3,12 +3,17 @@
      PaperMod's toggle. Runs synchronously to avoid a flash. */}}
 <script>
 (function () {
+    var root = document.documentElement;
     function sync() {
-        var dark = document.documentElement.classList.contains('dark');
-        document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+        var dark = root.classList.contains('dark');
+        root.setAttribute('data-theme', dark ? 'dark' : 'light');
     }
+    // PaperMod's head script has already set data-theme from the saved
+    // preference or prefers-color-scheme; seed the class from it so the
+    // first sync doesn't reset a dark preference back to light.
+    if (root.dataset.theme === 'dark') root.classList.add('dark');
     sync();
-    new MutationObserver(sync).observe(document.documentElement, {
+    new MutationObserver(sync).observe(root, {
         attributes: true,
         attributeFilter: ['class']
     });

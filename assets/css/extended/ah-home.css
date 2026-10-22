@@ -291,7 +291,7 @@
     font-size: 12px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-text);
     font-weight: 600;
     margin-bottom: 8px;
 }
@@ -388,6 +388,8 @@
     color: var(--ah-tag);
     font-weight: 600;
 }
+:root[data-theme="dark"] .ah-post-row__category,
+.dark .ah-post-row__category { color: #a8c3e0; }
 .ah-post-row__tags { display: inline-flex; gap: 4px; flex-wrap: wrap; }
 .ah-post-row__tags span { color: var(--fg-3); }
 .ah-post-row__tags span::before { content: "#"; opacity: 0.7; }
@@ -441,7 +443,7 @@
     letter-spacing: 0;
     font-weight: 400;
     font-size: 11px;
-    color: var(--fg-4);
+    color: var(--fg-3);
 }
 .ah-now-list { list-style: none; padding: 0; margin: 0; font-size: 14px; }
 .ah-now-list li { padding: 4px 0; display: grid; grid-template-columns: 100px 1fr; gap: 10px; line-height: 1.45; }
