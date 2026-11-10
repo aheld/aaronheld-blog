@@ -4,15 +4,15 @@
 #
 # See specs/spec-design-handoff-deferred.md (item #1) for the design history.
 
-updated: 2026-06-04
+updated: 2026-11-09
 items:
   - label: 💪 Working On
-    value: AI Driven meal planning
+    value: "[dinner.isourthing.com](https://dinner.isourthing.com/), helping friends make dinner plans"
   - label: 📍 Living In
     value: Philadelphia, PA
   - label: 📖 Reading
-    value: "[A Resistance History of the United States 🇺🇸](https://www.penguinrandomhouse.com/books/808100/a-resistance-history-of-the-united-states-by-tad-stoermer/)"
-  - label: ⚙️ Building
-    value: A homeserver with all my CDs and DVDs ripped to it
+    value: "[Click Here to Kill Everybody](https://www.schneier.com/books/click-here/) by Bruce Schneier"
+  - label: 🍳 Cooking
+    value: The smoothest hummus
   - label: 🧠 Thinking about
-    value: How to prevent AI from making community the scarce resource
+    value: Using AI to help people
