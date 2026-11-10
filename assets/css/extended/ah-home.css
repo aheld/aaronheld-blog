@@ -449,6 +449,14 @@
 .ah-now-list li { padding: 4px 0; display: grid; grid-template-columns: 100px 1fr; gap: 10px; line-height: 1.45; }
 .ah-now-list li span:first-child { color: var(--fg-3); }
 .ah-now-list li span:last-child { color: var(--fg-1); }
+.ah-now-list a {
+    color: var(--accent-text);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+.ah-now-list a:hover { text-decoration-thickness: 2px; }
+.ah-now-list a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
 
 .ah-tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
 .ah-tag-cloud a {
